@@ -8,6 +8,8 @@ const productSchema = new Schema ({
         require : [true, "require must full"]
     },
 
+    amount: Number,
+
     price: {
         type : Number,
         require: [true, "require must full"]
@@ -15,7 +17,9 @@ const productSchema = new Schema ({
 
     category: { type:Schema.Types.ObjectId, ref: "Category" },
 
-    image: String
+    image: String,
+
+    description: String,
 
 })
 

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 export class ConnectDatabase {
     static async connect() {
-        const DB_URL = 'mongodb://127.0.0.1:27017/casestudy';
+        const DB_URL = 'mongodb+srv://trung:trung123456!@cluster0.z5ztbaa.mongodb.net/casestudy';
 
         await mongoose.connect(DB_URL)
     

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css"/>
+  <title>The Barber Shop</title>
+
+  <!-- Bootstrap -->
+  <link href="/css/admin/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="/css/admin/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="/css/admin/nprogress.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="/css/admin/custom.min.css" rel="stylesheet">
+  <link href="/css/admin/product.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+
+            <%- include ('../navigationBar/logo.ejs')%>
+
+          <!-- menu profile quick info -->
+            <%- include ('../navigationBar/profile.ejs')%>
+          <!-- /menu profile quick info -->
+
+          <br />
+
+          <!-- sidebar menu -->
+            <%- include ('../navigationBar/sidebar.ejs')%>
+          <!-- /sidebar menu -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+        <%- include ('../navigationBar/topNavigation.ejs')%>
+      <!-- /top navigation -->
+
+      <!-- page content -->
+      <div class="right_col" role="main">
+        <h1>Thêm sản phẩm</h1>
+        <form class="form-register" name="register" action="/admin/add-product" enctype="multipart/form-data" method="post">
+          <fieldset>
+              <div class="form-group d-md-flex align-items-md-center">
+                <label class="control-label col-md-2" for="f-name" ><span class="require">*</span>Ảnh sản phẩm</label>
+                <div class="col-md-5">
+                  <input type="file"id="file" name="image">
+              </div>
+              </div>
+              <div class="form-group d-md-flex align-items-md-center">
+                  <label class="control-label col-md-2" for="f-name" ><span class="require">*</span>Tên sản phẩm</label>
+                  <div class="col-md-5">
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Tên sản phẩm" required>
+                  </div>
+              </div>
+              <div class="form-group d-md-flex align-items-md-center">
+                <label class="control-label col-md-2" for="phone" ><span class="require">*</span>Số lượng</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Số lượng" maxlength="20"
+                    onkeyup="checkNumber(this)" required>
+                </div>
+               </div>
+              <div class="form-group d-md-flex align-items-md-center">
+                 <label class="control-label col-md-2" for="price"><span class="require">*</span>Đơn giá</label>
+                 <div class="col-md-5">
+                    <input type="text" class="form-control" id="price"  name="price" placeholder="Số lượng" maxlength="20"
+                    onkeyup="checkNumber(this)" required>
+                 </div>
+              </div>
+              <div class="form-group d-md-flex align-items-md-center">
+                <label class="control-label col-md-2" for="kind"><span class="require">*</span>Loại</label>
+                <div class="col-md-5">
+                      <select class="wide" name="category">
+                          <% category.forEach(item => { %>
+                              <option value="<%= item.id %>"><%= item.name %></option>
+                          <% }) %>%>
+                      </select>
+                </div>
+             </div>
+              <div class="form-group d-md-flex align-items-md-center">
+                  <label class="control-label col-md-2" for="l-name"><span class="require">*</span>Mô tả</label>
+                  <div class="col-md-5">
+                    <textarea style="height: 100px;" name="description" class="form-control" placeholder="Mô tả sản phẩm"></textarea>
+                  </div>
+              </div>  
+          </fieldset>
+          <div class="terms">
+              <div class="float-md-center">
+                <button type="submit" class="btn btn-dark" style="margin-left: 390px;">XÁC NHẬN</button>
+              </div>
+          </div>
+      </form>
+      </div>
+      <!-- /page content -->
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="../vendors/validator/multifield.js"></script>
+  <script src="../vendors/validator/validator.js"></script>
+
+  <script language="javascript">
+    function checkNumber(input) {
+        var regex = /[^0-9]/gi;
+        input.value = input.value.replace(regex, "");
+    } 
+    </script>
+
+   <!-- jQuery -->
+   <script src="/js/admin/jquery.min.js"></script>
+   <!-- Bootstrap -->
+   <script src="/js/admin/bootstrap.bundle.min.js"></script>
+   <!-- FastClick -->
+   <script src="/js/admin/fastclick.js"></script>
+   <!-- NProgress -->
+   <script src="/js/admin/nprogress.js"></script>
+ 
+   <!-- Custom Theme Scripts -->
+   <script src="/js/admin/custom.min.js"></script>
+
+</body>
+
+</html>
