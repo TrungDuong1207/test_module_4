@@ -6,6 +6,11 @@ import route from "./src/routes/index.route"
 
 import {ConnectDatabase} from "./src/configs/connectDatabase";
 
+import flash from 'connect-flash';
+
+import cookieParser from 'cookie-parser';
+
+
 const PORT = 3000;
 
 const app = express();
@@ -16,7 +21,13 @@ app.set('views', './views');
 
 app.use(express.static( 'public'));
 
+app.use(bodyParser.urlencoded({extended:true}));
+
 app.use(bodyParser.json());
+
+app.use(cookieParser());
+
+app.use(flash());
 
 ConnectDatabase.connect();
 

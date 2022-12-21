@@ -1,14 +1,18 @@
-const mongoose = require('../config/connectDatabase')
-const { Schema, model } =  mongoose;
+import mongoose from "mongoose";
+const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
+    name: {
+        type: String,
+        require: [true, "require must full"]
+    },
     email: {
         type: String,
-        require : [true, "require must full"]
+        require: [true, "require must full"]
     },
     password: {
         type: String,
-        require : [true, "require must full"]
+        require: [true, "require must full"]
     },
     role: {
         type: String,
