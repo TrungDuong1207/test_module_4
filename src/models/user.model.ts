@@ -4,16 +4,24 @@ const { Schema, model } = mongoose;
 const userSchema = new Schema({
     name: {
         type: String,
-        require: [true, "require must full"]
+        required: [true, "Name can't be blank"]
     },
+
     email: {
         type: String,
-        require: [true, "require must full"]
+        required: [true, "Email can't be blank"]
     },
+
     password: {
         type: String,
-        require: [true, "require must full"]
+        required: [true, "Password can't be blank"]
     },
+
+    phoneNumber: {
+        type: String,
+        required: [true, "Phone Number can't be blank"]
+    },
+
     role: {
         type: String,
         default: "user",

@@ -22,12 +22,12 @@ const checkAuth = async (req, res, next) => {
             });
         }
         else {
-            return res.redirect("/login");
+            return res.redirect("/auth/login");
         }
     }
     catch (err) {
         console.log(err);
-        return res.redirect("/login");
+        return res.redirect("/auth/login");
     }
 };
 exports.checkAuth = checkAuth;

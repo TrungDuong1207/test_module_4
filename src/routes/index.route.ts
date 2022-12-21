@@ -3,13 +3,17 @@ import authRoutes from "./auth.route";
 import {checkAuth}  from "../middlewares/auth";
 
 function route(app) {
-    app.use("/shop",siteRoutes)
+    app.use("/shop",siteRoutes);
     
-    app.use("/login", authRoutes);
+    app.use("/auth", authRoutes);
 
     app.use(checkAuth);
     
     // app.use("/admin/dashboard", );
+
+    app.use("/admin/dashboard", (req,res)=>{
+        res.render('admin/indexAdmin');
+    })
 
     app.use((err, req, res, next) => {
         console.log(err.message)

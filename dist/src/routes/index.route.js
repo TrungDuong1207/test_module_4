@@ -8,8 +8,11 @@ const auth_route_1 = __importDefault(require("./auth.route"));
 const auth_1 = require("../middlewares/auth");
 function route(app) {
     app.use("/shop", site_route_1.default);
-    app.use("/login", auth_route_1.default);
+    app.use("/auth", auth_route_1.default);
     app.use(auth_1.checkAuth);
+    app.use("/admin/dashboard", (req, res) => {
+        res.render('admin/indexAdmin');
+    });
     app.use((err, req, res, next) => {
         console.log(err.message);
         res.status(500).render('admin/errors/500');

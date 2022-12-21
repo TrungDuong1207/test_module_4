@@ -10,6 +10,7 @@ import flash from 'connect-flash';
 
 import cookieParser from 'cookie-parser';
 
+import session from 'express-session';
 
 const PORT = 3000;
 
@@ -20,6 +21,13 @@ app.set("view engine", "ejs");
 app.set('views', './views');
 
 app.use(express.static( 'public'));
+
+app.use(session({
+    secret: 'mk',
+    resave: false,
+    saveUninitialized: false,
+
+}));
 
 app.use(bodyParser.urlencoded({extended:true}));
 
