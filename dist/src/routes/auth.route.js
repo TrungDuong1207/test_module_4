@@ -7,6 +7,5 @@ authRoutes.get("/login", auth_controller_1.AuthController.showFormLogin);
 authRoutes.post("/login", auth_controller_1.AuthController.login);
 authRoutes.get("/register", auth_controller_1.AuthController.showFormRegister);
 authRoutes.post("/register", auth_controller_1.AuthController.register);
-authRoutes.get("/facebook", passport.authenticate("facebook", { scope: "email" }));
 exports.default = authRoutes;
 //# sourceMappingURL=auth.route.js.map
