@@ -50,22 +50,13 @@
       <!-- page content -->
       <div class="right_col" role="main">
         <h1>Thêm khách hàng</h1>
-        <form class="form-register" name="register" action="#">
+        <form class="form-register" name="register" action="/admin/add-user" method="post">
           <fieldset>
-              <div class="form-group d-md-flex align-items-md-center">
-                  <label class="control-label col-md-2" for="f-name"><span class="require">*</span>Họ và tên đệm</label>
-                  <div class="col-md-5">
-                      <input type="text" oninput="check_FirstName()" class="form-control" 
-                      id="f-name" placeholder="Họ và tên đệm" minlength="2" maxlength="30" 
-                      onkeyup="checkName(this)">
-                  </div>
-                  <label class="control-label col-md-5" id="checkFirstName" style="text-align: left; color: orange;"></label>
-              </div>
               <div class="form-group d-md-flex align-items-md-center">
                   <label class="control-label col-md-2" for="l-name"><span class="require">*</span>Tên</label>
                   <div class="col-md-5">
                       <input type="text" oninput="check_LastName()" class="form-control" 
-                      id="l-name" placeholder="Tên" minlength="2" maxlength="15" 
+                      id="l-name" placeholder="Tên" minlength="2" maxlength="15" name="name"
                       onkeyup="checkName(this)">
                   </div>
                   <label class="control-label col-md-5" id="checkLastName" style="text-align: left; color: orange;"></label>
@@ -73,7 +64,7 @@
               <div class="form-group d-md-flex align-items-md-center">
                   <label class="control-label col-md-2" for="email"><span class="require">*</span>Email</label>
                   <div class="col-md-5">
-                      <input type="email" oninput="check_Email()" class="form-control" 
+                      <input type="email" oninput="check_Email()" class="form-control" name="email"
                       id="email" placeholder="Email" minlength="10" maxlength="40" required>
                   </div>
                   <label class="control-label col-md-5" id="checkEmail" style="text-align: left; color: orange;"></label>
@@ -81,7 +72,7 @@
               <div class="form-group d-md-flex align-items-md-center">
                   <label class="control-label col-md-2" for="phone"><span class="require">*</span>Số điện thoại</label>
                   <div class="col-md-5">
-                      <input type="text" oninput="check_Phone()" class="form-control" 
+                      <input type="text" oninput="check_Phone()" class="form-control" name="phoneNumber"
                       id="phone" placeholder="Số điện thoại" minlength="10" maxlength="13" 
                       onkeyup="checkPhone(this)" required>
                   </div>
@@ -90,7 +81,7 @@
               <div class="form-group d-md-flex align-items-md-center">
                   <label class="control-label col-md-2" for="password"><span class="require">*</span>Mật khẩu:</label>
                   <div class="col-md-5">
-                          <input type="password" oninput="check_Password()" class="form-control" 
+                          <input type="password" oninput="check_Password()" class="form-control" name="password"
                           id="password" placeholder="Mật khẩu" minlength="5" maxlength="40" required>
                   </div>
                   <label class="control-label col-md-5" id="checkPassword" style="text-align: left; color: orange;"></label>
@@ -202,8 +193,6 @@
             document.getElementById("password2").style.borderColor = "green";
         }   
     }
-    
-    
     </script>
 
   <!-- jQuery -->
