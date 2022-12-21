@@ -1,6 +1,7 @@
 import siteRoutes from "./site.route";
 import authRoutes from "./auth.route";
 import {checkAuth}  from "../middlewares/auth";
+
 import adminRoutes from "./admin.route";
 
 function route(app) {
@@ -19,10 +20,13 @@ function route(app) {
         res.render('admin/indexAdmin');
     })
 
+
     app.use((err, req, res, next) => {
         console.log(err.message)
         res.status(500).render('admin/errors/500')
     })
+
+
 
 }
 

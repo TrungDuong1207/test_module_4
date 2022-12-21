@@ -15,11 +15,14 @@ export const checkAuth = async (req, res, next) => {
                 }
             });
         } else {
+
             return res.redirect("/auth/login");
+
         }
 
     } catch (err) {
         console.log(err);
         return res.redirect("/auth/login");
+
     }
 }

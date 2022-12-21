@@ -63,14 +63,17 @@ export class AuthController {
 
             console.log(user);
 
+
             if (user) {
 
                 const comparePass = await bcrypt.compare(req.body.password, user.password);
 
                 if (!comparePass) {
 
+
                     req.flash("error", "PASSWORD_NOT_VALID");
                     return res.redirect("/auth/login");
+
                 }
 
                 let payload = {
@@ -105,11 +108,13 @@ export class AuthController {
             } else {
                 req.flash("error", "Sai tài khoản hoặc mật khẩu");
                 res.redirect("/auth/login");
+
             }
 
         } catch (err) {
             console.log(err);
-            res.redirect("/auth/login");
+
+            res.redirect("/auth/login");          
         }
 
     };

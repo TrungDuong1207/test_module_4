@@ -4,6 +4,7 @@ const { Schema, model } = mongoose;
 const userSchema = new Schema({
     name: {
         type: String,
+
         required: [true, "Name can't be blank"]
     },
 
@@ -21,6 +22,7 @@ const userSchema = new Schema({
         type: String,
         required: [true, "Phone Number can't be blank"]
     },
+
 
     role: {
         type: String,
