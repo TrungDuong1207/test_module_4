@@ -16,6 +16,9 @@ const upload = multer({ storage: storage })
 
 const adminRoutes = Router();
 
+
+adminRoutes.get("/home", AdminController.showAdminPage);
+
 adminRoutes.get("/add-product", AdminController.showAddPage);
 adminRoutes.post("/add-product", upload.single('image'), AdminController.addProduct);
 adminRoutes.get('/list-product', AdminController.showList);

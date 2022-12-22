@@ -10,9 +10,6 @@ function route(app) {
     app.use("/shop", site_route_1.default);
     app.use("/auth", auth_route_1.default);
     app.use('/admin', admin_route_1.default);
-    app.use("/admin/dashboard", (req, res) => {
-        res.render('admin/indexAdmin');
-    });
     app.use((err, req, res, next) => {
         console.log(err.message);
         res.status(500).render('admin/errors/500');

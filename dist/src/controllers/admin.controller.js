@@ -5,6 +5,9 @@ const product_model_1 = require("../models/product.model");
 const category_model_1 = require("../models/category.model");
 const user_model_1 = require("../models/user.model");
 class AdminController {
+    static async showAdminPage(req, res) {
+        res.render("admin/indexAdmin");
+    }
     static async showAddPage(req, res) {
         let category = await category_model_1.Category.find();
         res.render("admin/addProduct", { category: category });

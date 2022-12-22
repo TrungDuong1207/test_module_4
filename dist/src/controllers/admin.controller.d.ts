@@ -1,4 +1,5 @@
 export declare class AdminController {
+    static showAdminPage(req: any, res: any): Promise<void>;
     static showAddPage(req: any, res: any): Promise<void>;
     static addProduct(req: any, res: any): Promise<void>;
     static showList(req: any, res: any): Promise<void>;

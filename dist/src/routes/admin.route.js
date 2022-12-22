@@ -16,6 +16,7 @@ const storage = multer_1.default.diskStorage({
 });
 const upload = (0, multer_1.default)({ storage: storage });
 const adminRoutes = (0, express_1.Router)();
+adminRoutes.get("/home", admin_controller_1.AdminController.showAdminPage);
 adminRoutes.get("/add-product", admin_controller_1.AdminController.showAddPage);
 adminRoutes.post("/add-product", upload.single('image'), admin_controller_1.AdminController.addProduct);
 adminRoutes.get('/list-product', admin_controller_1.AdminController.showList);

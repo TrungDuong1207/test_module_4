@@ -1,16 +1,21 @@
+
 import {Product} from "../models/product.model";
 import {Category} from "../models/category.model";
 import {User} from "../models/user.model";
 
 export class AdminController {
-    static async showAddPage (req, res) {
-        let category = await Category.find()
-        res.render("admin/addProduct", {category: category})
+    static async showAdminPage(req, res) {
+        res.render("admin/indexAdmin");
     }
 
-    static async addProduct (req, res) {
+    static async showAddPage(req, res) {
+        let category = await Category.find()
+        res.render("admin/addProduct", { category: category })
+    }
+
+    static async addProduct(req, res) {
         const product = new Product({
-            image:  req.file.originalname,
+            image: req.file.originalname,
             name: req.body.name,
             amount: req.body.amount,
             price: req.body.price,
@@ -23,19 +28,18 @@ export class AdminController {
 
     static async showList(req, res) {
         const products = await Product.find().populate('category');
-        res.render("admin/productAdmin", {products: products})
+        res.render("admin/productAdmin", { products: products })
     }
 
-    static async showFormUpdate (req, res) {
+    static async showFormUpdate(req, res) {
         let id = req.params.id;
         let category = await Category.find();
-        let product = await Product.find({_id: id}).populate('category');
-        res.render("admin/editProduct", {product: product, category: category})
+        let product = await Product.find({ _id: id }).populate('category');
+        res.render("admin/editProduct", { product: product, category: category })
     }
 
-    static async updateProduct (req, res) {
+    static async updateProduct(req, res) {
         let id = req.params.id
-
         await Product.findOneAndUpdate({_id: id},
             {$set: {
                     image:  req.file.originalname,
@@ -49,7 +53,7 @@ export class AdminController {
         res.redirect("/admin/list-product");
     }
 
-    static async deleteProduct (req, res) {
+    static async deleteProduct(req, res) {
         let id = req.params.id
         await Product.findOneAndDelete({_id: id})
         res.redirect("/admin/list-product")

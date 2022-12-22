@@ -7,7 +7,7 @@ exports.ConnectDatabase = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 class ConnectDatabase {
     static async connect() {
-        const DB_URL = 'mongodb+srv://moonie:Tr%40ng2301@moonie.yxbxu8l.mongodb.net/casestudy';
+        const DB_URL = 'mongodb+srv://trung:trung123456!@cluster0.z5ztbaa.mongodb.net/casestudy';
         await mongoose_1.default.connect(DB_URL)
             .then(() => console.log('DB Connected!'))
             .catch(error => console.log('DB connection error:', error.message));

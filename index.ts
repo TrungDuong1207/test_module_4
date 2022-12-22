@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 
 import route from "./src/routes/index.route"
 
-import {ConnectDatabase} from "./src/configs/connectDatabase";
+import { ConnectDatabase } from "./src/configs/connectDatabase";
 
 import flash from 'connect-flash';
 
@@ -21,7 +21,7 @@ app.set("view engine", "ejs");
 
 app.set('views', './views');
 
-app.use(express.static( 'public'));
+app.use(express.static('public'));
 
 app.use(session({
     secret: 'mk',
@@ -30,7 +30,7 @@ app.use(session({
 
 }));
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
 

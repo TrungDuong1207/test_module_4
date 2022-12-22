@@ -65,7 +65,7 @@ class AuthController {
                 };
                 res.cookie('token', token, options);
                 if (user.role === "admin") {
-                    res.render("admin/dashboard");
+                    res.redirect("/admin/home");
                 }
                 else {
                     res.render("user/shop");
