@@ -6,11 +6,14 @@ const category_model_1 = require("../models/category.model");
 const user_model_1 = require("../models/user.model");
 class AdminController {
     static async showAdminPage(req, res) {
-        res.render("admin/indexAdmin");
+        let nameUser = req.decoded.name;
+        console.log(nameUser);
+        res.render("admin/indexAdmin", { nameUser: nameUser });
     }
     static async showAddPage(req, res) {
+        let nameUser = req.decoded.name;
         let category = await category_model_1.Category.find();
-        res.render("admin/addProduct", { category: category });
+        res.render("admin/addProduct", { category: category, nameUser: nameUser });
     }
     static async addProduct(req, res) {
         const product = new product_model_1.Product({
@@ -72,7 +75,6 @@ class AdminController {
     static async formUpdateUser(req, res) {
         let id = req.params.id;
         let user = await user_model_1.User.find({ _id: id });
-        console.log(id);
         res.render("admin/editClient", { user: user });
     }
     static async updateUser(req, res) {

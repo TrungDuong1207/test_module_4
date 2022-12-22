@@ -19,7 +19,6 @@ class AuthController {
     static async register(req, res) {
         try {
             const user = await user_model_1.User.findOne({ email: req.body.email });
-            console.log(user);
             if (!user) {
                 const passwordHash = await bcrypt_1.default.hash(req.body.password, 10);
                 let userData = {
@@ -44,7 +43,6 @@ class AuthController {
     static async login(req, res) {
         try {
             const user = await user_model_1.User.findOne({ email: req.body.email });
-            console.log(user);
             if (user) {
                 const comparePass = await bcrypt_1.default.compare(req.body.password, user.password);
                 if (!comparePass) {
@@ -53,6 +51,7 @@ class AuthController {
                 }
                 let payload = {
                     user_id: user["id"],
+                    name: user["name"],
                     username: user["email"],
                     role: user["role"]
                 };
@@ -68,7 +67,7 @@ class AuthController {
                     res.redirect("/admin/home");
                 }
                 else {
-                    res.render("user/shop");
+                    res.redirect("/user/home");
                 }
             }
             else {

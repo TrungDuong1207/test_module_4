@@ -15,7 +15,6 @@ const checkAuth = async (req, res, next) => {
                     return res.render("login");
                 }
                 else {
-                    console.log(decoded);
                     req.decoded = decoded;
                     return next();
                 }

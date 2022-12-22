@@ -20,7 +20,7 @@ export class AuthController {
 
             const user = await User.findOne({ email: req.body.email });
 
-            console.log(user);
+            // console.log(user);
 
             if (!user) {
 
@@ -61,9 +61,6 @@ export class AuthController {
 
             const user = await User.findOne({ email: req.body.email });
 
-            console.log(user);
-
-
             if (user) {
 
                 const comparePass = await bcrypt.compare(req.body.password, user.password);
@@ -79,6 +76,8 @@ export class AuthController {
                 let payload = {
 
                     user_id: user["id"],
+
+                    name: user["name"],
 
                     username: user["email"],
 
@@ -98,11 +97,14 @@ export class AuthController {
                 }
 
                 res.cookie('token', token, options);
-
+                
+                
                 if (user.role === "admin") {
+                    
                     res.redirect("/admin/home");
                 } else {
-                    res.render("user/shop");
+                    
+                    res.redirect("/user/home");
                 }
 
             } else {

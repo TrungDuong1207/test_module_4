@@ -9,7 +9,7 @@ export const checkAuth = async (req, res, next) => {
                     console.log(err);   
                     return res.render("login");
                 } else {
-                    console.log(decoded);
+                    // console.log(decoded);
                     req.decoded = decoded;
                     return next();
                 }
