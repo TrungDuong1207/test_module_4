@@ -9,4 +9,12 @@ export class UserController {
         let productSearchMost = Product.find().limit(4).skip(4);
         res.render("user/homeUser", {productsTrend: productsTrend, productSearchMost: productSearchMost});
     }
+
+    static showAboutPage(req, res) {
+        res.render('user/about')
+    }
+
+    static contact (req, res) {
+        res.render('user/contact')
+    }
 }

@@ -8,6 +8,12 @@ class UserController {
         let productSearchMost = product_model_1.Product.find().limit(4).skip(4);
         res.render("user/homeUser", { productsTrend: productsTrend, productSearchMost: productSearchMost });
     }
+    static showAboutPage(req, res) {
+        res.render('user/about');
+    }
+    static contact(req, res) {
+        res.render('user/contact');
+    }
 }
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map
