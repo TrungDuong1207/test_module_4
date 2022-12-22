@@ -52,10 +52,14 @@
             <div class="container">
                 <div class="row">
                     <h1>Quản lí sản phẩm</h1>
-                    <button onclick="window.location.href='/admin/add-product'" class="btn btn-round btn-success"
-                            style="margin-left: 915px;">
-                        <i class="fa fa-folder"></i> Thêm sản phẩm
-                    </button>
+                    <div class="d-inline-block">
+                        <button onclick="window.location.href='/admin/add-product'" class="btn btn-round btn-success text-end d-inline-block"
+                                style="margin-left: 915px; margin-bottom: 0">
+                            <i class="fa fa-folder"></i> Thêm sản phẩm
+                        </button>
+                        <label class="control-label col-md-2"><span class="require"></span>Tìm theo tên:</label>
+                        <input type="text" class="d-inline-block" onkeyup="searchProduct2(this.value)">
+                    </div>
                     <div class="col-12">
                         <table class="table table-image">
                             <thead>
@@ -70,7 +74,7 @@
                                 <th scope="col"></th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="list-product">
 
                                 <% products.forEach((item, index) => { %>
                             <tr>
@@ -106,8 +110,13 @@
         <script src="/js/admin/fastclick.js"></script>
         <!-- NProgress -->
         <script src="/js/admin/nprogress.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!-- Custom Theme Scripts -->
         <script src="/js/admin/custom.min.js"></script>
+
+<script src="/js/admin/searchProduct.js"></script>
+
 </body>
+
 </html>

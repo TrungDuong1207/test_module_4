@@ -12,4 +12,6 @@ export declare class AdminController {
     static formUpdateUser(req: any, res: any): Promise<void>;
     static updateUser(req: any, res: any): Promise<void>;
     static deleteUser(req: any, res: any): Promise<void>;
+    static searchProduct(req: any, res: any): Promise<void>;
+    static web(req: any, res: any): void;
 }
