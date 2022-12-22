@@ -8,9 +8,7 @@ const productSchema = new Schema ({
         require : [true, "require must full"]
     },
 
-
     amount: Number,
-
 
     price: {
         type : Number,

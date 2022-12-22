@@ -20,16 +20,17 @@ const adminRoutes = Router();
 adminRoutes.get("/home", AdminController.showAdminPage);
 
 adminRoutes.get("/add-product", AdminController.showAddPage);
-
 adminRoutes.post("/add-product", upload.single('image'), AdminController.addProduct);
+adminRoutes.get('/list-product', AdminController.showList);
+adminRoutes.get('/update-product/:id', AdminController.showFormUpdate);
+adminRoutes.post('/update-product/:id', upload.single('image'), AdminController.updateProduct)
+adminRoutes.get('/delete-product/:id', AdminController.deleteProduct)
 
-adminRoutes.get('/list', AdminController.showList);
-
-adminRoutes.get('/update/:id', AdminController.showFormUpdate);
-
-adminRoutes.post('/update/:id', upload.single('image'), AdminController.updateProduct)
-
-adminRoutes.get('/delete/:id', AdminController.deleteProduct)
-
+adminRoutes.get('/add-user', AdminController.formAddUser)
+adminRoutes.post('/add-user', AdminController.addUser)
+adminRoutes.get('/list-user', AdminController.listUser)
+adminRoutes.get('/update-user/:id', AdminController.formUpdateUser)
+adminRoutes.post('/update-user/:id', AdminController.updateUser)
+adminRoutes.get('/delete-user/:id', AdminController.deleteUser)
 
 export default adminRoutes;

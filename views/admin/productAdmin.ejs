@@ -82,8 +82,8 @@
                                 <td><%= (item.category) ? item.category.name : "None" %></td>
                                 <td><%= item.description %></td>
                                 <td>
-                                    <a href="/admin/update/<%= item._id %>" class="btn btn-primary">Sửa</a>
-                                    <a onclick="return confirm('Are you sure you want to delete this product?')" href="/admin/delete/<%= item._id %>" class="btn btn-danger">Xóa</a>
+                                    <a href="/admin/update-product/<%= item._id %>" class="btn btn-primary">Sửa</a>
+                                    <a onclick="return confirm('Are you sure you want to delete this product?')" href="/admin/delete-product/<%= item._id %>" class="btn btn-danger">Xóa</a>
                                 </td>
                             </tr>
                                 <% }) %>

@@ -10,15 +10,15 @@
     <title>The BarBerShop</title>
 
    <!-- Bootstrap -->
-  <link href="../../public/css/admin/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/admin/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link href="../../public/css/admin/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/admin/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
-  <link href="../../public/css/admin/nprogress.css" rel="stylesheet">
+  <link href="/css/admin/nprogress.css" rel="stylesheet">
 
   <!-- Custom Theme Style -->
-  <link href="../../public/css/admin/custom.min.css" rel="stylesheet">
-  <link href="../../public/css/admin/client.css" rel="stylesheet">
+  <link href="/css/admin/custom.min.css" rel="stylesheet">
+  <link href="/css/admin/client.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -50,38 +50,34 @@
           <div class="container">
             <div class="row">
               <h1>Quản lí khách hàng</h1>
-              <button onclick="window.location.href='addClient.html'" class="btn btn-round btn-success" style="margin-left: 915px;">
+              <button onclick="window.location.href='/admin/add-user'" class="btn btn-round btn-success" style="margin-left: 915px;">
                   <i class="fa fa-folder"></i>  Thêm khách hàng
               </button>
               <div class="col-12">
                 <table class="table table-image">
                   <thead>
                     <tr>
-                      <th scope="col">ID</th>
+                      <th scope="col">#</th>
+                      <th scope="col">Tên</th>
                       <th scope="col">Email</th>
-                      <th scope="col">Mật khẩu</th>
                       <th scope="col">Số điện thoại</th>
-                      <th scope="col">Xóa</th>
-                      <th scope="col">Sửa</th>
+                      <th scope="col"></th>
+
                     </tr>
                   </thead>
                   <tbody>
+                  <% user.forEach((item, index) => {%>
                     <tr>
-                      <th scope="row">1</th>
-                      <td class="w-20">maitricuong123@gmail.com</td>
-                      <td type="password">88888888888</td>
-                      <td>0339005702</td>
-                      <td><button type="button" class="btn btn-round btn-danger"><i class="fa fa-trash-o"></i> Xóa</button></td>
-                      <td><button onclick="window.location.href='editClient.ejs'" class="btn btn-round btn-warning"><i class="fa fa-pencil"></i>Sửa</button></td>
+                      <th scope="row"><%= index + 1%></th>
+                      <td class="w-20"><%= item.name%></td>
+                      <td class="w-20"><%= item.email%></td>
+                      <td type="password"><%= item.phoneNumber%></td>
+                      <td>
+                        <a href="/admin/update-user/<%= item._id %>" class="btn btn-primary">Sửa</a>
+                        <a onclick="return confirm('Are you sure you want to delete this user?')" href="/admin/delete-user/<%= item._id %>" class="btn btn-danger">Xóa</a>
+                      </td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td class="w-20">phamducduy@gmail.com</td>
-                      <td>99999999999999</td>
-                      <td>095715569</td>
-                      <td><button type="button" class="btn btn-round btn-danger"><i class="fa fa-trash-o"></i> Xóa</button></td>
-                      <td><button onclick="window.location.href='editClient.ejs'" class="btn btn-round btn-warning"><i class="fa fa-pencil"></i>Sửa</button></td>
-                    </tr>
+                  <%})%>
                   </tbody>
                 </table>  
               </div>
@@ -94,15 +90,15 @@
     </div>
 
  <!-- jQuery -->
- <script src="../../public/js/admin/jquery.min.js"></script>
+ <script src="/js/admin/jquery.min.js"></script>
  <!-- Bootstrap -->
- <script src="../../public/js/admin/bootstrap.bundle.min.js"></script>
+ <script src="/js/admin/bootstrap.bundle.min.js"></script>
  <!-- FastClick -->
- <script src="../../public/js/admin/fastclick.js"></script>
+ <script src="/js/admin/fastclick.js"></script>
  <!-- NProgress -->
- <script src="../../public/js/admin/nprogress.js"></script>
+ <script src="/js/admin/nprogress.js"></script>
 
  <!-- Custom Theme Scripts -->
- <script src="../../public/js/admin/custom.min.js"></script>
+ <script src="/js/admin/custom.min.js"></script>
   </body>
 </html>
