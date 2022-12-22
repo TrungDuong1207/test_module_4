@@ -29,5 +29,7 @@ adminRoutes.get('/list-user', admin_controller_1.AdminController.listUser);
 adminRoutes.get('/update-user/:id', admin_controller_1.AdminController.formUpdateUser);
 adminRoutes.post('/update-user/:id', admin_controller_1.AdminController.updateUser);
 adminRoutes.get('/delete-user/:id', admin_controller_1.AdminController.deleteUser);
+adminRoutes.get('/search-product', admin_controller_1.AdminController.searchProduct);
+adminRoutes.get('/w', admin_controller_1.AdminController.web);
 exports.default = adminRoutes;
 //# sourceMappingURL=admin.route.js.map
