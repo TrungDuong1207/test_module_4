@@ -119,4 +119,36 @@ export class AuthController {
 
     };
 
+    // static async loginFacebook(req, res, next) {
+    //     let data = {
+    //       name: req.user.displayName,
+    //       email: req.user.id + "@gmail.com",
+    //       passport: Math.random(),
+    //     };
+    //     const accessToken = await Token.signAccessToken(data);
+    //     res.cookie("login", accessToken, {
+    //       maxAge: 1000 * 60 * 60 * 24,
+    //       httpOnly: true,
+    //     });
+    //     res.redirect("/home");
+    //   }
+
+    // static async loginGoogle(req, res, next) {
+    //     try {
+    //           let data = {
+    //             name: req.user.displayName,
+    //             email: req.user.emails[0].value,
+    //             passport: Math.random(),
+    //           };
+    //           const accessToken = await Token.signAccessToken(data);
+    //           res.cookie("login", accessToken, {
+    //             maxAge: 1000 * 60 * 60 * 24,
+    //             httpOnly: true,
+    //           });
+    //           res.redirect("/home");
+    //     } catch (err) {
+    //       next(err);
+    //     }
+    //   }
+
 }

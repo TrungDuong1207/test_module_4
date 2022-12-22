@@ -12,6 +12,7 @@ import cookieParser from 'cookie-parser';
 
 import session from 'express-session';
 
+import passport from "passport";
 
 const PORT = 3000;
 
@@ -29,6 +30,10 @@ app.use(session({
     saveUninitialized: false,
 
 }));
+
+app.use(passport.initialize());
+
+app.use(passport.authenticate('session'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

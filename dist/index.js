@@ -10,6 +10,7 @@ const connectDatabase_1 = require("./src/configs/connectDatabase");
 const connect_flash_1 = __importDefault(require("connect-flash"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const express_session_1 = __importDefault(require("express-session"));
+const passport_1 = __importDefault(require("passport"));
 const PORT = 3000;
 const app = (0, express_1.default)();
 app.set("view engine", "ejs");
@@ -20,6 +21,8 @@ app.use((0, express_session_1.default)({
     resave: false,
     saveUninitialized: false,
 }));
+app.use(passport_1.default.initialize());
+app.use(passport_1.default.authenticate('session'));
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(body_parser_1.default.json());
 app.use((0, cookie_parser_1.default)());
