@@ -4,6 +4,9 @@ import {User} from "../models/user.model";
 
 export class UserController {
     static async showUserPage(req, res) {
-        res.render("user/homeUser");
+        let productsTrend = await Product.find().limit(7).skip(0);
+        
+        let productSearchMost = Product.find().limit(4).skip(4);
+        res.render("user/homeUser", {productsTrend: productsTrend, productSearchMost: productSearchMost});
     }
 }

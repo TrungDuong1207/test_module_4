@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
+const product_model_1 = require("../models/product.model");
 class UserController {
     static async showUserPage(req, res) {
-        res.render("user/homeUser");
+        let productsTrend = await product_model_1.Product.find().limit(7).skip(0);
+        let productSearchMost = product_model_1.Product.find().limit(4).skip(4);
+        res.render("user/homeUser", { productsTrend: productsTrend, productSearchMost: productSearchMost });
     }
 }
 exports.UserController = UserController;

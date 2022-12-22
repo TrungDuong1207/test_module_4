@@ -101,7 +101,7 @@ export class AdminController {
     }
 
     static async listUser(req, res) {
-        let user = await User.find()
+        let user = await User.find({role: "user"});
         res.render('admin/client', { user: user , nameUser: req.decoded.name })
     }
 

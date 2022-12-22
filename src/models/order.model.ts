@@ -1,32 +1,43 @@
 import { Schema, model } from "mongoose";
-import { productSchema } from "./product.model";
 
 const orderSchema = new Schema({
 
     customer: {
-        type: Schema.Types.ObjectId, ref: "User" 
+        type: Schema.Types.ObjectId, ref: "User"
     },
 
-    products: {
-        type: productSchema
+    items: [
+        {
+            product: {
+                type: Schema.Types.ObjectId,
+                ref: "Product",
+            },
+            quantity: {
+                type: Number,
+                default: 1,
+            },
+        },
+    ],
+
+    adress: String,
+
+    orderDate: {
+        type: Date,
+        default: Date.now()
     },
 
-    amount: Number,
-
-    price: {
-        type: Number,
-        require: [true, "require must full"]
+    status: {
+        type: String,
+        default: "Đang xử lý",
+        enum: ["Đang xử lý", "Đang giao", "Hoàn tất", "Đã hủy"]
     },
 
-    category: { type: Schema.Types.ObjectId, ref: "Category" },
+    note: String,
 
-    image: String,
-
-    description: String,
-
+    totalMoney: Number,
 
 })
 
 
 
-const Product = model('Product', productSchema);
+const Order = model('Order', orderSchema);

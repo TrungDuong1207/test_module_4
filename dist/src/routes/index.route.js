@@ -9,12 +9,12 @@ const auth_1 = require("../middlewares/auth");
 const admin_route_1 = __importDefault(require("./admin.route"));
 function route(app) {
     app.use("/auth", auth_route_1.default);
-    app.use("/user", user_route_1.default);
     app.use(auth_1.checkAuth);
+    app.use("/user", user_route_1.default);
     app.use('/admin', admin_route_1.default);
     app.use((err, req, res, next) => {
         console.log(err.message);
-        res.status(500).render('admin/errors/500');
+        res.status(500).render('admin/error/500');
     });
 }
 exports.default = route;

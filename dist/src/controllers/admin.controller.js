@@ -95,7 +95,7 @@ class AdminController {
         }
     }
     static async listUser(req, res) {
-        let user = await user_model_1.User.find();
+        let user = await user_model_1.User.find({ role: "user" });
         res.render('admin/client', { user: user, nameUser: req.decoded.name });
     }
     static async formUpdateUser(req, res) {

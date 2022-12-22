@@ -67,7 +67,6 @@ export class AuthController {
 
                 if (!comparePass) {
 
-
                     req.flash("error", "PASSWORD_NOT_VALID");
                     return res.redirect("/auth/login");
 

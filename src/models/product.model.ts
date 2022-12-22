@@ -30,4 +30,4 @@ const Product = model('Product', productSchema);
 
 
 
-export { Product, productSchema };
+export { Product };

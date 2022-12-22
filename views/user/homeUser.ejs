@@ -64,19 +64,10 @@
 
     <!-- Main Wrapper Start Here -->
     <div class="wrapper">
-        <!-- Banner Popup Start -->
-        <div class="popup_banner">
-            <span class="popup_off_banner">×</span>
-            <div class="banner_popup_area">
-                <img class="banner" src="img/banner/banner2.jpg" alt="">
-            </div>
-        </div>
-        <!-- Banner Popup End -->
-
         <!-- Main Header Area Start Here -->
         <header>
             <!-- Header Top Start Here -->
-            <div class="header-top-area home-4">
+            <div class="header-top-area home-4" style="background-color: #f53e2d">
                 <div class="container">
                     <!-- Header Top Start -->
                     <div class="header-top">
@@ -92,12 +83,12 @@
             </div>
             <!-- Header Top End Here -->
             <!-- Header Middle Start Here -->
-            <div class="header-middle ptb-15 black-bg2 home-4">
+            <div class="header-middle ptb-15 black-bg2 home-4" style="background-color: #fa5430">
                 <div class="container">
                     <div class="row align-items-center no-gutters">
                         <div class="col-lg-2 col-md-12">
                             <div class="logo mb-all-30">
-                                <a href="index-4.html"><img src="img/logo/logo3.jpg" alt="logo-image"></a>
+                                <a href="index-4.html"><img src="/image/logo.jpg" alt="logo-image"></a>
                             </div>
                         </div>
                         <!-- Categorie Search Box Start Here -->
@@ -184,7 +175,7 @@
             </div>
             <!-- Header Middle End Here -->
             <!-- Header Bottom Start Here -->
-            <div class="header-bottom  header-sticky black-bg2 home-4">
+            <div class="header-bottom  header-sticky home-4" style="background-color: #fd5e32">
                 <div class="container">
                     <div class="row align-items-center">
                         <!-- <div class="col-xl-3 col-lg-4 col-md-6 vertical-menu d-none d-lg-block">
@@ -193,7 +184,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 ">
                             <nav class="d-none d-lg-block">
                                 <ul class="header-bottom-list d-flex roboto">
-                                    <li><a href="index-4.html" style="font-size: 20px;">Trang chủ</a></li>
+                                    <li><a href="/user/home" style="font-size: 20px;">Trang chủ</a></li>
                                     <li><a href="about.html" style="font-size: 20px;">Giới thiệu</a></li>
                                     <li><a href="#" style="font-size: 20px;">Mẫu tóc<i
                                                 class="fa fa-angle-down"></i></a>
@@ -240,9 +231,9 @@
                 <div class="slider-wrapper theme-default">
                     <!-- Slider Background  Image Start-->
                     <div id="slider" class="nivoSlider">
-                        <a href="shop.html"><img src="img/slider/14.jpg" data-thumb="img/slider/14.jpg" alt=""
+                        <a href="shop.html"><img src="/image/4196986.jpg" data-thumb="/image/4196986.jpg" style="height: 500px;"alt=""
                                 title="#htmlcaption" /></a>
-                        <a href="shop.html"><img src="img/slider/18.jpg" data-thumb="img/slider/18.jpg" alt=""
+                        <a href="shop.html"><img src="/image/abc.jpg" data-thumb="/image/abc.jpg" alt=""
                                 title="#htmlcaption2" /></a>
                         <a href="shop.html"><img src="img/slider/20.jpg" data-thumb="img/slider/20.jpg" alt=""
                                 title="#htmlcaption2" /></a>
@@ -262,271 +253,34 @@
                         <!-- Like Product Activation Start Here -->
                         <div class="like-pro-active owl-carousel">
                             <!-- Single Product Start -->
+                            <% productsTrend.forEach((item)=>{ %>
                             <div class="single-product">
                                 <!-- Product Image Start -->
-                                <div class="pro-img">
-                                    <a href="product.html">
-                                        <img class="primary-img" src="img/products/c.jpg" alt="single-product">
-                                        <img class="secondary-img" src="img/products/17.jpg" alt="single-product">
-                                    </a>
-                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
-                                        title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                </div>
-                                <!-- Product Image End -->
-                                <!-- Product Content Start -->
-                                <div class="pro-content">
-                                    <div class="pro-info">
-                                        <h4><a href="product.html">SỮA RỬA MẶT LAB SERIES MULTI ACTION</a></h4>
-                                        <p><span class="price">$160.45</span></p>
+                                    <div class="pro-img">
+                                        <a href="product.html">
+                                            <img class="primary-img" src="/image/upload/<%=item.image%>" alt="single-product">
+                                            
+                                        </a>
+                                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
+                                            title="Quick View"><i class="lnr lnr-magnifier"></i></a>
                                     </div>
-                                    <div class="pro-actions">
-                                        <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
+                                    <!-- Product Image End -->
+                                    <!-- Product Content Start -->
+                                    <div class="pro-content">
+                                        <div class="pro-info">
+                                            <h4><a href="product.html"><%=item.name%></a></h4>
+                                            <p><span class="price">$<%=item.price%></span></p>
                                         </div>
-                                        <!-- <div class="actions-secondary">
-                                        <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                        
-                                    </div> -->
+                                        <div class="pro-actions">
+                                            <div class="actions-primary">
+                                                <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Product Content End -->
+                                    <!-- Product Content End -->                                
                             </div>
                             <!-- Single Product End -->
-                            <!-- Single Product Start -->
-                            <div class="single-product">
-                                <!-- Product Image Start -->
-                                <div class="pro-img">
-                                    <a href="product.html">
-                                        <img class="primary-img" src="img/products/d.jpg" alt="single-product">
-                                        <img class="secondary-img" src="img/products/d1.jpg" alt="single-product">
-                                    </a>
-                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
-                                        title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                </div>
-                                <!-- Product Image End -->
-                                <!-- Product Content Start -->
-                                <div class="pro-content">
-                                    <div class="pro-info">
-                                        <h4><a href="product.html">Sản phẩm dưỡng tóc TREATMENT</a></h4>
-                                        <p><span class="price">$320.45</span> <del class="prev-price">$330.50</del></p>
-                                        <div class="label-product l_sale">15<span class="symbol-percent">%</span></div>
-                                    </div>
-                                    <div class="pro-actions">
-                                        <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                        </div>
-                                        <div class="actions-secondary">
-                                            <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>So
-                                                    sánh</span></a>
-                                            <a href="wishlist.html" title="WishList"><i class="lnr lnr-heart"></i>
-                                                <span>Yêu thích</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Product Content End -->
-                            </div>
-                            <!-- Single Product End -->
-
-                            <!-- Single Product Start -->
-                            <div class="single-product">
-                                <!-- Product Image Start -->
-                                <div class="pro-img">
-                                    <a href="product.html">
-                                        <img class="primary-img" src="img/products/e.webp" alt="single-product">
-                                        <img class="secondary-img" src="img/products/e.1.webp" alt="single-product">
-                                    </a>
-                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
-                                        title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                </div>
-                                <!-- Product Image End -->
-                                <!-- Product Content Start -->
-                                <div class="pro-content">
-                                    <div class="pro-info">
-                                        <h4><a href="product.html">Máy Cạo Râu Flyco FS873VN</a></h4>
-                                        <p><span class="price">$150.30</span> <del class="prev-price">$105.50</del></p>
-                                        <div class="label-product l_sale">22<span class="symbol-percent">%</span></div>
-                                    </div>
-                                    <div class="pro-actions">
-                                        <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                        </div>
-                                        <div class="actions-secondary">
-                                            <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>So
-                                                    sánh</span></a>
-                                            <a href="wishlist.html" title="WishList"><i class="lnr lnr-heart"></i>
-                                                <span>Yêu thích</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Product Content End -->
-                            </div>
-                            <!-- Single Product End -->
-                            <!-- Single Product Start -->
-                            <div class="single-product">
-                                <!-- Product Image Start -->
-                                <div class="pro-img">
-                                    <a href="product.html">
-                                        <img class="primary-img" src="img/products/f.jpg" alt="single-product">
-                                        <img class="secondary-img" src="img/products/f1.jpg" alt="single-product">
-                                    </a>
-                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
-                                        title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                </div>
-                                <!-- Product Image End -->
-                                <!-- Product Content Start -->
-                                <div class="pro-content">
-                                    <div class="pro-info">
-                                        <h4><a href="product.html">DCR lưỡi kép Gillette Vector</a></h4>
-                                        <p><span class="price">$90.45</span></p>
-                                    </div>
-                                    <div class="pro-actions">
-                                        <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                        </div>
-                                        <div class="actions-secondary">
-                                            <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>So
-                                                    sánh</span></a>
-                                            <a href="wishlist.html" title="WishList"><i class="lnr lnr-heart"></i>
-                                                <span>Yêu thích</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Product Content End -->
-                            </div>
-                            <!-- Single Product End -->
-                            <!-- Single Product Start -->
-                            <div class="single-product">
-                                <!-- Product Image Start -->
-                                <div class="pro-img">
-                                    <a href="product.html">
-                                        <img class="primary-img" src="img/products/w.jpg" alt="single-product">
-                                        <img class="secondary-img" src="img/products/w1.jpg" alt="single-product">
-                                    </a>
-                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
-                                        title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                </div>
-                                <!-- Product Image End -->
-                                <!-- Product Content Start -->
-                                <div class="pro-content">
-                                    <div class="pro-info">
-                                        <h4><a href="product.html">Đôi kéo Tony&Guy cao cấp</a></h4>
-                                        <p><span class="price">$90.45</span><del class="prev-price">$100.50</del></p>
-                                        <div class="label-product l_sale">20<span class="symbol-percent">%</span></div>
-                                    </div>
-                                    <div class="pro-actions">
-                                        <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                        </div>
-                                        <div class="actions-secondary">
-                                            <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>So
-                                                    sánh</span></a>
-                                            <a href="wishlist.html" title="WishList"><i class="lnr lnr-heart"></i>
-                                                <span>Yêu thích</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Product Content End -->
-                            </div>
-                            <!-- Single Product End -->
-                            <!-- Single Product Start -->
-                            <div class="single-product">
-                                <!-- Product Image Start -->
-                                <div class="pro-img">
-                                    <a href="product.html">
-                                        <img class="primary-img" src="img/products/h.webp" alt="single-product">
-                                        <img class="secondary-img" src="img/products/h1.webp" alt="single-product">
-                                    </a>
-                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
-                                        title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                </div>
-                                <!-- Product Image End -->
-                                <!-- Product Content Start -->
-                                <div class="pro-content">
-                                    <div class="pro-info">
-                                        <h4><a href="product.html">Dưỡng Da Detox Med</a></h4>
-                                        <p><span class="price">$84.45</span></p>
-                                    </div>
-                                    <div class="pro-actions">
-                                        <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                        </div>
-                                        <div class="actions-secondary">
-                                            <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>So
-                                                    sánh</span></a>
-                                            <a href="wishlist.html" title="WishList"><i class="lnr lnr-heart"></i>
-                                                <span>Yêu thích</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Product Content End -->
-                            </div>
-                            <!-- Single Product End -->
-                            <!-- Single Product Start -->
-                            <div class="single-product">
-                                <!-- Product Image Start -->
-                                <div class="pro-img">
-                                    <a href="product.html">
-                                        <img class="primary-img" src="img/products/i.webp" alt="single-product">
-                                        <img class="secondary-img" src="img/products/i1.jpg" alt="single-product">
-                                    </a>
-                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
-                                        title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                </div>
-                                <!-- Product Image End -->
-                                <!-- Product Content Start -->
-                                <div class="pro-content">
-                                    <div class="pro-info">
-                                        <h4><a href="product.html">Mặt Nạ Tinh Chất Hồng Sâm</a></h4>
-                                        <p><span class="price">$95.45</span></p>
-                                    </div>
-                                    <div class="pro-actions">
-                                        <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                        </div>
-                                        <div class="actions-secondary">
-                                            <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>So
-                                                    sánh</span></a>
-                                            <a href="wishlist.html" title="WishList"><i class="lnr lnr-heart"></i>
-                                                <span>Yêu thích</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Product Content End -->
-                            </div>
-                            <!-- Single Product End -->
-                            <!-- Single Product Start -->
-                            <div class="single-product">
-                                <!-- Product Image Start -->
-                                <div class="pro-img">
-                                    <a href="product.html">
-                                        <img class="primary-img" src="img/products/j.webp" alt="single-product">
-                                        <img class="secondary-img" src="img/products/j1.jpg" alt="single-product">
-                                    </a>
-                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal"
-                                        title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                </div>
-                                <!-- Product Image End -->
-                                <!-- Product Content Start -->
-                                <div class="pro-content">
-                                    <div class="pro-info">
-                                        <h4><a href="product.html">Lược Sấy bán nguyệt</a></h4>
-                                        <p><span class="price">$84.45</span></p>
-                                    </div>
-                                    <div class="pro-actions">
-                                        <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                        </div>
-                                        <div class="actions-secondary">
-                                            <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>So
-                                                    sánh</span></a>
-                                            <a href="wishlist.html" title="WishList"><i class="lnr lnr-heart"></i>
-                                                <span>Yêu thích</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Product Content End -->
-                            </div>
-                            <!-- Single Product End -->
+                            <%})%>
                         </div>
                         <!-- Like Product Activation End Here -->
                     </div>

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.productSchema = exports.Product = void 0;
+exports.Product = void 0;
 const mongoose_1 = require("mongoose");
 const productSchema = new mongoose_1.Schema({
     name: {
@@ -16,7 +16,6 @@ const productSchema = new mongoose_1.Schema({
     image: String,
     description: String,
 });
-exports.productSchema = productSchema;
 const Product = (0, mongoose_1.model)('Product', productSchema);
 exports.Product = Product;
 //# sourceMappingURL=product.model.js.map

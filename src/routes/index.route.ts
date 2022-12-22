@@ -9,15 +9,15 @@ function route(app) {
     
     app.use("/auth", authRoutes);
 
-    app.use("/user", userRoutes);
-
     app.use(checkAuth);
+
+    app.use("/user", userRoutes);
 
     app.use('/admin', adminRoutes);
     
     app.use((err, req, res, next) => {
         console.log(err.message)
-        res.status(500).render('admin/errors/500')
+        res.status(500).render('admin/error/500');
     })
 
 
