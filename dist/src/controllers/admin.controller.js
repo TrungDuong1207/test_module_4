@@ -6,6 +6,7 @@ const category_model_1 = require("../models/category.model");
 const user_model_1 = require("../models/user.model");
 class AdminController {
     static async showAdminPage(req, res) {
+        console.log(req.decoded);
         res.render("admin/indexAdmin", { nameUser: req.decoded.name });
     }
     static async showAddPage(req, res) {

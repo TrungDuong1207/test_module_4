@@ -5,6 +5,5 @@ const userRoutes = Router();
 
 userRoutes.get("/home", UserController.showUserPage);
 
-// userRoutes.post("/login", UserController.login);
 
 export default userRoutes;

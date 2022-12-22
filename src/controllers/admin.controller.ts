@@ -1,10 +1,11 @@
-
 import { Product } from "../models/product.model";
 import { Category } from "../models/category.model";
 import { User } from "../models/user.model";
 
 export class AdminController {
     static async showAdminPage(req, res) {
+        console.log(req.decoded);
+        
         res.render("admin/indexAdmin", { nameUser: req.decoded.name });
 
     }

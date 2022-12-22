@@ -72,7 +72,7 @@ export class AuthController {
                     return res.redirect("/auth/login");
 
                 }
-
+                
                 let payload = {
 
                     user_id: user["id"],
@@ -100,10 +100,8 @@ export class AuthController {
                 
                 
                 if (user.role === "admin") {
-                    
                     res.redirect("/admin/home");
                 } else {
-                    
                     res.redirect("/user/home");
                 }
 

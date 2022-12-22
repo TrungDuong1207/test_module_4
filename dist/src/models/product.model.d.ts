@@ -23,19 +23,27 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { Schema } from "mongoose";
-declare const Product: import("mongoose").Model<{
-    name?: string;
-    description?: string;
+declare const productSchema: Schema<any, import("mongoose").Model<any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
     amount?: number;
     image?: string;
+    description?: string;
+    name?: string;
+    price?: number;
+    category?: import("mongoose").Types.ObjectId;
+}>;
+declare const Product: import("mongoose").Model<{
+    amount?: number;
+    image?: string;
+    description?: string;
+    name?: string;
     price?: number;
     category?: import("mongoose").Types.ObjectId;
 }, {}, {}, {}, Schema<any, import("mongoose").Model<any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
-    name?: string;
-    description?: string;
     amount?: number;
     image?: string;
+    description?: string;
+    name?: string;
     price?: number;
     category?: import("mongoose").Types.ObjectId;
 }>>;
-export { Product };
+export { Product, productSchema };

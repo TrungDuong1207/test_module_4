@@ -6,7 +6,7 @@ export const checkAuth = async (req, res, next) => {
         if (tokenUser) {
             jwt.verify(tokenUser, "123456789", (err, decoded) => {
                 if (err) {
-                    console.log(err);   
+                    console.log(err); 
                     return res.render("login");
                 } else {
                     // console.log(decoded);

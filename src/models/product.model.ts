@@ -5,14 +5,14 @@ const productSchema = new Schema ({
 
     name: {
         type: String,
-        require : [true, "require must full"]
+        require : [true, "Name can't be blank"]
     },
 
     amount: Number,
 
     price: {
         type : Number,
-        require: [true, "require must full"]
+        require: [true, "Price can't be blank"]
     },
 
     category: { type:Schema.Types.ObjectId, ref: "Category" },
@@ -30,4 +30,4 @@ const Product = model('Product', productSchema);
 
 
 
-export { Product };
+export { Product, productSchema };
