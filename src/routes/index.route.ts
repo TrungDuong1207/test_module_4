@@ -9,7 +9,7 @@ function route(app) {
     
     app.use("/auth", authRoutes);
 
-    // app.use(checkAuth);
+    app.use(checkAuth);
 
     app.use("/user", userRoutes);
 

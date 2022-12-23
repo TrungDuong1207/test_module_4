@@ -23,7 +23,7 @@ const searchProduct2 = (value) => {
           html += `<td>${product.description}</td>`;
           html += `<td>
                     <a href="/admin/update-product/${product._id}" class="btn btn-primary">Sửa</a>
-                    <a onclick="return confirm('Are you sure you want to delete this product?')" href="/admin/delete-product/${product._id}/" class="btn btn-danger">Delete</a></td>`;
+                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')" href="/admin/delete-product/${product._id}/" class="btn btn-danger">Delete</a></td>`;
           html += '</tr>';
       })
 

@@ -84,10 +84,13 @@ export class AuthController {
         try {
             const user = await User.findOne({email: req.body.email});
             if (user) {
-                const comparePass = await bcrypt.compare(req.body.password, user.password);
+                const comparePass = await bcrypt.compare(req.body.password2, user.password);
                 if (!comparePass) {
+                    console.log(req.body.password2)
+                    console.log(user.password)
                     req.flash("error", "PASSWORD_NOT_TRUE");
                     res.redirect("/user/changePassword");
+
                 }else {
                     const passwordHash = await bcrypt.hash(req.body.password, 10);
                     let newPass = {
@@ -108,6 +111,10 @@ export class AuthController {
             res.redirect("/user/changePassword");
         }
 
+    }
+
+    static Logout (req, res) {
+        res.render('login')
     }
 
     // static async loginFacebook(req, res, next) {

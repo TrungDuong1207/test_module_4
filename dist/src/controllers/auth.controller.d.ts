@@ -4,4 +4,5 @@ export declare class AuthController {
     static register(req: any, res: any): Promise<void>;
     static login(req: any, res: any): Promise<any>;
     static changePassword(req: any, res: any): Promise<void>;
+    static Logout(req: any, res: any): void;
 }

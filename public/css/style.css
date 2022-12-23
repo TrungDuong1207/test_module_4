@@ -1787,7 +1787,7 @@ li.megamenu-img a {
 /* 13. Home-4 CSS
 /*----------------------------------------*/
 .header-top-area.home-4 {
-  background: #212121 none repeat scroll 0 0;
+  background: #f53e2e none repeat scroll 0 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .home-4 .header-top ul > li > a, .home-4 .header-top ul > li > span {
@@ -1813,12 +1813,12 @@ li.megamenu-img a {
   color: #fff;
 }
 .home-4.header-bottom.header-sticky,.header-middle.home-4{
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #fb5430;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .home-4.header-sticky.sticky {
-  background: #212121 none repeat scroll 0 0;
+  background: #fd5f32 none repeat scroll 0 0;
 }
 .home-4 .post-title {
   margin: -20px -20px 0 -30px;
@@ -2134,7 +2134,7 @@ li.megamenu-img a {
     color: #fff;
 }
 .header-middle.ptb-15.black-bg2.home-4{
-    background: #000000;
+    background: #fb5430;
 }
 
 /*----------------------------------------*/

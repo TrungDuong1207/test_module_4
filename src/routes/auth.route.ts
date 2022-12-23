@@ -20,8 +20,9 @@ authRoutes.get(
         failureRedirect: "/auth/login",
         successRedirect: "/user/shop"
     }),
-    
-);
+)
+
+authRoutes.get('/logout', AuthController.Logout)
 
 // authRoutes.get(
 //     "/google",
