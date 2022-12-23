@@ -1,12 +1,11 @@
 import { User } from "../models/user.model";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-
 export class AuthController {
-    static showFormLogin(req, res) {
+    static async showFormLogin(req, res) {
         let error = req.flash().error || [];
         // console.log(error);
-        res.render('login', { error: error });
+        res.render('login', { error: error});
     }
 
     static showFormRegister(req, res) {

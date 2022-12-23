@@ -37,56 +37,43 @@
             <div class="col-lg-4 col-md-12">
                 <div class="cart-box mt-all-30">
                     <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
-                        <li><a href="#"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">2</span><span>Giỏ hàng</span></span></a>
+                        <li><a href="/user/cart"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro"><%=carts.items.length%></span><span>Giỏ hàng</span></span></a>
                             <ul class="ht-dropdown cart-box-width">
                                 <li>
-                                    <!-- Cart Box Start -->
-                                    <div class="single-cart-box">
-                                        <div class="cart-img">
-                                            <a href="#"><img src="img/products/a.jpg" alt="cart-image"></a>
-                                            <span class="pro-quantity">1X</span>
+                                    <% carts.items.forEach((item)=>{%>
+                                        <!-- Cart Box Start -->
+                                        <div class="single-cart-box">
+                                            <div class="cart-img">
+                                                <a href="#"><img src="/image/upload/<%=item.product.image%>" alt="cart-image"></a>
+                                                <span class="pro-quantity"><%=item.quantity%>X</span>
+                                            </div>
+                                            <div class="cart-content">
+                                                <h6><a href="product.ejs"><%=item.product.name%></a></h6>
+                                                <span class="cart-price">$<%=item.product.price%></</span>
+                                            </div>
+                                            <a class="del-icone" href="#"><i class="ion-close"></i></a>
                                         </div>
-                                        <div class="cart-content">
-                                            <h6><a href="product.ejs">Dầu gội đầu Sunsilk </a></h6>
-                                            <span class="cart-price">27.45</span>
-                                            <span>Size: S</span>
-                                            <span>Color: White</span>
-                                        </div>
-                                        <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                    </div>
                                     <!-- Cart Box End -->
-                                    <!-- Cart Box Start -->
-                                    <div class="single-cart-box">
-                                        <div class="cart-img">
-                                            <a href="#"><img src="img/products/b.jpg" alt="cart-image"></a>
-                                            <span class="pro-quantity">1X</span>
-                                        </div>
-                                        <div class="cart-content">
-                                            <h6><a href="product.ejs">Dầu gội đầu Panties</a></h6>
-                                            <span class="cart-price">45.00</span>
-                                            <span>Size: XL</span>
-                                            <span>Color: Pink</span>
-                                        </div>
-                                        <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                    </div>
-                                    <!-- Cart Box End -->
+                                    <%})%>
                                     <!-- Cart Footer Inner Start -->
                                     <div class="cart-footer">
-                                        <ul class="price-content">
-                                            <li>Tổng tiền <span>$57.95</span></li>
-                                            <li>Phí ship <span>$7.00</span></li>
-                                        </ul>
                                         <div class="cart-actions text-center">
-                                            <a class="cart-checkout" href="checkout.ejs">Kiểm tra</a>
+                                            <a class="cart-checkout" href="/user/checkout">Kiểm tra</a>
                                         </div>
                                     </div>
                                     <!-- Cart Footer Inner End -->
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>    Đăng kí</a>
-                        </li>
-                        <li><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i>    Đăng nhập</a>
+                        <li class="nav-item dropdown open" style="padding-left: 15px;">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                              <img src="img/logo/user1.png" alt=""><%=userName%>
+                            </a>
+                            <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item"  href="changePassword.html">Đổi mật khẩu<i class="fa fa-address-book"></i></a>
+                              <a class="dropdown-item"  href="../../User/login.html"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a>
+                              <a class="dropdown-item"  href="orderUser.html"><i class="fa fa-sign-out pull-right"></i> Chi tiết đơn hàng</a>
+                            </div>
                         </li>
 
                     </ul>

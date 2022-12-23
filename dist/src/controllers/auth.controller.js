@@ -8,7 +8,7 @@ const user_model_1 = require("../models/user.model");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 class AuthController {
-    static showFormLogin(req, res) {
+    static async showFormLogin(req, res) {
         let error = req.flash().error || [];
         res.render('login', { error: error });
     }

@@ -7,13 +7,16 @@
     <title>Giỏ hàng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="shortcut icon" href="img/favicon1.ico">
     <!-- Fontawesome css -->
     <link rel="stylesheet" href="/css/user/font-awesome.min.css">
     <!-- Ionicons css -->
-    <link rel="stylesheet" href="/css/user/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js" />
+
     <!-- linearicons css -->
-    <link rel="stylesheet" href="/css/user/linearicons.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
     <!-- Nice select css -->
     <link rel="stylesheet" href="/css/user/nice-select.css">
     <!-- Jquery fancybox css -->
@@ -21,7 +24,7 @@
     <!-- Jquery ui price slider css -->
     <link rel="stylesheet" href="/css/user/jquery-ui.min.css">
     <!-- Meanmenu css -->
-    <link rel="stylesheet" href="/css/userss/meanmenu.min.css">
+    <link rel="stylesheet" href="/css/user/meanmenu.min.css">
     <!-- Nivo slider css -->
     <link rel="stylesheet" href="/css/user/nivo-slider.css">
     <!-- Owl carousel css -->
@@ -85,26 +88,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="product-thumbnail">
-                                                <a href="#"><img src="img/products/sap13.jpg" alt="cart-image" /></a>
-                                            </td>
-                                            <td class="product-name"><a href="#">Sáp vuốt tóc Variety</a></td>
-                                            <td class="product-price"><span class="amount">£165.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
-                                            <td class="product-subtotal">£165.00</td>
-                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-thumbnail">
-                                                <a href="#"><img src="img/products/sap1.jpg" alt="cart-image" /></a>
-                                            </td>
-                                            <td class="product-name"><a href="#">Sáp vuốt tóc Loreal Pro</a></td>
-                                            <td class="product-price"><span class="amount">£50.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
-                                            <td class="product-subtotal">£50.00</td>
-                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                                        </tr>
+                                        <% let sum = 0;%>
+                                        <%carts.items.forEach((item)=>{%>
+                                            <% sum += (item.product.price*item.quantity);%>
+                                            <tr>
+                                                <td class="product-thumbnail">
+                                                    <a href="#"><img src="/image/upload/<%=item.product.image%>" alt="cart-image" /></a>
+                                                </td>
+                                                <td class="product-name"><a href=""><%=item.product.name%></a></td>
+                                                <td class="product-price"><span class="amount">$<%=item.product.price%></span></td>
+                                                <td class="product-quantity"><input type="number" value="<%=item.quantity%>"/></td>
+                                                <td class="product-subtotal">$<%=item.product.price*item.quantity%></td>
+                                                <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                            </tr>
+                                        <%})%>
                                     </tbody>
                                 </table>
                             </div>
@@ -113,7 +110,7 @@
                                <!-- Cart Button Start -->
                                 <div class="col-md-8 col-sm-12">
                                     <div class="buttons-cart">
-                                        <a href="index-4.ejs">Thêm sản phẩm</a>
+                                        <a href="/user/home">Thêm sản phẩm</a>
                                     </div>
                                 </div>
                                 <!-- Cart Button Start -->
@@ -126,12 +123,13 @@
                                             <tbody>
                                                 <tr class="cart-subtotal">
                                                     <th>Phí ship</th>
-                                                    <td><span class="amount">$0</span></td>
+                                                    <%let fee = 10;%>
+                                                    <td><span class="amount">$<%=fee%></span></td>
                                                 </tr>
                                                 <tr class="order-total">
                                                     <th>Tổng</th>
                                                     <td>
-                                                        <strong><span class="amount">$215.00</span></strong>
+                                                        <strong><span class="amount">$<%=sum + fee%></span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>
