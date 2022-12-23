@@ -27,6 +27,10 @@ const userSchema = new Schema({
         type: String,
         default: "user",
         enum: ["user", "admin"]
+    },
+    cart: {
+        type: Schema.Types.ObjectId,
+        ref: "Cart"
     }
 });
 const User = model('User', userSchema);

@@ -80,7 +80,35 @@ class AuthController {
             res.redirect("/auth/login");
         }
     }
-    ;
+    static async changePassword(req, res) {
+        try {
+            const user = await user_model_1.User.findOne({ email: req.body.email });
+            if (user) {
+                const comparePass = await bcrypt_1.default.compare(req.body.password, user.password);
+                if (!comparePass) {
+                    req.flash("error", "PASSWORD_NOT_TRUE");
+                    res.redirect("/user/changePassword");
+                }
+                else {
+                    const passwordHash = await bcrypt_1.default.hash(req.body.password, 10);
+                    let newPass = {
+                        password: passwordHash,
+                    };
+                    const newUser = await user_model_1.User.update({ email: user.email }, { $set: { password: newPass }
+                    });
+                    res.redirect("/auth/login");
+                }
+            }
+            else {
+                req.flash("error", "Khong tìm thấy user");
+                res.redirect("/user/changePassword");
+            }
+        }
+        catch (e) {
+            console.log(e.message);
+            res.redirect("/user/changePassword");
+        }
+    }
 }
 exports.AuthController = AuthController;
 //# sourceMappingURL=auth.controller.js.map

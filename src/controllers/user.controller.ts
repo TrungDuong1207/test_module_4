@@ -22,7 +22,13 @@ export class UserController {
         res.render('user/contact')
     }
 
+
     static changePasswordPage (req, res) {
         res.render('user/changePassword')
+    }
+
+    static showCartpage(req, res){
+        res.render
+
     }
 }

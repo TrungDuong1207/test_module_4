@@ -20,6 +20,9 @@ class UserController {
     static changePasswordPage(req, res) {
         res.render('user/changePassword');
     }
+    static showCartpage(req, res) {
+        res.render;
+    }
 }
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map

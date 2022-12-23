@@ -1,6 +1,7 @@
 import { User } from "../models/user.model";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import e from "express";
 
 export class AuthController {
     static showFormLogin(req, res) {
@@ -63,29 +64,51 @@ export class AuthController {
                     maxAge: 1000 * 60 * 30, // would expire after 30 minutes
                     httpOnly: true, // The cookie only accessible by the web server
                 }
-
-                res.cookie('token', token, options);
-                
-                
+                res.cookie('token', token, options)
                 if (user.role === "admin") {
                     res.redirect("/admin/home");
                 } else {
                     res.redirect("/user/home");
                 }
-
             } else {
                 req.flash("error", "Sai tài khoản hoặc mật khẩu");
                 res.redirect("/auth/login");
-
             }
-
         } catch (err) {
             console.log(err);
-
             res.redirect("/auth/login");
         }
+    }
 
-    };
+    static async changePassword(req, res) {
+        try {
+            const user = await User.findOne({email: req.body.email});
+            if (user) {
+                const comparePass = await bcrypt.compare(req.body.password, user.password);
+                if (!comparePass) {
+                    req.flash("error", "PASSWORD_NOT_TRUE");
+                    res.redirect("/user/changePassword");
+                }else {
+                    const passwordHash = await bcrypt.hash(req.body.password, 10);
+                    let newPass = {
+                        password: passwordHash,
+                    }
+                    const newUser = await User.update({email: user.email},
+                        {$set :
+                                {password: newPass}
+                        });
+                    res.redirect("/auth/login");
+                }
+            }else {
+                req.flash("error", "Khong tìm thấy user");
+                res.redirect("/user/changePassword");
+            }
+        }catch (e) {
+            console.log(e.message);
+            res.redirect("/user/changePassword");
+        }
+
+    }
 
     // static async loginFacebook(req, res, next) {
     //     let data = {

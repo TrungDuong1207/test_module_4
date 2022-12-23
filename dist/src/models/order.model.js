@@ -5,18 +5,10 @@ const orderSchema = new mongoose_1.Schema({
     customer: {
         type: mongoose_1.Schema.Types.ObjectId, ref: "User"
     },
-    items: [
-        {
-            product: {
-                type: mongoose_1.Schema.Types.ObjectId,
-                ref: "Product",
-            },
-            quantity: {
-                type: Number,
-                default: 1,
-            },
-        },
-    ],
+    cart: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: "Cart",
+    },
     adress: String,
     orderDate: {
         type: Date,

@@ -3,4 +3,5 @@ export declare class UserController {
     static showAboutPage(req: any, res: any): void;
     static contact(req: any, res: any): void;
     static changePasswordPage(req: any, res: any): void;
+    static showCartpage(req: any, res: any): void;
 }
