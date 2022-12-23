@@ -88,7 +88,7 @@ class AuthController {
         try {
             const user = await user_model_1.User.findOne({ email: req.body.email });
             if (user) {
-                const comparePass = await bcrypt_1.default.compare(req.body.password, user.password);
+                const comparePass = await bcrypt_1.default.compare(req.body.password2, user.password);
                 if (!comparePass) {
                     req.flash("error", "Sai Mật khẩu!!!");
                     res.redirect("/auth/changepassword");
@@ -108,6 +108,9 @@ class AuthController {
             console.log(e.message);
             res.redirect("/auth/changepassword");
         }
+    }
+    static Logout(req, res) {
+        res.render('login');
     }
 }
 exports.AuthController = AuthController;

@@ -88,8 +88,9 @@ export class AuthController {
         try {
             const user = await User.findOne({ email: req.body.email });
             if (user) {
-                const comparePass = await bcrypt.compare(req.body.password, user.password);
+                const comparePass = await bcrypt.compare(req.body.password2, user.password);
                 if (!comparePass) {
+
                     req.flash("error", "Sai Mật khẩu!!!");
                     res.redirect("/auth/changepassword");
                 } else {
@@ -97,6 +98,7 @@ export class AuthController {
                     
                      
                     await User.updateOne({ _id: user._id },{password: passwordHash});
+
                     res.redirect("/auth/login");
                 }
             } else {
@@ -108,6 +110,10 @@ export class AuthController {
             res.redirect("/auth/changepassword");
         }
 
+    }
+
+    static Logout (req, res) {
+        res.render('login')
     }
 
     // static async loginFacebook(req, res, next) {
