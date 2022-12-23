@@ -46,7 +46,7 @@ class AuthController {
             if (user) {
                 const comparePass = await bcrypt_1.default.compare(req.body.password, user.password);
                 if (!comparePass) {
-                    req.flash("error", "PASSWORD_NOT_VALID");
+                    req.flash("error", "Sai mật khẩu!!!");
                     return res.redirect("/auth/login");
                 }
                 let payload = {
@@ -80,7 +80,35 @@ class AuthController {
             res.redirect("/auth/login");
         }
     }
-    ;
+    static changePasswordPage(req, res) {
+        let error = req.flash().error || [];
+        res.render('changePassword', { error: error });
+    }
+    static async changePassword(req, res) {
+        try {
+            const user = await user_model_1.User.findOne({ email: req.body.email });
+            if (user) {
+                const comparePass = await bcrypt_1.default.compare(req.body.password, user.password);
+                if (!comparePass) {
+                    req.flash("error", "Sai Mật khẩu!!!");
+                    res.redirect("/auth/changepassword");
+                }
+                else {
+                    const passwordHash = await bcrypt_1.default.hash(req.body.passwordChange, 10);
+                    await user_model_1.User.updateOne({ _id: user._id }, { password: passwordHash });
+                    res.redirect("/auth/login");
+                }
+            }
+            else {
+                req.flash("error", "Không tìm thấy user");
+                res.redirect("/auth/changepassword");
+            }
+        }
+        catch (e) {
+            console.log(e.message);
+            res.redirect("/auth/changepassword");
+        }
+    }
 }
 exports.AuthController = AuthController;
 //# sourceMappingURL=auth.controller.js.map

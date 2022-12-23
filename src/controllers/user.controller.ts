@@ -4,16 +4,20 @@ import {User} from "../models/user.model";
 import { Cart } from "../models/cart.model";
 
 export class UserController {
+
     static async showUserPage(req, res) {
         let cart = await Cart.findOne({user: req.decoded.user_id}).populate("items.product");
         let productsTrend = await Product.find().limit(7).skip(0);    
-        let productSearchMost = Product.find().limit(4).skip(4);
+        let productSearchMost = await Product.find().limit(4).skip(4);
+        console.log(productSearchMost);
+        
         res.render("user/homeUser", {productsTrend: productsTrend, productSearchMost: productSearchMost, carts: cart, userName: req.decoded.name});
+
     }
 
     static async showAboutPage(req, res) {
         let cart = await Cart.findOne({user: req.decoded.user_id}).populate("items.product");
-        res.render('user/about', {carts: cart,userName: req.decoded.name});
+        res.render('user/about', {carts: cart, userName: req.decoded.name});
     }
 
     static async contact (req, res) {
@@ -21,9 +25,12 @@ export class UserController {
         res.render('user/contact', {carts: cart,userName: req.decoded.name})
     }
 
+
     static async showCartpage(req, res){
         let cart = await Cart.findOne({user: req.decoded.user_id}).populate("items.product");
         console.log(cart);
         res.render("user/cart", {carts: cart, userName: req.decoded.name});
     }
+
+    
 }

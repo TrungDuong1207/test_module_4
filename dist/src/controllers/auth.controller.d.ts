@@ -3,4 +3,6 @@ export declare class AuthController {
     static showFormRegister(req: any, res: any): void;
     static register(req: any, res: any): Promise<void>;
     static login(req: any, res: any): Promise<any>;
+    static changePasswordPage(req: any, res: any): void;
+    static changePassword(req: any, res: any): Promise<void>;
 }

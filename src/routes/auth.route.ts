@@ -12,6 +12,9 @@ authRoutes.get("/register", AuthController.showFormRegister);
 
 authRoutes.post("/register", AuthController.register);
 
+authRoutes.get('/changepassword', AuthController.changePasswordPage);
+authRoutes.post('/changepassword',AuthController.changePassword)
+
 authRoutes.get("/facebook", passport.authenticate("facebook", {scope : ["email"]}));
 
 authRoutes.get(

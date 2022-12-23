@@ -25,7 +25,9 @@
 import { Schema } from "mongoose";
 declare const Category: import("mongoose").Model<{
     name?: string;
+    english?: string;
 }, {}, {}, {}, Schema<any, import("mongoose").Model<any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
     name?: string;
+    english?: string;
 }>>;
 export { Category };

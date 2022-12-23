@@ -7,7 +7,8 @@ class UserController {
     static async showUserPage(req, res) {
         let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
         let productsTrend = await product_model_1.Product.find().limit(7).skip(0);
-        let productSearchMost = product_model_1.Product.find().limit(4).skip(4);
+        let productSearchMost = await product_model_1.Product.find().limit(4).skip(4);
+        console.log(productSearchMost);
         res.render("user/homeUser", { productsTrend: productsTrend, productSearchMost: productSearchMost, carts: cart, userName: req.decoded.name });
     }
     static async showAboutPage(req, res) {
