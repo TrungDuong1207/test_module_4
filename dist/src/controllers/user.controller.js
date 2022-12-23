@@ -14,6 +14,9 @@ class UserController {
     static contact(req, res) {
         res.render('user/contact');
     }
+    static showCartpage(req, res) {
+        res.render;
+    }
 }
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map

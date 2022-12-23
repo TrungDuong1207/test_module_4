@@ -4,8 +4,9 @@ const userRoutes = Router();
 
 
 userRoutes.get("/home", UserController.showUserPage);
-userRoutes.get('/about', UserController.showAboutPage)
-userRoutes.get('/contact', UserController.contact)
+userRoutes.get('/about', UserController.showAboutPage);
+userRoutes.get('/contact', UserController.contact);
+userRoutes.get("/cart",UserController.showCartpage);
 
 
 export default userRoutes;

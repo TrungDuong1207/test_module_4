@@ -6,18 +6,10 @@ const orderSchema = new Schema({
         type: Schema.Types.ObjectId, ref: "User"
     },
 
-    items: [
-        {
-            product: {
-                type: Schema.Types.ObjectId,
-                ref: "Product",
-            },
-            quantity: {
-                type: Number,
-                default: 1,
-            },
-        },
-    ],
+    cart: {
+        type: Schema.Types.ObjectId,
+        ref: "Cart",
+    },
 
     adress: String,
 
