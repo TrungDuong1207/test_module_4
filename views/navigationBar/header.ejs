@@ -37,24 +37,27 @@
             <div class="col-lg-4 col-md-12">
                 <div class="cart-box mt-all-30">
                     <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
-                        <li><a href="/user/cart"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro"><%=carts.items.length%></span><span>Giỏ hàng</span></span></a>
+                        <li><a href="/user/cart"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro"><%=(carts)?carts.items.length:0%></span><span>Giỏ hàng</span></span></a>
                             <ul class="ht-dropdown cart-box-width">
                                 <li>
-                                    <% carts.items.forEach((item)=>{%>
-                                        <!-- Cart Box Start -->
-                                        <div class="single-cart-box">
-                                            <div class="cart-img">
-                                                <a href="#"><img src="/image/upload/<%=item.product.image%>" alt="cart-image"></a>
-                                                <span class="pro-quantity"><%=item.quantity%>X</span>
+                                    <% if(carts){%>
+                                        <% carts.items.forEach((item)=>{%>
+                                            <!-- Cart Box Start -->
+                                            <div class="single-cart-box">
+                                                <div class="cart-img">
+                                                    <a href="#"><img src="/image/upload/<%=item.product.image%>" alt="cart-image"></a>
+                                                    <span class="pro-quantity"><%=item.quantity%>X</span>
+                                                </div>
+                                                <div class="cart-content">
+                                                    <h6><a href="product.ejs"><%=item.product.name%></a></h6>
+                                                    <span class="cart-price">$<%=item.product.price%></</span>
+                                                </div>
+                                                <a class="del-icone" href="#"><i class="ion-close"></i></a>
                                             </div>
-                                            <div class="cart-content">
-                                                <h6><a href="product.ejs"><%=item.product.name%></a></h6>
-                                                <span class="cart-price">$<%=item.product.price%></</span>
-                                            </div>
-                                            <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                        </div>
-                                    <!-- Cart Box End -->
-                                    <%})%>
+                                        <!-- Cart Box End -->
+                                        <%})%>
+                                    <%}%>
+                                    
                                     <!-- Cart Footer Inner Start -->
                                     <div class="cart-footer">
                                         <div class="cart-actions text-center">

@@ -6,6 +6,7 @@ const cart_model_1 = require("../models/cart.model");
 class UserController {
     static async showUserPage(req, res) {
         let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+        console.log(cart);
         let productsTrend = await product_model_1.Product.find().limit(7).skip(0);
         let productSearchMost = await product_model_1.Product.find().limit(4).skip(4);
         let productSale = await product_model_1.Product.find().limit(3).skip(6);
