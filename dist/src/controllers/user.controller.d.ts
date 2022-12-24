@@ -3,4 +3,5 @@ export declare class UserController {
     static showAboutPage(req: any, res: any): Promise<void>;
     static contact(req: any, res: any): Promise<void>;
     static showCartpage(req: any, res: any): Promise<void>;
+    static showListByCategory(req: any, res: any): Promise<void>;
 }

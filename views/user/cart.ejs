@@ -89,6 +89,7 @@
                                     </thead>
                                     <tbody>
                                         <% let sum = 0;%>
+                                        <%if(carts){%>
                                         <%carts.items.forEach((item)=>{%>
                                             <% sum += (item.product.price*item.quantity);%>
                                             <tr>
@@ -102,6 +103,7 @@
                                                 <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                             </tr>
                                         <%})%>
+                                        <%}%>
                                     </tbody>
                                 </table>
                             </div>
@@ -129,7 +131,7 @@
                                                 <tr class="order-total">
                                                     <th>Tổng</th>
                                                     <td>
-                                                        <strong><span class="amount">$<%=sum + fee%></span></strong>
+                                                        <strong><span class="amount">$<%=(sum!==0)?sum + fee:0%></span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>

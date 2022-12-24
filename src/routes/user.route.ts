@@ -10,8 +10,9 @@ userRoutes.get('/contact', UserController.contact)
 
 userRoutes.post('/changepassword', AuthController.changePassword)
 
-
 userRoutes.get("/cart",UserController.showCartpage);
+
+userRoutes.get('/product-category/:id', UserController.showListByCategory)
 
 
 export default userRoutes;

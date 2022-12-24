@@ -17,7 +17,7 @@ function route(app) {
     
     app.use((err, req, res, next) => {
         console.log(err.message)
-        res.status(500).render('admin/error/500');
+        res.status(500).render('error/500');
     })
 
 

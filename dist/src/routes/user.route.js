@@ -9,5 +9,6 @@ userRoutes.get('/about', user_controller_1.UserController.showAboutPage);
 userRoutes.get('/contact', user_controller_1.UserController.contact);
 userRoutes.post('/changepassword', auth_controller_1.AuthController.changePassword);
 userRoutes.get("/cart", user_controller_1.UserController.showCartpage);
+userRoutes.get('/product-category/:id', user_controller_1.UserController.showListByCategory);
 exports.default = userRoutes;
 //# sourceMappingURL=user.route.js.map

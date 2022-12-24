@@ -25,8 +25,6 @@ authRoutes.get(
     }),
 )
 
-authRoutes.get('/logout', AuthController.Logout)
-
 // authRoutes.get(
 //     "/google",
 //     passport.authenticate("google", {

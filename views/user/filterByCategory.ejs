@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Mẫu tóc nam</title>
+    <title>DM SHOP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css"/>
@@ -52,15 +52,6 @@
          </header>
              <!-- Header Bottom End Here -->
         <!-- Breadcrumb Start -->
-        <div class="breadcrumb-area mt-30">
-            <div class="container">
-                <div class="breadcrumb">
-                    <ul class="d-flex align-items-center">
-                        <li><a href="/user/home">Trang chủ</a></li>
-                        <li class="active"><a href="men.html">Mẫu tóc nam</a></li>
-                    </ul>
-                </div>
-            </div>
             <!-- Container End -->
         </div>
         <!-- Breadcrumb End -->
@@ -71,18 +62,18 @@
                 <div class="row">
                     <!-- Sidebar Shopping Option Start -->
                     <div class="col-lg-3 order-2 order-lg-1">
-                        <div class="sidebar">
-                            <div class="col-img mb-30">
-                                <a href="shop.html"><img src="img/banner/quangcao2.jpg" alt="slider-banner"></a>
+                        <div class="brand-banner-sidebar owl-carousel">
+                            <div class="single-brand">
+                                <img class="img" src="/image/black-rouge-6867.jpg" alt="brand-image">
+                                <img src="/image/dchic.jpg" alt="brand-image">
                             </div>
-                            <!-- <div class="col-img mb-30">
-                                <a href="shop.html"><img src="img/banner/quangcao.jpg" alt="slider-banner"></a>
-                            </div> -->
-                            <div class="col-img mb-30">
-                                <a href="shop.html"><img src="img/banner/quangcao.jpg" alt="slider-banner"></a>
+                            <div class="single-brand">
+                                <<img class="img" src="/image/puma-203146.jpg" alt="brand-image">
+                                <img src="/image/samsung.png" alt="brand-image">
                             </div>
-                            <div class="col-img mb-30">
-                                <a href="shop.html"><img src="img/banner/quangcao1.PNG" alt="slider-banner"></a>
+                            <div class="single-brand">
+                                <img src="/image/vt.png" alt="brand-image">
+                                <img src="/image/ivymoda.jpg" alt="brand-image">
                             </div>
                         </div>
                     </div>
@@ -95,13 +86,15 @@
                                 <div id="grid-view" class="tab-pane fade show active">
                                     <div class="row">
                                         <!-- Single Product Start -->
+
+                                        <% product.forEach(item => {%>
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <div class="single-product">
                                                 <!-- Product Image Start -->
+
                                                 <div class="pro-img">
                                                     <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/9.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/10.jpg" alt="single-product">
+                                                        <img  src="/image/upload/<%item.image%>" alt="single-product">
                                                     </a>
                                                     <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
                                                 </div>
@@ -109,290 +102,19 @@
                                                 <!-- Product Content Start -->
                                                 <div class="pro-content">
                                                     <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc Hàn Quốc</span></p>
+                                                        <p><span class="price"><%= item.name%></span></p>
                                                     </div>
                                                     <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc mới 2020</span></p>
+                                                        <p><span class="price">$<%= item.price%></span></p>
                                                     </div>
                                                 </div>
                                                 <!-- Product Content End -->
+
                                             </div>
                                         </div>
+                                        <%})%>
                                         <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/7.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/8.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc Short Pompa</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc mới 2020</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/5.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/6.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc French Crop</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc mới 2020</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/20.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/1.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc Short Pompa</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc mới 2020</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/11a.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/12a.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc Mohican</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc đang thịnh hành</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/11.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/12.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu đầu đinh</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc đang thịnh hành</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                                <span class="sticker-new">new</span>
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                         <!-- Single Product Start -->
-                                         <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/1.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/21.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc nấm</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Kiểu tóc của năm 2017</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/26.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/27.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc Short Pompa</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc mới 2020</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/24.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/25.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc French Crop</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc mới 2020</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/15.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/16.jpeg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc Short Pompa</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc mới 2020</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/17.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/18.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu tóc Short Pompa</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc mới 2020</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                        </div>
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <div class="pro-img">
-                                                    <a href="product.ejs">
-                                                        <img class="primary-img" src="img/menHair/13.jpg" alt="single-product">
-                                                        <img class="secondary-img" src="img/menHair/14.jpg" alt="single-product">
-                                                    </a>
-                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                                                </div>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <p><span class="price">Kiểu đầu đinh</span></p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <p><span class="price">Xu hướng tóc đang thịnh hành</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                                <span class="sticker-new">new</span>
+
                                             </div>
                                         </div>
                                         <!-- Single Product End -->
