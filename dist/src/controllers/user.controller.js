@@ -137,6 +137,26 @@ class UserController {
             product: product
         });
     }
+    static async searchProduct(req, res) {
+        try {
+            let keyword = req.query.search;
+            let product = await product_model_1.Product.find({ name: keyword });
+            console.log(product);
+            let category = await category_model_1.Category.find();
+            let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+            res.render('user/search', {
+                product: product,
+                category: category,
+                userName: req.decoded.name,
+                carts: cart
+            });
+        }
+        catch (e) {
+            res.json({
+                'error': e.message
+            });
+        }
+    }
 }
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map

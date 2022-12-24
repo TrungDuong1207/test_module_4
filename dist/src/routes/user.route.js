@@ -12,5 +12,6 @@ userRoutes.post("/cart-add", user_controller_1.UserController.addCart);
 userRoutes.get("/cart-delete/:id", user_controller_1.UserController.deleteCart);
 userRoutes.get('/product-category/:id', user_controller_1.UserController.showListByCategory);
 userRoutes.get('/product/:id', user_controller_1.UserController.showProduct);
+userRoutes.get('/search-product', user_controller_1.UserController.searchProduct);
 exports.default = userRoutes;
 //# sourceMappingURL=user.route.js.map

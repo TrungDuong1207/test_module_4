@@ -156,5 +156,25 @@ export class UserController {
         });
     }
 
+    static async searchProduct (req, res) {
+        try {
+            let keyword = req.query.search
+            let product = await Product.find({name: keyword})
+            console.log(product)
+            let category = await Category.find()
+            let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+            res.render('user/search', {
+                product: product,
+                category: category,
+                userName: req.decoded.name,
+                carts: cart
+            })
+        }catch (e) {
+            res.json({
+                'error': e.message
+            })
+        }
+    }
+
 
 }
