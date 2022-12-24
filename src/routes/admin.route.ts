@@ -34,7 +34,5 @@ adminRoutes.post('/update-user/:id', AdminController.updateUser)
 adminRoutes.get('/delete-user/:id', AdminController.deleteUser)
 
 adminRoutes.get('/search-product', AdminController.searchProduct)
-adminRoutes.get('/w', AdminController.web)
-
 
 export default adminRoutes;

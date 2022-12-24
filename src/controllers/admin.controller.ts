@@ -155,8 +155,4 @@ export class AdminController {
             })
         }
     }
-
-    static web (req, res) {
-        res.render('user/wishlist')
-    }
 }

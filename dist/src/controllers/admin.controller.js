@@ -146,9 +146,6 @@ class AdminController {
             });
         }
     }
-    static web(req, res) {
-        res.render('user/wishlist');
-    }
 }
 exports.AdminController = AdminController;
 //# sourceMappingURL=admin.controller.js.map

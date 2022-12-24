@@ -88,7 +88,7 @@
             </div>
         </div>
         <!-- Slider Area End Here -->
-
+<div id="list-product">
         <!-- Like Products Area Start Here -->
         <div class="like-product ptb-95 ptb-sm-55 off-white-bg">
             <div class="container">
@@ -101,7 +101,7 @@
                             <div class="single-product">
                                 <!-- Product Image Start -->
                                 <div class="pro-img">
-                                    <a href="product.html">
+                                    <a href="/user/product/<%=item._id%>">
                                         <img class="primary-img" src="/image/upload/<%=item.image%>"
                                             alt="single-product">
 
@@ -113,7 +113,7 @@
                                 <!-- Product Content Start -->
                                 <div class="pro-content">
                                     <div class="pro-info">
-                                        <h4><a href="product.html">
+                                        <h4><a href="/user/product/<%=item._id%>">
                                                 <%=item.name%>
                                             </a></h4>
                                         <p><span class="price">$<%=item.price%></span></p>
@@ -154,7 +154,7 @@
                                             <div class="single-product single-product-sidebar">
                                                 <!-- Product Image Start -->
                                                 <div class="pro-img">
-                                                    <a href="product.html">
+                                                    <a href="/user/product/<%=item._id%>">
                                                         <img class="primary-img" src="/image/upload/<%=item.image%>"
                                                             alt="single-product">
                                                     </a>
@@ -163,7 +163,7 @@
                                                 <!-- Product Content Start -->
                                                 <div class="pro-content">
                                                     <div class="pro-info">
-                                                        <h4><a href="product.html">
+                                                        <h4><a href="/user/product/<%=item._id%>">
                                                                 <%=item.name%>
                                                             </a></h4>
                                                         <p><span class="price">$<%=item.price%></span></p>
@@ -227,7 +227,7 @@
                                             <div class="single-product">
                                                 <!-- Product Imag Start -->
                                                 <div class="pro-img">
-                                                    <a href="product.html">
+                                                    <a href="/user/product/<%=item._id%>">
                                                         <img class="primary-img" src="/image/upload/<%=item.image%>"
                                                             alt="single-product">
                                                     </a>
@@ -246,7 +246,7 @@
 
                                             <div class="thubnail-desc fix">
                                                 <div class="countdown" data-countdown="2025/03/01"></div>
-                                                <h3><a href="product.html">
+                                                <h3><a href="/user/product/<%=item._id%>">
                                                         <%=item.name%>
                                                     </a></h3>
                                                 <div class="pro-price mtb-20">
@@ -264,10 +264,6 @@
                                                     <div class="actions-primary">
                                                         <a href="cart.html" title="Add to Cart"> +Thêm vào giỏ
                                                             hàng</a>
-                                                    </div>
-                                                    <div class="actions-secondary">
-                                                        <a href="wishlist.html" title="WishList"><i
-                                                                class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -303,7 +299,7 @@
                                                             <div class="single-product">
                                                                 <!-- Product Image Start -->
                                                                 <div class="pro-img">
-                                                                    <a href="product.html">
+                                                                    <a href="/user/product/<%=item._id%>">
                                                                         <img class="primary-img" src="/image/upload/<%=item.image%>"
                                                                             alt="single-product">
                                                                        
@@ -316,7 +312,7 @@
                                                                 <!-- Product Content Start -->
                                                                 <div class="pro-content">
                                                                     <div class="pro-info">
-                                                                        <h4><a href="product.html"><%=item.name%></a></h4>
+                                                                        <h4><a href="/user/product/<%=item._id%>"><%=item.name%></a></h4>
                                                                         <p><span class="price">$<%=item.price%></span></p>
                                                                     </div>
                                                                     <div class="pro-actions">
@@ -359,14 +355,10 @@
         <div class="big-banner pb-100 pt-95 pb-sm-60 pt-sm-55">
             <div class="container big-banner-box">
                 <div class="col-img">
-                    <a href="#">
                         <img src="/image/banner/10.jpg" alt="">
-                    </a>
                 </div>
                 <div class="col-img">
-                    <a href="#">
                         <img src="/image/banner/11.jpg" alt="">
-                    </a>
                 </div>
             </div>
         </div>
@@ -380,7 +372,7 @@
 
     </div>
     <!-- Main Wrapper End Here -->
-
+    </div>
 
     <!-- jquery 3.2.1 -->
     <script src="/js/user/jquery-3.2.1.min.js"></script>

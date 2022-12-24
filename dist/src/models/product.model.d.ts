@@ -26,15 +26,15 @@ import { Schema } from "mongoose";
 declare const Product: import("mongoose").Model<{
     name?: string;
     description?: string;
-    amount?: number;
     image?: string;
+    amount?: number;
     price?: number;
     category?: import("mongoose").Types.ObjectId;
 }, {}, {}, {}, Schema<any, import("mongoose").Model<any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
     name?: string;
     description?: string;
-    amount?: number;
     image?: string;
+    amount?: number;
     price?: number;
     category?: import("mongoose").Types.ObjectId;
 }>>;
