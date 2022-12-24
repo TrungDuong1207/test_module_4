@@ -46,7 +46,7 @@ export class UserController {
         res.render("user/cart", { carts: cart, userName: req.decoded.name, category: category });
     }
 
-    static async showAddCart(req, res) {
+    static async responseProductCart(req, res) {
         try {
             let products = await Product.findOne(
                 {
@@ -140,6 +140,13 @@ export class UserController {
             category: categorys,
             product: product
         })
+
+    }
+
+    static async showPageCheckOut(req, res) {
+        let category = await Category.find();
+        let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+        res.render("user/checkout", { carts: cart, userName: req.decoded.name, category: category });
 
     }
 
