@@ -37,7 +37,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="cart-box mt-all-30">
                     <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
-                        <li><a href="/user/cart"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro"><%=(carts)?carts.items.length:0%></span><span>Giỏ hàng</span></span></a>
+                        <li><a href="/user/cart"><i class="lnr lnr-cart"></i><span class="my-cart"><span id ="cart-length" class="total-pro"><%=(carts)?carts.items.length:0%></span><span>Giỏ hàng</span></span></a>
                             <ul class="ht-dropdown cart-box-width">
                                 <li>
                                     <% if(carts){%>
@@ -61,7 +61,7 @@
                                     <!-- Cart Footer Inner Start -->
                                     <div class="cart-footer">
                                         <div class="cart-actions text-center">
-                                            <a class="cart-checkout" href="/user/checkout">Kiểm tra</a>
+                                            <a class="cart-checkout" href="/user/cart">Kiểm tra</a>
                                         </div>
                                     </div>
                                     <!-- Cart Footer Inner End -->

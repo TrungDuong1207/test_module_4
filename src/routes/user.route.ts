@@ -8,10 +8,9 @@ userRoutes.get("/home", UserController.showUserPage);
 userRoutes.get('/about', UserController.showAboutPage)
 userRoutes.get('/contact', UserController.contact)
 
-userRoutes.post('/changepassword', AuthController.changePassword)
-
-
-userRoutes.get("/cart",UserController.showCartpage);
+userRoutes.get("/cart",UserController.showCartPage);
+userRoutes.get("/cart-add", UserController.showAddCart);
+userRoutes.post("/cart-add", UserController.addCart)
 
 
 export default userRoutes;

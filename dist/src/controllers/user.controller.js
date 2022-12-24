@@ -6,7 +6,6 @@ const cart_model_1 = require("../models/cart.model");
 class UserController {
     static async showUserPage(req, res) {
         let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
-        console.log(cart);
         let productsTrend = await product_model_1.Product.find().limit(7).skip(0);
         let productSearchMost = await product_model_1.Product.find().limit(4).skip(4);
         let productSale = await product_model_1.Product.find().limit(3).skip(6);
@@ -20,10 +19,60 @@ class UserController {
         let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
         res.render('user/contact', { carts: cart, userName: req.decoded.name });
     }
-    static async showCartpage(req, res) {
+    static async showCartPage(req, res) {
         let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
-        console.log(cart);
         res.render("user/cart", { carts: cart, userName: req.decoded.name });
+    }
+    static async showAddCart(req, res) {
+        try {
+            let products = await product_model_1.Product.findOne({
+                _id: req.query.id
+            }).populate('category');
+            res.status(200).json(products);
+        }
+        catch (e) {
+            res.json({
+                'error': e.message
+            });
+        }
+    }
+    static async addCart(req, res) {
+        try {
+            let productCart = req.body.cart;
+            console.log(productCart);
+            console.log(req.decoded);
+            let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id });
+            if (!cart) {
+                const newCart = new cart_model_1.Cart({
+                    items: [],
+                    user: req.decoded.user_id,
+                });
+                await newCart.save();
+                cart = newCart;
+            }
+            let checkProductExist = true;
+            for (let i = 0; i < cart.items.length; i++) {
+                if (cart.items[i].product.toString() === productCart._id) {
+                    cart.items[i].quantity++;
+                    checkProductExist = false;
+                    break;
+                }
+            }
+            ;
+            let productNew = {
+                product: productCart._id,
+                quantity: 1
+            };
+            if (checkProductExist) {
+                cart.items.push(productNew);
+            }
+            ;
+            await cart.save();
+            res.status(200).json(cart);
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 }
 exports.UserController = UserController;

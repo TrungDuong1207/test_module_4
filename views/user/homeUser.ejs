@@ -115,9 +115,9 @@
                                     <h4><a href="product.html"><%=item.name%></a></h4>
                                     <p><span class="price">$<%=item.price%></span></p>
                                 </div>
-                                <div class="pro-actions">
+                                <div class="pro-actions" >
                                     <div class="actions-primary">
-                                        <a href="cart.html" title="Add to Cart"> + Thêm vào giỏ hàng</a>
+                                        <a href="#quick-view" onclick="showAddCart2('<%=item._id%>')" title="Add to Cart" > + Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -3525,7 +3525,7 @@
             </div>
             <!-- Container End -->
         </div>
-
+        <div id="product-cart"></div>
         <!-- Footer Area Start Here -->
         <footer class="off-white-bg2 pt-95 bdr-top pt-sm-55">
             <%- include ('../navigationBar/footer')%>
@@ -3534,6 +3534,7 @@
         <!-- Quick View Content End -->
 </div>
 <!-- Main Wrapper End Here -->
+
 
 <!-- jquery 3.2.1 -->
 <script src="/js/user/jquery-3.2.1.min.js"></script>
@@ -3559,6 +3560,8 @@
 <script src="/js/user/bootstrap.min.js"></script>
 <!-- Plugin js -->
 <script src="/js/user/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/user/cart.js"></script>
 <!-- Main activaion js -->
 <script src="/js/user/main.js"></script>
 </body>
