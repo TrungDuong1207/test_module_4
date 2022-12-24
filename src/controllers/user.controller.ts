@@ -10,7 +10,16 @@ export class UserController {
         let productsTrend = await Product.find().limit(7).skip(0);    
         let productSearchMost = await Product.find().limit(4).skip(4);
         let productSale = await Product.find().limit(3).skip(6);
-        res.render("user/homeUser", {productsTrend: productsTrend, productSearchMost: productSearchMost, productSale: productSale, carts: cart, userName: req.decoded.name});
+        let products = await Product.find()
+        console.log(products)
+        res.render("user/homeUser", {
+            productsTrend: productsTrend,
+            productSearchMost: productSearchMost,
+            productSale: productSale,
+            carts: cart,
+            products: products,
+            userName: req.decoded.name
+        });
     }
 
     static async showAboutPage(req, res) {

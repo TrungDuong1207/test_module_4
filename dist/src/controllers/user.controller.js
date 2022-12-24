@@ -9,7 +9,16 @@ class UserController {
         let productsTrend = await product_model_1.Product.find().limit(7).skip(0);
         let productSearchMost = await product_model_1.Product.find().limit(4).skip(4);
         let productSale = await product_model_1.Product.find().limit(3).skip(6);
-        res.render("user/homeUser", { productsTrend: productsTrend, productSearchMost: productSearchMost, productSale: productSale, carts: cart, userName: req.decoded.name });
+        let products = await product_model_1.Product.find();
+        console.log(products);
+        res.render("user/homeUser", {
+            productsTrend: productsTrend,
+            productSearchMost: productSearchMost,
+            productSale: productSale,
+            carts: cart,
+            products: products,
+            userName: req.decoded.name
+        });
     }
     static async showAboutPage(req, res) {
         let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
