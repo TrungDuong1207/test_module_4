@@ -39,8 +39,6 @@ class UserController {
     static async addCart(req, res) {
         try {
             let productCart = req.body.cart;
-            console.log(productCart);
-            console.log(req.decoded);
             let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id });
             if (!cart) {
                 const newCart = new cart_model_1.Cart({
@@ -72,6 +70,26 @@ class UserController {
         }
         catch (err) {
             console.log(err);
+            res.redirect("/error/500");
+        }
+    }
+    static async deleteCart(req, res) {
+        try {
+            let idProduct = req.params.id;
+            console.log(idProduct);
+            let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id });
+            cart.items.forEach((item, index) => {
+                console.log(item.product.toString());
+                if (item.product.toString() == idProduct) {
+                    cart.items.splice(index, 1);
+                }
+            });
+            await cart.save();
+            res.redirect('/user/cart');
+        }
+        catch (err) {
+            console.log(err);
+            res.redirect("/error/500");
         }
     }
 }

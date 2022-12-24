@@ -10,7 +10,10 @@ userRoutes.get('/contact', UserController.contact)
 
 userRoutes.get("/cart",UserController.showCartPage);
 userRoutes.get("/cart-add", UserController.showAddCart);
-userRoutes.post("/cart-add", UserController.addCart)
+userRoutes.post("/cart-add", UserController.addCart);
+userRoutes.get("/cart-delete/:id", UserController.deleteCart);
+
+
 
 
 export default userRoutes;

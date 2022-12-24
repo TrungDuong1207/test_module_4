@@ -11,4 +11,5 @@ const showAddCart2 = (value) => {
             document.getElementById("cart-length").innerText = carts.items.length; 
         })     
     })
-  }
+}
+
