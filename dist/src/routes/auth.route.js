@@ -18,6 +18,5 @@ authRoutes.get("/facebook/callback", passport_middleware_1.default.authenticate(
     failureRedirect: "/auth/login",
     successRedirect: "/user/shop"
 }));
-authRoutes.get('/logout', auth_controller_1.AuthController.Logout);
 exports.default = authRoutes;
 //# sourceMappingURL=auth.route.js.map

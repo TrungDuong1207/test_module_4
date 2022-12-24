@@ -109,9 +109,6 @@ class AuthController {
             res.redirect("/auth/changepassword");
         }
     }
-    static Logout(req, res) {
-        res.render('login');
-    }
 }
 exports.AuthController = AuthController;
 //# sourceMappingURL=auth.controller.js.map

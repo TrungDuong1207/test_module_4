@@ -112,10 +112,6 @@ export class AuthController {
 
     }
 
-    static Logout (req, res) {
-        res.render('login')
-    }
-
     // static async loginFacebook(req, res, next) {
     //     let data = {
     //       name: req.user.displayName,

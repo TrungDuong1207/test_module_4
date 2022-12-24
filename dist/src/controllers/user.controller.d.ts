@@ -6,4 +6,5 @@ export declare class UserController {
     static showAddCart(req: any, res: any): Promise<void>;
     static addCart(req: any, res: any): Promise<void>;
     static deleteCart(req: any, res: any): Promise<void>;
+    static showListByCategory(req: any, res: any): Promise<void>;
 }

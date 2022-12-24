@@ -6,27 +6,44 @@ import { Cart } from "../models/cart.model";
 export class UserController {
 
     static async showUserPage(req, res) {
+        let category = await Category.find()
         let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
         let productsTrend = await Product.find().limit(7).skip(0);
         let productSearchMost = await Product.find().limit(4).skip(4);
         let productSale = await Product.find().limit(3).skip(6);
-        res.render("user/homeUser", { productsTrend: productsTrend, productSearchMost: productSearchMost, productSale: productSale, carts: cart, userName: req.decoded.name });
+        let products = await Product.find()
+
+        res.render("user/homeUser", {
+            productsTrend: productsTrend,
+            productSearchMost: productSearchMost,
+            productSale: productSale,
+            carts: cart,
+            products: products,
+            category: category,
+            userName: req.decoded.name
+        });
     }
 
     static async showAboutPage(req, res) {
+        let category = await Category.find()
         let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
-        res.render('user/about', { carts: cart, userName: req.decoded.name });
+        res.render('user/about', {
+            carts: cart,
+            userName: req.decoded.name,
+            category: category,
+        });
     }
 
     static async contact(req, res) {
+        let category = await Category.find()
         let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
-        res.render('user/contact', { carts: cart, userName: req.decoded.name })
+        res.render('user/contact', { carts: cart, userName: req.decoded.name, category: category })
     }
 
-
     static async showCartPage(req, res) {
+        let category = await Category.find();
         let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
-        res.render("user/cart", { carts: cart, userName: req.decoded.name });
+        res.render("user/cart", { carts: cart, userName: req.decoded.name, category: category });
     }
 
     static async showAddCart(req, res) {
@@ -85,30 +102,45 @@ export class UserController {
         }
     }
 
-    static async deleteCart(req, res){
+    static async deleteCart(req, res) {
         try {
             let idProduct = req.params.id;
             console.log(idProduct);
-            
-            let cart = await Cart.findOne({user: req.decoded.user_id});
-            cart.items.forEach((item, index)=>{
+
+            let cart = await Cart.findOne({ user: req.decoded.user_id });
+            cart.items.forEach((item, index) => {
                 console.log(item.product.toString());
-                
-                if(item.product.toString() == idProduct ){
-                    cart.items.splice(index,1);
-                    
+
+                if (item.product.toString() == idProduct) {
+                    cart.items.splice(index, 1);
+
                 }
             })
 
             await cart.save();
-            
+
             res.redirect('/user/cart');
-            
-        } catch(err){
+
+        } catch (err) {
             console.log(err);
             res.redirect("/error/500");
         }
     }
 
+    static async showListByCategory(req, res) {
+        let id = req.params.id
+        console.log(id)
+        let product = await Product.find({ category: id })
+        console.log(product)
+        let categorys = await Category.find()
+        let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+        res.render('user/filterByCategory', {
+            carts: cart,
+            userName: req.decoded.name,
+            category: categorys,
+            product: product
+        })
+
+    }
 
 }

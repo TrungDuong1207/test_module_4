@@ -1,0 +1,368 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DM SHOP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="shortcut icon" href="img/favicon1.ico">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="/css/user/font-awesome.min.css">
+    <!-- Ionicons css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js" />
+
+    <!-- linearicons css -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+    <!-- Nice select css -->
+    <link rel="stylesheet" href="/css/user/nice-select.css">
+    <!-- Jquery fancybox css -->
+    <link rel="stylesheet" href="/css/user/jquery.fancybox.css">
+    <!-- Jquery ui price slider css -->
+    <link rel="stylesheet" href="/css/user/jquery-ui.min.css">
+    <!-- Meanmenu css -->
+    <link rel="stylesheet" href="/css/user/meanmenu.min.css">
+    <!-- Nivo slider css -->
+    <link rel="stylesheet" href="/css/user/nivo-slider.css">
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="/css/user/owl.carousel.min.css">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="/css/user/bootstrap.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/css/user/default.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="/css/user/responsive.css">
+    <!-- Modernizer js -->
+    <script src="/js/user/modernizr-3.5.0.min.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+         <!-- Main Header Area Start Here -->
+         <header>
+             <%- include ('../navigationBar/header')%>
+         </header>
+             <!-- Header Bottom End Here -->
+        <!-- Breadcrumb Start -->
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Men Page Start -->
+        <div class="main-shop-page pt-100 pb-100 ptb-sm-60">
+            <div class="container">
+                <!-- Row End -->
+                <div class="row">
+                    <!-- Sidebar Shopping Option Start -->
+                    <div class="col-lg-3 order-2 order-lg-1">
+                        <div class="brand-banner-sidebar owl-carousel">
+                            <div class="single-brand">
+                                <img class="img" src="/image/black-rouge-6867.jpg" alt="brand-image">
+                                <img src="/image/dchic.jpg" alt="brand-image">
+                            </div>
+                            <div class="single-brand">
+                                <img class="img" src="/image/puma-203146.jpg" alt="brand-image">
+                                <img src="/image/samsung.png" alt="brand-image">
+                            </div>
+                            <div class="single-brand">
+                                <img src="/image/vt.png" alt="brand-image">
+                                <img src="/image/ivymoda.jpg" alt="brand-image">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar Shopping Option End -->
+                    <!-- Product Categorie List Start -->
+                    <div class="col-lg-9 order-1 order-lg-2">
+                        <div class="main-categorie mb-all-40">
+                            <!-- Grid & List Main Area End -->
+                            <div class="tab-content fix">
+                                <div id="grid-view" class="tab-pane fade show active">
+                                    <div class="row">
+                                        <!-- Single Product Start -->
+                                        <% product.forEach(item => {%>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                            <div class="single-product">
+                                                <!-- Product Image Start -->
+
+                                                <div class="pro-img">
+                                                    <a href="product.ejs">
+                                                        <img  src="/image/upload/<%item.image%>" alt="single-product">
+                                                    </a>
+                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                </div>
+                                                <!-- Product Image End -->
+                                                <!-- Product Content Start -->
+                                                <div class="pro-content">
+                                                    <div class="pro-info">
+                                                        <p><span class="price"><%= item.name%></span></p>
+                                                    </div>
+                                                    <div class="pro-actions">
+                                                        <p><span class="price">$<%= item.price%></span></p>
+                                                    </div>
+                                                </div>
+                                                <!-- Product Content End -->
+
+                                            </div>
+                                        </div>
+                                        <%})%>
+                                        <!-- Single Product End -->
+
+                                            </div>
+                                        </div>
+                                        <!-- Single Product End -->
+                                    </div>
+                                    <!-- Row End -->
+                                </div>
+                                <!-- #grid view End -->
+                                <div id="list-view" class="tab-pane fade">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product"> 
+                                        <div class="row">        
+                                            <!-- Product Image Start -->
+                                            <div class="col-lg-4 col-md-5 col-sm-12">
+                                                <div class="pro-img">
+                                                    <a href="product.ejs">
+                                                        <img class="primary-img" src="img/products/23.jpg" alt="single-product">
+                                                        <img class="secondary-img" src="img/products/24.jpg" alt="single-product">
+                                                    </a>
+                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                     <span class="sticker-new">new</span>
+                                                </div>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                                <div class="pro-content hot-product2">
+                                                    <h4><a href="product.ejs">Accessorize with a straw hat</a></h4>
+                                                    <p><span class="price">$15.19</span></p>
+                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Faded short sleeves t-shirt with high neckline. Soft and stretchy material.</p>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <a href="cart.ejs" title="" data-original-title="Add to Cart"> + Add To Cart</a>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a href="compare.ejs" title="" data-original-title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+                                                            <a href="wishlist.ejs" title="" data-original-title="WishList"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                    <!-- Single Product Start -->
+                                    <div class="single-product"> 
+                                        <div class="row">        
+                                            <!-- Product Image Start -->
+                                            <div class="col-lg-4 col-md-5 col-sm-12">
+                                                <div class="pro-img">
+                                                    <a href="product.ejs">
+                                                        <img class="primary-img" src="img/products/30.jpg" alt="single-product">
+                                                        <img class="secondary-img" src="img/products/31.jpg" alt="single-product">
+                                                    </a>
+                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                </div>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                                <div class="pro-content hot-product2">
+                                                    <h4><a href="product.ejs">Tretchy Material Comfortable</a></h4>
+                                                    <p><span class="price">$199.19</span><del class="prev-price">$205.50</del></p>
+                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Faded short sleeves t-shirt with high neckline. Soft and stretchy material.</p>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <a href="cart.ejs" title="" data-original-title="Add to Cart"> + Add To Cart</a>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a href="compare.ejs" title="" data-original-title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+                                                            <a href="wishlist.ejs" title="" data-original-title="WishList"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                    <!-- Single Product Start -->
+                                    <div class="single-product"> 
+                                        <div class="row">        
+                                            <!-- Product Image Start -->
+                                            <div class="col-lg-4 col-md-5 col-sm-12">
+                                                <div class="pro-img">
+                                                    <a href="product.ejs">
+                                                        <img class="primary-img" src="img/products/41.jpg" alt="single-product">
+                                                        <img class="secondary-img" src="img/products/42.jpg" alt="single-product">
+                                                    </a>
+                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                    <span class="sticker-new">new</span>
+                                                </div>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                                <div class="pro-content hot-product2">
+                                                    <h4><a href="product.ejs">Neckline Short Sleeves  Stretchy</a></h4>
+                                                    <p><span class="price">$58.19</span></p>
+                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Faded short sleeves t-shirt with high neckline. Soft and stretchy material.</p>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <a href="cart.ejs" title="" data-original-title="Add to Cart"> + Add To Cart</a>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a href="compare.ejs" title="" data-original-title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+                                                            <a href="wishlist.ejs" title="" data-original-title="WishList"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                    <!-- Single Product Start -->
+                                    <div class="single-product"> 
+                                        <div class="row">        
+                                            <!-- Product Image Start -->
+                                            <div class="col-lg-4 col-md-5 col-sm-12">
+                                                <div class="pro-img">
+                                                    <a href="product.ejs">
+                                                        <img class="primary-img" src="img/products/1.jpg" alt="single-product">
+                                                        <img class="secondary-img" src="img/products/2.jpg" alt="single-product">
+                                                    </a>
+                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                </div>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                                <div class="pro-content hot-product2">
+                                                    <h4><a href="product.ejs">Accessorize with a straw hat</a></h4>
+                                                    <p><span class="price">$152.19</span><del class="prev-price">$160.50</del></p>
+                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Faded short sleeves t-shirt with high neckline. Soft and stretchy material.</p>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <a href="cart.ejs" title="" data-original-title="Add to Cart"> + Add To Cart</a>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a href="compare.ejs" title="" data-original-title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+                                                            <a href="wishlist.ejs" title="" data-original-title="WishList"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                    <!-- Single Product Start -->
+                                    <div class="single-product"> 
+                                        <div class="row">        
+                                            <!-- Product Image Start -->
+                                            <div class="col-lg-4 col-md-5 col-sm-12">
+                                                <div class="pro-img">
+                                                    <a href="product.ejs">
+                                                        <img class="primary-img" src="img/products/23.jpg" alt="single-product">
+                                                        <img class="secondary-img" src="img/products/24.jpg" alt="single-product">
+                                                    </a>
+                                                    <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                </div>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                                <div class="pro-content hot-product2">
+                                                    <h4><a href="product.ejs">Faded Short Sleeves T-shirt</a></h4>
+                                                    <p><span class="price">$15.19</span><del class="prev-price">$16.50</del></p>
+                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Faded short sleeves t-shirt with high neckline. Soft and stretchy material.</p>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <a href="cart.ejs" title="" data-original-title="Add to Cart"> + Add To Cart</a>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a href="compare.ejs" title="" data-original-title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+                                                            <a href="wishlist.ejs" title="" data-original-title="WishList"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <!-- #list view End -->
+                                <div class="pro-pagination">
+                                    <ul class="blog-pagination">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                    </ul>                                    
+                                    <div class="product-pagination">
+                                        <span class="grid-item-list">Showing 1 to 12 of 51 (5 Pages)</span>
+                                    </div>
+                                </div>
+                                <!-- Product Pagination Info -->
+                            </div>
+                            <!-- Grid & List Main Area End -->
+                        </div>
+                    </div>
+                    <!-- product Categorie List End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Shop Page End -->
+    
+        </div>
+        <!-- Footer Area Start Here -->
+        <footer class="off-white-bg2 pt-95 bdr-top pt-sm-55">
+            <%- include ('../navigationBar/footer')%>
+        </footer>
+        <!-- Footer Area End Here -->
+        <!-- Quick View Content End -->
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script src="/js/user/jquery-3.2.1.min.js"></script>
+    <!-- Countdown js -->
+    <script src="/js/user/jquery.countdown.min.js"></script>
+    <!-- Mobile menu js -->
+    <script src="/js/user/jquery.meanmenu.min.js"></script>
+    <!-- ScrollUp js -->
+    <script src="/js/user/jquery.scrollUp.js"></script>
+    <!-- Nivo slider js -->
+    <script src="/js/user/jquery.nivo.slider.js"></script>
+    <!-- Fancybox js -->
+    <script src="/js/user/jquery.fancybox.min.js"></script>
+    <!-- Jquery nice select js -->
+    <script src="/js/user/jquery.nice-select.min.js"></script>
+    <!-- Jquery ui price slider js -->
+    <script src="/js/user/jquery-ui.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="/js/user/owl.carousel.min.js"></script>
+    <!-- Bootstrap popper js -->
+    <script src="/js/user/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/js/user/bootstrap.min.js"></script>
+    <!-- Plugin js -->
+    <script src="/js/user/plugins.js"></script>
+    <!-- Main activaion js -->
+    <script src="/js/user/main.js"></script>
+</body>
+
+</html>

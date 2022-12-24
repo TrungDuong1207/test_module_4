@@ -42,22 +42,22 @@
                                 <li>
                                     <% if(carts){%>
                                         <% carts.items.forEach((item)=>{%>
-                                            <!-- Cart Box Start -->
-                                            <div class="single-cart-box">
-                                                <div class="cart-img">
-                                                    <a href="#"><img src="/image/upload/<%=item.product.image%>" alt="cart-image"></a>
-                                                    <span class="pro-quantity"><%=item.quantity%>X</span>
-                                                </div>
-                                                <div class="cart-content">
-                                                    <h6><a href="product.ejs"><%=item.product.name%></a></h6>
-                                                    <span class="cart-price">$<%=item.product.price%></</span>
-                                                </div>
-                                                <a class="del-icone" href="#"><i class="ion-close"></i></a>
+                                        <!-- Cart Box Start -->
+                                        <div class="single-cart-box">
+                                            <div class="cart-img">
+                                                <a href="#"><img src="/image/upload/<%=item.product.image%>" alt="cart-image"></a>
+                                                <span class="pro-quantity"><%=item.quantity%>X</span>
                                             </div>
+                                            <div class="cart-content">
+                                                <h6><a href="product.ejs"><%=item.product.name%></a></h6>
+                                                <span class="cart-price">$<%=item.product.price%></span>
+                                            </div>
+                                            <a class="del-icone" href="#"><i class="ion-close"></i></a>
+                                        </div>
                                         <!-- Cart Box End -->
                                         <%})%>
                                     <%}%>
-                                    
+
                                     <!-- Cart Footer Inner Start -->
                                     <div class="cart-footer">
                                         <div class="cart-actions text-center">
@@ -70,12 +70,12 @@
                         </li>
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                              <img src="img/logo/user1.png" alt=""><%=userName%>
+                                <img src="img/logo/user1.png" alt=""><%=userName%>
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item"  href="/auth/changepassword">Đổi mật khẩu<i class="fa fa-address-book"></i></a>
-                              <a class="dropdown-item"  href="../../User/login.html"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a>
-                              <a class="dropdown-item"  href="orderUser.html"><i class="fa fa-sign-out pull-right"></i> Chi tiết đơn hàng</a>
+                                <a class="dropdown-item"  href="/auth/changepassword">Đổi mật khẩu<i class="fa fa-address-book"></i></a>
+                                <a class="dropdown-item"  href="/auth/login"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a>
+                                <a class="dropdown-item"  href="orderUser.html"><i class="fa fa-sign-out pull-right"></i> Chi tiết đơn hàng</a>
                             </div>
                         </li>
 
@@ -103,13 +103,12 @@
                         <li><a href="/user/about" style="font-size: 20px;">Giới thiệu</a></li>
                         <li><a style="font-size: 20px;">Thể loại<i class="fa fa-angle-down"></i></a>
                             <!-- Home Version Dropdown Start -->
-                            <ul class="ht-dropdown dropdown-style-two">
-                                <li><a href="#" style="font-size: 20px;">Quần, áo</a></li>
-                                <li><a href="#" style="font-size: 20px;">Váy</a></li>
-                                <li><a href="#" style="font-size: 20px;">Mỹ phẩm</a></li>
-                                <li><a href="#" style="font-size: 20px;">Giày</a></li>
-                                <li><a href="#" style="font-size: 20px;">Thiết bị điện tử</a></li>
-                            </ul>
+                                <ul class="ht-dropdown dropdown-style-two">
+                                    <% category.forEach(item => {%>
+                                    <li><a href="/user/product-category/<%=item._id%>" style="font-size: 20px;"><%= item.name%></a></li>
+                                        <%})%>
+                                </ul>
+
                             <!-- Home Version Dropdown End -->
                         </li>
                         <li><a href="/user/contact" style="font-size: 20px;">Phản hồi</a></li>
@@ -123,11 +122,9 @@
                             <li><a style="font-size: 20px;">Thể loại<i class="fa fa-angle-down"></i></a>
                                 <!-- Home Version Dropdown Start -->
                                 <ul class="ht-dropdown dropdown-style-two">
-                                    <li><a href="" style="font-size: 20px;">Quần, áo</a></li>
-                                    <li><a href="#" style="font-size: 20px;">Váy</a></li>
-                                    <li><a href="#" style="font-size: 20px;">Mỹ phẩm</a></li>
-                                    <li><a href="#" style="font-size: 20px;">Giày</a></li>
-                                    <li><a href="#" style="font-size: 20px;">Thiết bị điện tử</a></li>
+                                    <% category.forEach(item => {%>
+                                    <li><a href="/user/product-category/<%= item._id%>" style="font-size: 20px;"><%= item.name%></a></li>
+                                    <%})%>
                                 </ul>
                                 <!-- Home Version Dropdown End -->
                             </li>
