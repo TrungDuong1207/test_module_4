@@ -7,13 +7,15 @@ const auth_route_1 = __importDefault(require("./auth.route"));
 const user_route_1 = __importDefault(require("./user.route"));
 const auth_1 = require("../middlewares/auth");
 const error_routes_1 = __importDefault(require("./error.routes"));
+const permission_1 = require("../middlewares/permission");
 const admin_route_1 = __importDefault(require("./admin.route"));
 function route(app) {
+    app.use('/error', error_routes_1.default);
     app.use("/auth", auth_route_1.default);
     app.use(auth_1.checkAuth);
     app.use("/user", user_route_1.default);
+    app.use(permission_1.checkPermission);
     app.use('/admin', admin_route_1.default);
-    app.use('/error', error_routes_1.default);
 }
 exports.default = route;
 //# sourceMappingURL=index.route.js.map

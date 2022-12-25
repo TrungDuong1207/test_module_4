@@ -1,0 +1,1 @@
+{"version":3,"file":"permission.js","sourceRoot":"","sources":["../../../src/middlewares/permission.ts"],"names":[],"mappings":";;;AAAO,MAAM,eAAe,GAAG,CAAC,GAAG,EAAE,GAAG,EAAE,IAAI,EAAE,EAAE;IAC9C,IAAG,GAAG,CAAC,OAAO,CAAC,IAAI,KAAK,OAAO,EAAC;QAC5B,OAAO,IAAI,EAAE,CAAC;KACjB;SAAM;QACH,GAAG,CAAC,QAAQ,CAAC,YAAY,CAAC,CAAC;KAC9B;AACL,CAAC,CAAA;AANY,QAAA,eAAe,mBAM3B"}

@@ -10,20 +10,20 @@
     <title>The Barber Shop</title>
 
    <!-- Bootstrap -->
- <link href="../../public/css/admin/bootstrap.min.css" rel="stylesheet">
- <!-- Font Awesome -->
- <link href="../../public/css/admin/font-awesome.min.css" rel="stylesheet">
- <!-- NProgress -->
- <link href="../../public/css/admin/nprogress.css" rel="stylesheet">
+<link href="/css/admin/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="/css/admin/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="/css/admin/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../../public/css/admin/green.css" rel="stylesheet">
+    <link href="/css/admin/green.css" rel="stylesheet">
 	
     <!-- bootstrap-progressbar -->
-    <link href="../../public/css/admin/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="/css/admin/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../../public/css/admin/custom.min.css" rel="stylesheet">
-    <link href="../../public/css/admin/order.css" rel="stylesheet">
+    <link href="/css/admin/custom.min.css" rel="stylesheet">
+    <link href="/css/admin/order.css" rel="stylesheet">
 
   </head>
 
@@ -53,21 +53,21 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div style="width:100%; margin: 40px 0px;font-family: Helvetica; line-height: 30px; font-size:12px"><p style="float: right; text-align: right; padding-right:20px; line-height: 140%">
-            Ngày đặt hàng: 11/05/1999<br />
-            Mã đơn hàng: ID009
+            Ngày đặt hàng: <%= new Date(orderCustomer.orderDate).toLocaleDateString()%><br />
+            Mã đơn hàng: <%=orderCustomer._id.toString().substring(7,13)%>
           </p>
           
           
           <div style="float: left; margin: 0 0 1.5em 0; ">
-           <strong style="font-size: 18px;">THE BARBER SHOP</strong>
+           <strong style="font-size: 18px;">THE DM SHOP</strong>
             <br />
-            <strong>Địa chỉ:</strong> 97 Man Thiện, Phường Hiệp Phú, Q.9, TP.HCM
+            <strong>Địa chỉ:</strong> Tầng 2 tòa 17T4, Hapulico- Complex, Q.Thanh Xuân, HN
             <br/>
-            <strong>Đường dây nóng:</strong> (+800) 123 456 789)
+            <strong>Đường dây nóng:</strong> (+800) 123 456 789
             <br/>
-            <strong>Website:</strong> www.thebarbershop.com
+            <strong>Website:</strong> www.thedmshop.com
             <br/>
-            <strong>Email:</strong> Support@Barbershop.Com
+            <strong>Email:</strong> Support@dmshop.com
           </div>
           
           <table style="width: 100%"><tr><td valign="top" style="width: 65%">
@@ -77,23 +77,23 @@
           <table style="margin: 0 0 1.5em 0;font-size: 12px;" width="100%">
             <thead>
               <tr>
-                <th style="width:10%;text-align: left;padding: 5px 0px">Mã sản phẩm</th>
+                <th style="width:25%;text-align: left;padding: 5px 0px">Mã sản phẩm</th>
                 <th style="width:35%;text-align: left;padding: 5px 0px">Sản phẩm</th>
-                <th style="width:10%;text-align: right;padding: 5px 0px">Số lượng</th>
-                <th style="width:15%;text-align: right;padding: 5px 0px">Số lượng</th>
-                <th style="width:10%;text-align: right;padding: 5px 0px">Số lượng</th>
-                <th style="width:20%;text-align: right;padding: 5px 0px">Giá</th>
+                <th style="width:15%;text-align: center;padding: 5px 0px">Số lượng</th>
+                <th style="width:25%;text-align: right;padding: 5px 0px">Giá</th>
               </tr>
             </thead>
             <tbody>
+              <% let sum = 0;%>
+                <%orderItems.items.forEach((item)=>{%>
+                  <% sum += (item.product.price*item.quantity);%>
               <tr valign="top" style="border-top: 1px solid #d9d9d9;">
-                <td align="left" style="padding: 5px 0px">ID001</td>
-                <td align="left" style="padding: 5px 5px 5px 0px;white-space: pre-line;">Sáp vuốt tóc Loreal</td>
-                <td align="center" style="padding: 5px 0px">2</td>
-                <td align="center" style="padding: 5px 0px">2</td>
-                <td align="center" style="padding: 5px 0px">2</td>
-                <td align="right" style="padding: 5px 0px">500.000 Đ</td>
+                <td align="left" style="padding: 5px 0px"><%=item.product._id%></td>
+                <td align="left" style="padding: 5px 5px 5px 0px;white-space: pre-line;"><%=item.product.name%></td>
+                <td align="center" style="width:15%;text-align: center;padding: 5px 0px"><%=item.quantity%></td>
+                <td align="right" style="padding: 5px 0px">$<%=item.product.price%></td>
               </tr>
+              <%})%>
             </tbody>
           </table>
           
@@ -102,47 +102,54 @@
           <table style="font-size: 12px;width: 100%; margin: 0 0 1.5em 0;">
             <tr>
               <td style="padding: 5px 0px">Tổng giá sản phẩm:</td>
-              <td style="text-align:right">1.000.000.000 Đ</td>
+              <td style="text-align:right; font-size: 15px; font-weight: bold;">$<%=(sum!==0)?sum:0%></td>
             </tr>
             <tr>
-              <td style="padding: 5px 0px">Khuyến mãi</td>
-              <td style="text-align:right">30%</td>
+              <td style="padding: 5px 0px">Phí ship</td>
+              <td style="text-align:right">free ship</td>
             </tr>
             <tr>
               <td style="padding: 5px 0px"><strong>Tổng tiền:</strong></td>
-              <td style="text-align:right;padding: 5px 0px"><strong>1.000.000.000 Đ</strong></td>
+              <td style="text-align:right;padding: 5px 0px; font-size: 14px; font-weight: bold;"><strong>$<%=(sum!==0)?sum:0%></strong></td>
             </tr>
           </table>
-            <h3 style="font-size: 14px;margin: 0 0 1em 0;">Ghi chú</h3>
-            <p style="line-height: 30px">lấy em 2 gói mì tôm</p>
+            <h3 style="font-size: 14px;margin: 0 0 1em 0; font-weight: bold;">Ghi chú:</h3>
+            <p style="line-height: 30px; font-style: italic;"><%=orderItems.note%></p>
           
           </td><td valign="top" style="padding: 0px 20px">
            <h3 style="font-size: 14px;margin: 1.5em 0 1em 0; font-weight: bold;">Thông tin đơn hàng</h3>
           <hr style="border: none; border-top: 2px solid #0975BD;"/>
           
             <div style="margin: 0 0 1em 0; padding: 1em; border: 1px solid #d9d9d9;">
-              <strong>Mã đơn hàng:</strong><br/>ID001<br/>
-            <strong>Ngày đặt hàng:</strong><br/>11/05/1999<br />
+              <strong>Mã đơn hàng:</strong><br/><%=orderCustomer._id.toString().substring(7,13)%><br/>
+            <strong>Ngày đặt hàng:</strong><br/><%= new Date(orderCustomer.orderDate).toLocaleDateString()%><br />
               <strong>Phương thức thanh toán</strong><br/>Thanh toán khi giao hàng(COD)
               <br/>
               <strong>Phương thức vận chuyển</strong><br/>Giao hàng tận nơi<br/>
               <strong>Trạng thái</strong><br/>
-              <div class="select">
-                <select name="slct" id="slct">
-                  <option value="1">Đang xử lí</option>
-                  <option value="2">Đang giao hàng</option>
-                  <option value="3">Hoàn tất</option>
-                  <option value="4">Thất bại</option>
-                </select>
-              </div> 
+              <form action="/admin/order-update/<%=orderItems._id%>" method="post">
+                <div class="d-flex">
+                  <div class="select">
+                    <select name="status" id="slct">
+                      <option><%=orderItems.status%></option>
+                      <option value="Đang xử lý">Đang xử lí</option>
+                      <option value="Đang giao">Đang giao</option>
+                      <option value="Hoàn tất">Hoàn tất</option>
+                      <option value="Đã hủy">Đã hủy</option>
+                    </select>
+                  </div> 
+                  <button type="submit" class="btn btn-round btn-outline-primary btn-sm" style="margin-left: 5px">Lưu trạng thái</button>
+                </div>
+              </form>
             </div>
             <h3 style="font-size: 14px;margin: 1.5em 0 1em 0; font-weight: bold;">Thông tin mua hàng</h3>
           <hr style="border: none; border-top: 2px solid #0975BD;"/>
           
             <div style="margin: 0 0 1em 0; padding: 1em; border: 1px solid #d9d9d9;  white-space: normal;">
-              <strong>Mai Tri Cuong</strong><br/>97 Man Thiện, Phường Hiệp Phú, Q.9, TP.HCM<br/>
-              Điện thoại: 0339005702<br/>
-              Email: maitricuong1122@gmail.com
+              <strong><%=orderCustomer.customer.name%></strong><br/>
+              Đại chỉ: <%=orderCustomer.address%><br/>
+              Điện thoại: <%=orderCustomer.phone%><br/>
+              Email: <%=orderCustomer.customer.email%>
             </div>
         </div>
       </div>
@@ -151,23 +158,23 @@
     </div>
 
     <!-- jQuery -->
-  <script src="../../public/js/admin/jquery.min.js"></script>
+  <script src="/js/admin/jquery.min.js"></script>
   <!-- Bootstrap -->
-  <script src="../../public/js/admin/bootstrap.bundle.min.js"></script>
+  <script src="/js/admin/bootstrap.bundle.min.js"></script>
   <!-- FastClick -->
-  <script src="../../public/js/admin/fastclick.js"></script>
+  <script src="/js/admin/fastclick.js"></script>
   <!-- NProgress -->
-  <script src="../../public/js/admin/nprogress.js"></script>
+  <script src="/js/admin/nprogress.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="../../public/js/admin/bootstrap-progressbar.min.js"></script>
+    <script src="/js/admin/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="../../public/js/admin/icheck.min.js"></script>
+    <script src="/js/admin/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="../../public/js/admin/skycons.js"></script>
-    <script src="../../public/js/admin/moment.min.js"></script>
+    <script src="/js/admin/skycons.js"></script>
+    <script src="/js/admin/moment.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-     <script src="../../public/js/admin/custom.min.js"></script>
+     <script src="/js/admin/custom.min.js"></script>
     <script>
       
     </script>

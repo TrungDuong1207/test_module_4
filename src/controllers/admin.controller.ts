@@ -1,17 +1,15 @@
 import { Product } from "../models/product.model";
 import { Category } from "../models/category.model";
 import { User } from "../models/user.model";
+import { Order } from "../models/order.model";
 
 export class AdminController {
     static async showAdminPage(req, res) {
-        console.log(req.decoded);
-        
         res.render("admin/indexAdmin", { nameUser: req.decoded.name });
-
     }
 
     static async showAddPage(req, res) {
-        let category = await Category.find()
+        let category = await Category.find();
         res.render("admin/addProduct", { category: category, nameUser: req.decoded.name })
     }
 
@@ -108,7 +106,6 @@ export class AdminController {
     static async formUpdateUser (req, res) {
             let id = req.params.id
             let user = await User.find({_id: id});
-            console.log(id)
             res.render("admin/editClient", {user: user, nameUser: req.decoded.name})
     }
 
@@ -140,7 +137,6 @@ export class AdminController {
         }
     }
 
-
     static async searchProduct (req, res) {
         try {
             let products = await Product.find(
@@ -153,6 +149,40 @@ export class AdminController {
             res.json({
                 'error': e.message
             })
+        }
+    }
+
+    static async showOrderlist (req, res) {
+        let order = await Order.find().populate('customer');
+        res.render('admin/order',{ nameUser: req.decoded.name, order: order});
+    }
+
+    static async showOrderDetail(req, res) {
+        let idOrder = req.params.id;
+        let orderCustomer = await Order.findOne({_id: idOrder}).populate('customer');
+        let orderItems = await Order.findOne({_id: idOrder}).populate('items.product');
+        res.render('admin/orderDetail',{ nameUser: req.decoded.name, orderCustomer: orderCustomer, orderItems: orderItems});
+    }
+
+    static async deleteOrder(req, res){
+        try {
+            let id = req.params.id;
+            await Order.findOneAndDelete({_id: id});
+            res.redirect('/admin/order-list');
+        } catch (err){
+            console.log(err);
+            res.redirect('/error/500');
+        }
+    }
+
+    static async updateStatusOrder(req, res){
+        try {
+            let id = req.params.id;
+            await Order.findOneAndUpdate({_id: id}, {status: req.body.status});
+            res.redirect(`/admin/order-detail/${id}`);
+        } catch (err){
+            console.log(err);
+            res.redirect("/error/500");            
         }
     }
 }

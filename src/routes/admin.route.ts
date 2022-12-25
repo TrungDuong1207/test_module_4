@@ -30,6 +30,11 @@ adminRoutes.get('/update-user/:id', AdminController.formUpdateUser);
 adminRoutes.post('/update-user/:id', AdminController.updateUser);
 adminRoutes.get('/delete-user/:id', AdminController.deleteUser);
 
+adminRoutes.get('/order-list', AdminController.showOrderlist);
+adminRoutes.get('/order-detail/:id', AdminController.showOrderDetail);
+adminRoutes.get('/order-delete/:id', AdminController.deleteOrder);
+adminRoutes.post('/order-update/:id', AdminController.updateStatusOrder);
+
 adminRoutes.get('/search-product', AdminController.searchProduct);
 
 export default adminRoutes;

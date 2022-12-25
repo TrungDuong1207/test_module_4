@@ -24,6 +24,11 @@ const orderSchema = new Schema({
       required: [true, "address can't be blank"]
     },
 
+    phone:{
+      type: String,
+      required: [true, "address can't be blank"]
+    },
+
     orderDate: {
         type: Date,
         default: Date.now()

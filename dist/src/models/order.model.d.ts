@@ -29,6 +29,7 @@ declare const Order: import("mongoose").Model<{
         product?: import("mongoose").Types.ObjectId;
     }[];
     address: string;
+    phone: string;
     orderDate: Date;
     status: "Đang xử lý" | "Đang giao" | "Hoàn tất" | "Đã hủy";
     note?: string;
@@ -39,6 +40,7 @@ declare const Order: import("mongoose").Model<{
         product?: import("mongoose").Types.ObjectId;
     }[];
     address: string;
+    phone: string;
     orderDate: Date;
     status: "Đang xử lý" | "Đang giao" | "Hoàn tất" | "Đã hủy";
     note?: string;

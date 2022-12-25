@@ -7,13 +7,14 @@
     <title>Chi tiết đơn hàng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="shortcut icon" href="img/favicon1.ico">
     <!-- Fontawesome css -->
     <link rel="stylesheet" href="/css/user/font-awesome.min.css">
     <!-- Ionicons css -->
-    <link rel="stylesheet" href="/css/user/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js" />
     <!-- linearicons css -->
-    <link rel="stylesheet" href="/css/user/linearicons.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <!-- Nice select css -->
     <link rel="stylesheet" href="/css/user/nice-select.css">
     <!-- Jquery fancybox css -->
@@ -34,7 +35,6 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- Responsive css -->
     <link rel="stylesheet" href="/css/user/responsive.css">
-
     <!-- Modernizer js -->
     <script src="/js/user/modernizr-3.5.0.min.js"></script>
 </head>
@@ -57,7 +57,7 @@
                 <div class="breadcrumb">
                     <ul class="d-flex align-items-center">
                         <li><a href="/user/home">Trang chủ</a></li>
-                        <li class="active"><a href="orderUser.html">Chi tiết đơn hàng</a></li>
+                        <li class="active"><a href="#">Chi tiết đơn hàng</a></li>
                     </ul>
                 </div>
             </div>
@@ -65,16 +65,18 @@
         </div>
         <!-- Breadcrumb End -->
         <!-- Content-->
-        <div class="container">
+        <%if(order && order.status != "Đã hủy"){%>
+          <div class="container">
             <div style="width:100%; margin: 40px 0px;font-family: Helvetica; line-height: 30px; font-size:12px">
                 <!-- Start -->
                 <h3 style="font-size: 14px;margin: 1.5em 0 1em 0; font-weight: bold;">Thông tin mua hàng</h3>
                   <hr style="border: none; border-top: 2px solid #0975BD;"/>
                 
                   <div style="margin: 0 0 1em 0; padding: 1em; border: 1px solid #d9d9d9;  white-space: normal;">
-                    <strong>Mai Tri Cuong</strong><br/>97 Man Thiện, Phường Hiệp Phú, Q.9, TP.HCM<br/>
-                    Điện thoại: 0339005702<br/>
-                    Email: maitricuong1122@gmail.com
+                    <strong><%=user.name%></strong><br/>
+                    Đại chỉ: <%=order.address%><br/>
+                    Điện thoại: <%=order.phone%><br/>
+                    Email: <%=user.email%>
                   </div>
                   <!-- End -->
                   <!-- Start -->
@@ -82,11 +84,17 @@
                     <hr style="border: none; border-top: 2px solid #0975BD;"/>
                    
                      <div style="margin: 0 0 1em 0; padding: 1em; border: 1px solid #d9d9d9;">
-                       <strong>Mã đơn hàng:</strong><br/>ID001<br/>
-                     <strong>Ngày đặt hàng:</strong><br/>11/05/1999<br />
+                       <strong>Mã đơn hàng:</strong><br/><%=order._id.toString().substring(7,13)%><br/>
+                     <strong>Ngày đặt hàng:</strong><br/><%=new Date(order.orderDate).toLocaleString()%><br />
                        <strong>Phương thức thanh toán</strong><br/>Thanh toán khi giao hàng(COD)
                        <br/>
                        <strong>Phương thức vận chuyển</strong><br/>Giao hàng tận nơi<br/>
+                       <strong>Trạng thái</strong><br/><%=order.status%><br/>
+                       <%if(order.status === "Đang xử lý"){%>
+                        <a onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này?')"
+                        href="/user/order-cancel/<%=order._id%>" class="btn btn-outline-primary btn-sm">Hủy đơn hàng</a>
+                       <%}%>
+                       
                      </div>  
                      <!-- End -->
                     <table style="width: 100%"><tr><td valign="top" style="width: 65%">
@@ -100,17 +108,21 @@
                     <tr>
                       <th style="width:25%;text-align: left;padding: 5px 0px">Mã sản phẩm</th>
                       <th style="width:35%;text-align: left;padding: 5px 0px">Sản phẩm</th>
-                      <th style="width:15%;text-align: right;padding: 5px 0px">Số lượng</th>
+                      <th style="width:15%;text-align: center;padding: 5px 0px">Số lượng</th>
                       <th style="width:25%;text-align: right;padding: 5px 0px">Giá</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <% let sum = 0;%>
+                      <%order.items.forEach((item)=>{%>
+                        <% sum += (item.product.price*item.quantity);%>
                     <tr valign="top" style="border-top: 1px solid #d9d9d9;">
-                      <td align="left" style="padding: 5px 0px">ID001</td>
-                      <td align="left" style="padding: 5px 5px 5px 0px;white-space: pre-line;">Sáp vuốt tóc Loreal</td>
-                      <td align="center" style="padding: 5px 0px">2</td>
-                      <td align="right" style="padding: 5px 0px">500.000 Đ</td>
+                      <td align="left" style="padding: 5px 0px"><%=item.product._id%></td>
+                      <td align="left" style="padding: 5px 5px 5px 0px;white-space: pre-line;"><%=item.product.name%></td>
+                      <td align="center" style="width:15%;text-align: center;padding: 5px 0px"><%=item.quantity%></td>
+                      <td align="right" style="padding: 5px 0px">$<%=item.product.price%></td>
                     </tr>
+                    <%})%>
                   </tbody>
                 </table>
                 
@@ -119,24 +131,24 @@
                 <table style="font-size: 12px;width: 100%; margin: 0 0 1.5em 0;">
                   <tr>
                     <td style="padding: 5px 0px">Tổng giá sản phẩm:</td>
-                    <td style="text-align:right; font-size: 15px; font-weight: bold;">1.000.000.000 Đ</td>
+                    <td style="text-align:right; font-size: 15px; font-weight: bold;">$<%=(sum!==0)?sum:0%></td>
                   </tr>
                   <tr>
-                    <td style="padding: 5px 0px">Khuyến mãi</td>
-                    <td style="text-align:right">30%</td>
+                    <td style="padding: 5px 0px">Phí ship</td>
+                    <td style="text-align:right">free ship</td>
                   </tr>
                   <tr>
                     <td style="padding: 5px 0px"><strong>Tổng tiền:</strong></td>
-                    <td style="text-align:right;padding: 5px 0px; font-size: 14px; font-weight: bold;"><strong>600.000.000 Đ</strong></td>
+                    <td style="text-align:right;padding: 5px 0px; font-size: 14px; font-weight: bold;"><strong>$<%=(sum!==0)?sum:0%></strong></td>
                   </tr>
                 </table>
-                  <h3 style="font-size: 14px;margin: 0 0 1em 0;">Ghi chú</h3>
-                  <p style="line-height: 30px">lấy em 2 gói mì tôm</p>
-                
-                </td>
+                  <h3 style="font-size: 14px;margin: 0 0 1em 0; font-weight: bold;">Ghi chú:</h3>
+                  <p style="line-height: 30px; font-style: italic;"><%=order.note%></p>
                   
               </div>
         </div>
+        <%}%>
+        
         
         <!-- End Content -->
       

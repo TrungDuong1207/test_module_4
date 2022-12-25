@@ -9,20 +9,20 @@
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css"/>
     <title>The Barber Shop</title>
 
- <!-- Bootstrap -->
- <link href="../../public/css/admin/bootstrap.min.css" rel="stylesheet">
- <!-- Font Awesome -->
- <link href="../../public/css/admin/font-awesome.min.css" rel="stylesheet">
- <!-- NProgress -->
- <link href="../../public/css/admin/nprogress.css" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="/css/admin/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="/css/admin/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="/css/admin/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../../public/css/admin/green.css" rel="stylesheet">
+    <link href="/css/admin/green.css" rel="stylesheet">
 	
     <!-- bootstrap-progressbar -->
-    <link href="../../public/css/admin/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="/css/admin/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../../public/css/admin/custom.min.css" rel="stylesheet">
+    <link href="/css/admin/custom.min.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -58,33 +58,39 @@
                   <thead>
                     <tr>
                       <th scope="col">Mã đơn hàng</th>
-                      <th scope="col">Tên sản phẩm</th>
-                      <th scope="col">Khách hàng</th>
+                      <th scope="col">Tên Khách Hàng</th>
+                      <th scope="col">SĐT</th>
+                      <th scope ="col">Địa chỉ</th>
                       <th scope="col">Trạng thái</th>
                       <th scope="col" style="text-align: center;">Hủy đơn</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row" onclick="DoNav('orderDetail.ejs');">ID0001</th>
-                      <td class="w-20" onclick="DoNav('orderDetail.ejs');">Sáp vuốt tóc nam Loreal</td>
-                      <td>Mai Tri Cuong</td>
-                      <td style="font-size: 17px;" id="order">
-                        3
-                       </td>
-                      <td><button type="button" style="transform: translateX(45px);" class="btn btn-round btn-danger"><i class="fa fa-trash-o"></i> Hủy đơn</button></td>
-                    </tr>
-                    <tr onclick="DoNav('orderDetail.ejs');">
-                      <th scope="row">ID0002</th>
-                      <td class="w-20">Máy sấy tóc Panasonic</td>
-                      <td>Mai Tri Cuong</td>
-                      <td style="font-size: 17px;" id="day">
-                        <span class="badge badge-primary" id="day">
-                            Đang giao
-                        </span>
-                       </td>
-                      <td><button type="button" style="transform: translateX(45px);" class="btn btn-round btn-danger"><i class="fa fa-trash-o"></i> Hủy đơn</button></td>
-                    </tr>
+                    <%if(order){%>
+                    <%order.forEach(item =>{%>
+                      <tr>
+                        <th scope="row" onclick="DoNav('/admin/order-detail/<%=item._id%>');"><%=item._id.toString().substring(7,13)%></th>
+                        <td class="w-20" onclick="DoNav('/admin/order-detail/<%=item._id%>');"><%=item.customer.name%></td>
+                        <td><%=item.phone%></td>
+                        <td><%=item.address%></td>
+                        <td style="font-size: 17px;" id="order">
+                          <%if(item.status === "Đang xử lý"){%>
+                            <span class="badge badge-warning text-white"><%=item.status%></span>
+                          <%}%>
+                          <%if (item.status === "Đang giao"){%>
+                              <span class="badge badge-primary text-white"><%=item.status%></span>
+                          <%}%>
+                          <%if (item.status === "Hoàn tất"){%>
+                            <span class="badge badge-success text-white"><%=item.status%></span>
+                          <%}%>
+                          <%if (item.status === "Đã hủy"){%>
+                            <span class="badge badge-danger text-white"><%=item.status%></span>
+                          <%}%>
+                         </td>
+                        <td><a type="button" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này?')" href="/admin/order-delete/<%=item._id%>" style="transform: translateX(45px);" class="btn btn-round btn-outline-danger"><i class="fa fa-trash-o"></i> Hủy đơn</a></td>
+                      </tr>
+                    <%})%>
+                    <%}%>
                   </tbody>
                 </table>  
               </div>
@@ -96,41 +102,27 @@
     </div>
 
     <!-- jQuery -->
-  <script src="../../public/js/admin/jquery.min.js"></script>
+  <script src="/js/admin/jquery.min.js"></script>
   <!-- Bootstrap -->
-  <script src="../../public/js/admin/bootstrap.bundle.min.js"></script>
+  <script src="/js/admin/bootstrap.bundle.min.js"></script>
   <!-- FastClick -->
-  <script src="../../public/js/admin/fastclick.js"></script>
+  <script src="/js/admin/fastclick.js"></script>
   <!-- NProgress -->
-  <script src="../../public/js/admin/nprogress.js"></script>
+  <script src="/js/admin/nprogress.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="../../public/js/admin/bootstrap-progressbar.min.js"></script>
+    <script src="/js/admin/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="../../public/js/admin/icheck.min.js"></script>
+    <script src="/js/admin/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="../../public/js/admin/skycons.js"></script>
-    <script src="../../public/js/admin/moment.min.js"></script>
+    <script src="/js/admin/skycons.js"></script>
+    <script src="/js/admin/moment.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../../public/js/admin/custom.min.js"></script>
+    <script src="/js/admin/custom.min.js"></script>
         <script>
           function DoNav(theUrl){
            document.location.href = theUrl;
         }
-       
-          x = document.getElementById("order").textContent;
-          if(x == 1) {
-            document.getElementById('order').innerHTML = '<span class="badge badge-warning">Xử lí</span>'
-          }
-          if(x == 2) {
-            document.getElementById('order').innerHTML = '<span class="badge badge-primary">Giao hàng</span>'
-          }
-          if(x == 3) {
-            document.getElementById('order').innerHTML = '<span class="badge badge-success">Hoàn tất</span>'
-          }
-          if(x == 4) {
-            document.getElementById('order').innerHTML = '<span class="badge badge-danger">Thất bại</span>'
-          }
         </script>
 	
   </body>

@@ -22,6 +22,10 @@ const orderSchema = new mongoose_1.Schema({
         type: String,
         required: [true, "address can't be blank"]
     },
+    phone: {
+        type: String,
+        required: [true, "address can't be blank"]
+    },
     orderDate: {
         type: Date,
         default: Date.now()

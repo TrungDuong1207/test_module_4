@@ -178,19 +178,39 @@ class UserController {
                 items.push(item);
             });
             let address = req.body.address;
+            let phone = req.body.phone;
             let note = req.body.note;
             let order = {
                 customer: customer,
                 items: items,
                 address: address,
+                phone: phone,
                 note: note
             };
             await order_model_1.Order.create(order);
             await cart_model_1.Cart.deleteOne({ user: customer });
-            res.redirect("/user/home");
+            res.redirect("/user/order");
         }
         catch (err) {
             console.log(err.message);
+        }
+    }
+    static async showPageOrder(req, res) {
+        let user = await user_model_1.User.findOne({ _id: req.decoded.user_id });
+        let category = await category_model_1.Category.find();
+        let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+        let order = await order_model_1.Order.findOne({ customer: req.decoded.user_id }).populate("items.product");
+        res.render("user/orderUser", { carts: cart, userName: req.decoded.name, category: category, user: user, order: order });
+    }
+    static async cancelOrder(req, res) {
+        try {
+            let id = req.params.id;
+            await order_model_1.Order.findOneAndUpdate({ _id: id }, { status: "Đã hủy" });
+            res.redirect("/user/order");
+        }
+        catch (err) {
+            console.log(err);
+            res.redirect("/error/500");
         }
     }
 }

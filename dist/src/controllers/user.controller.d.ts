@@ -11,4 +11,6 @@ export declare class UserController {
     static searchProduct(req: any, res: any): Promise<void>;
     static showPageCheckOut(req: any, res: any): Promise<void>;
     static checkOut(req: any, res: any): Promise<void>;
+    static showPageOrder(req: any, res: any): Promise<void>;
+    static cancelOrder(req: any, res: any): Promise<void>;
 }

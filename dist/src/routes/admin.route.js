@@ -29,6 +29,10 @@ adminRoutes.get('/list-user', admin_controller_1.AdminController.listUser);
 adminRoutes.get('/update-user/:id', admin_controller_1.AdminController.formUpdateUser);
 adminRoutes.post('/update-user/:id', admin_controller_1.AdminController.updateUser);
 adminRoutes.get('/delete-user/:id', admin_controller_1.AdminController.deleteUser);
+adminRoutes.get('/order-list', admin_controller_1.AdminController.showOrderlist);
+adminRoutes.get('/order-detail/:id', admin_controller_1.AdminController.showOrderDetail);
+adminRoutes.get('/order-delete/:id', admin_controller_1.AdminController.deleteOrder);
+adminRoutes.post('/order-update/:id', admin_controller_1.AdminController.updateStatusOrder);
 adminRoutes.get('/search-product', admin_controller_1.AdminController.searchProduct);
 exports.default = adminRoutes;
 //# sourceMappingURL=admin.route.js.map
