@@ -147,7 +147,6 @@ export class UserController {
     }
     static async showProduct (req, res) {
         let id = req.params.id
-        console.log(id)
         let product = await Product.findOne({_id: id})
         let category = await Category.find()
         let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");

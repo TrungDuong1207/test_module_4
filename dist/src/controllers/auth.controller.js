@@ -109,6 +109,16 @@ class AuthController {
             res.redirect("/auth/changepassword");
         }
     }
+    static async logout(req, res) {
+        try {
+            res.clearCookie('token');
+            res.redirect('/auth/login');
+        }
+        catch (err) {
+            console.log(err.message);
+            res.redirect('/error/500');
+        }
+    }
 }
 exports.AuthController = AuthController;
 //# sourceMappingURL=auth.controller.js.map

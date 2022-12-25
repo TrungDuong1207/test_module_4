@@ -33,8 +33,28 @@ export class AdminController {
     }
 
     static async showList(req, res) {
-        const products = await Product.find().populate('category');
-        res.render("admin/productAdmin", { products: products, nameUser: req.decoded.name })
+        let countProduct = await Product.count();
+        console.log(countProduct);
+        
+        let limit: number;
+
+        let offset: number;
+
+        if (!req.query.limit || !req.query.offset) {
+
+            limit = 4;
+
+            offset = 0;
+
+        } else {
+
+            limit = parseInt(req.query.limit as string);
+
+            offset = parseInt(req.query.offset as string);
+
+        }
+        const products = await Product.find().populate('category').limit(limit).skip(limit * offset);;
+        res.render("admin/productAdmin", { products: products, nameUser: req.decoded.name, counts: countProduct})
 
     }
 

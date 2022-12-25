@@ -112,6 +112,17 @@ export class AuthController {
 
     }
 
+    static async logout(req, res){
+        try {
+            res.clearCookie('token');
+            res.redirect('/auth/login')
+        } catch (err){
+            console.log(err.message);
+            res.redirect('/error/500')
+            
+        }
+    }
+
     // static async loginFacebook(req, res, next) {
     //     let data = {
     //       name: req.user.displayName,

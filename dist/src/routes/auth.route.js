@@ -13,6 +13,7 @@ authRoutes.get("/register", auth_controller_1.AuthController.showFormRegister);
 authRoutes.post("/register", auth_controller_1.AuthController.register);
 authRoutes.get('/changepassword', auth_controller_1.AuthController.changePasswordPage);
 authRoutes.post('/changepassword', auth_controller_1.AuthController.changePassword);
+authRoutes.get('/logout', auth_controller_1.AuthController.logout);
 authRoutes.get("/facebook", passport_middleware_1.default.authenticate("facebook", { scope: ["email"] }));
 authRoutes.get("/facebook/callback", passport_middleware_1.default.authenticate("facebook", {
     failureRedirect: "/auth/login",

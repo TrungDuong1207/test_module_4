@@ -7,13 +7,13 @@
     <title>Chi tiết sản phẩm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <!-- Fontawesome css -->
     <link rel="stylesheet" href="/css/user/font-awesome.min.css">
     <!-- Ionicons css -->
-    <link rel="stylesheet" href="/css/user/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js" />
     <!-- linearicons css -->
-    <link rel="stylesheet" href="/css/user/linearicons.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <!-- Nice select css -->
     <link rel="stylesheet" href="/css/user/nice-select.css">
     <!-- Jquery fancybox css -->
@@ -34,7 +34,6 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- Responsive css -->
     <link rel="stylesheet" href="/css/user/responsive.css">
-
     <!-- Modernizer js -->
     <script src="/js/user/modernizr-3.5.0.min.js"></script>
 </head>
@@ -87,7 +86,8 @@
                                 </div>
                                 <p class="mb-20 pro-desc-details"><%= product.description%></p>
                                 <div class="socila-sharing mt-25">
-                                    <button type="button" class="btn btn-dark">Thêm vào giỏ hàng</button>
+                                    <a href="#quick-view" onclick="showAddCart2('<%=product._id%>')" class="btn btn-secondary"> +
+                                        Thêm vào giỏ</a>
                                 </div>
                             </div>
                         </div>
@@ -137,6 +137,11 @@
     <script src="/js/user/bootstrap.min.js"></script>
     <!-- Plugin js -->
     <script src="/js/user/plugins.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"
+        integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/user/cart.js"></script>
     <!-- Main activaion js -->
     <script src="/js/user/main.js"></script>
 </body>

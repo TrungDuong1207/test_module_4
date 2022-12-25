@@ -33,8 +33,21 @@ class AdminController {
         }
     }
     static async showList(req, res) {
-        const products = await product_model_1.Product.find().populate('category');
-        res.render("admin/productAdmin", { products: products, nameUser: req.decoded.name });
+        let countProduct = await product_model_1.Product.count();
+        console.log(countProduct);
+        let limit;
+        let offset;
+        if (!req.query.limit || !req.query.offset) {
+            limit = 4;
+            offset = 0;
+        }
+        else {
+            limit = parseInt(req.query.limit);
+            offset = parseInt(req.query.offset);
+        }
+        const products = await product_model_1.Product.find().populate('category').limit(limit).skip(limit * offset);
+        ;
+        res.render("admin/productAdmin", { products: products, nameUser: req.decoded.name, counts: countProduct });
     }
     static async showFormUpdate(req, res) {
         let id = req.params.id;

@@ -53,14 +53,16 @@
                     <div class="container">
                         <div class="row">
                             <h1>Quản lí sản phẩm</h1>
-                            <div class="d-inline-block">
+                            <div class="d-inline-block ">
                                 <button onclick="window.location.href='/admin/add-product'"
                                     class="btn btn-round btn-success text-end d-inline-block"
-                                    style="margin-left: 915px; margin-bottom: 0">
+                                    style="margin-left:900px; margin-bottom: 5px">
                                     <i class="fa fa-folder"></i> Thêm sản phẩm
                                 </button>
-                                <label class="control-label col-md-2"><span class="require"></span>Tìm theo tên:</label>
-                                <input type="text" class="d-inline-block" onkeyup="searchProduct2(this.value)">
+                                
+                                <span style="margin-left: 30px">Tìm theo tên:</span>
+                                <input type="text" class="d-inline-block" style="margin-left: 20px" onkeyup="searchProduct2(this.value)">
+                                
                             </div>
                             <div class="col-12">
                                 <table class="table table-image">
@@ -113,8 +115,22 @@
                                 </table>
                             </div>
                         </div>
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                              <li class="page-item disabled">
+                                <a class="page-link">Previous</a>
+                              </li>
+                              <% for(let i=0; i < Math.ceil(counts/4); i++){ %>
+                              <li class="page-item"><a class="page-link" href="/admin/list-product?offset=<%=i%>&limit=4"><%=i+1%></a></li>
+                              <% } %>
+                              <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                              </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
+                
                 <!-- /page content -->
 
         </div>

@@ -5,4 +5,5 @@ export declare class AuthController {
     static login(req: any, res: any): Promise<any>;
     static changePasswordPage(req: any, res: any): void;
     static changePassword(req: any, res: any): Promise<void>;
+    static logout(req: any, res: any): Promise<void>;
 }
