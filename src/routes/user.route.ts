@@ -13,8 +13,9 @@ userRoutes.get("/cart-add", UserController.responseProductCart);
 userRoutes.post("/cart-add", UserController.addCart);
 userRoutes.get("/cart-delete/:id", UserController.deleteCart);
 
-userRoutes.get("/order", UserController.showPageCheckOut)
+userRoutes.get("/order", UserController.showPageCheckOut);
 
-
+userRoutes.get('/product-category/:id', UserController.showListByCategory);
+userRoutes.get('/product/:id', UserController.showProduct);
 
 export default userRoutes;

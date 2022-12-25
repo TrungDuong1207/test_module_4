@@ -57,7 +57,7 @@
                 <div class="breadcrumb">
                     <ul class="d-flex align-items-center">
                         <li><a href="/user/home">Trang chủ</a></li>
-                        <li class="active"><a href="product.html">Sản phẩm</a></li>
+                        <li class="active"><a href="/user/product">Sản phẩm</a></li>
                     </ul>
                 </div>
             </div>
@@ -74,39 +74,17 @@
                             <!-- Thumbnail Large Image start -->
                             <div class="tab-content">
                                 <div id="thumb1" class="tab-pane fade show active">
-                                    <a data-fancybox="images" href="img/products/sap1.jpg"><img src="img/products/sap1.jpg" alt="product-view"></a>
+                                    <a data-fancybox="images" href="/image/upload/<%=product.image%>"><img src="/image/upload/<%=product.image%>" alt="product-view"></a>
                                 </div>
-                                <div id="thumb2" class="tab-pane fade">
-                                    <a data-fancybox="images" href="img/products/sap2.jpg"><img src="img/products/sap2.jpg" alt="product-view"></a>
-                                </div>
-                                <div id="thumb3" class="tab-pane fade">
-                                    <a data-fancybox="images" href="img/products/sap1a.jpg"><img src="img/products/sap1a.jpg" alt="product-view"></a>
-                                </div>
-                                <div id="thumb4" class="tab-pane fade">
-                                    <a data-fancybox="images" href="img/products/sap1b.jpg"><img src="img/products/sap1b.jpg" alt="product-view"></a>
-                                </div>
-                                <div id="thumb5" class="tab-pane fade">
-                                    <a data-fancybox="images" href="img/products/sap1c.jpg"><img src="img/products/sap1c.jpg" alt="product-view"></a>
-                                </div>
+
                             </div>
                             <!-- Thumbnail Large Image End -->
-                            <!-- Thumbnail Image End -->
-                            <div class="product-thumbnail mt-15">
-                                <div class="thumb-menu owl-carousel nav tabs-area" role="tablist">
-                                    <a class="active" data-toggle="tab" href="#thumb1"><img src="img/products/sap1.jpg" alt="product-thumbnail"></a>
-                                    <a data-toggle="tab" href="#thumb2"><img src="img/products/sap2.jpg" alt="product-thumbnail"></a>
-                                    <a data-toggle="tab" href="#thumb3"><img src="img/products/sap1a.jpg" alt="product-thumbnail"></a>
-                                    <a data-toggle="tab" href="#thumb4"><img src="img/products/sap1b.jpg" alt="product-thumbnail"></a>
-                                    <a data-toggle="tab" href="#thumb5"><img src="img/products/sap1c.jpg" alt="product-thumbnail"></a>
-                                </div>
-                            </div>
-                            <!-- Thumbnail image end -->
                         </div>
                         <!-- Main Thumbnail Image End -->
                         <!-- Thumbnail Description Start -->
                         <div class="col-lg-7">
                             <div class="thubnail-desc fix">
-                                <h3 class="product-header">Sáp vuốt tóc Loreal Pro</h3>
+                                <h3 class="product-header"><%= product.name%></h3>
                                 <div class="rating-summary fix mtb-10">
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
@@ -117,17 +95,16 @@
                                     </div>
                                 </div>
                                 <div class="pro-price mtb-30">
-                                    <p class="d-flex align-items-center"><span class="prev-price">16.51</span><span class="price">$15.19</span><span class="saving-price">Giảm 8%</span></p>
+                                    <p class="d-flex align-items-center"><span class="prev-price">16.51</span><span class="price">$<%= product.price%></span></p>
                                 </div>
-                                <p class="mb-20 pro-desc-details">► Sáp vuốt tóc nam nổi bật với khả năng tạo nếp cứng mạnh mẽ, không gây bóng tóc, mùi thơm dễ chịu, không nhờn, dễ dàng làm sạch  xịt, gôm xịt đang có trên thị trường.</p>
-                                <p class="mb-20 pro-desc-details">► Sáp vuốt tóc phù hợp cho tạo các kiểu tóc ngắn, có khả năng giữ nếp tốt ngay cả khi dùng mũ bảo hiểm. Tạo kiểu tóc rối đơn giản, dễ dàng, giữ nếp tốt lâu dài và dễ tái tạo.</p>
-                                <p class="mb-20 pro-desc-details">► Wax tóc được so sánh không thua kém sáp vuốt tóc Gatsby Wax của Nhật. Dễ dàng kết hợp với các loại keo xịt</p>
+                                <p class="mb-20 pro-desc-details"><%= product.description%></p>
                                 <div class="socila-sharing mt-25">
                                     <button type="button" class="btn btn-dark">Thêm vào giỏ hàng</button>
                                 </div>
                             </div>
                         </div>
                         <!-- Thumbnail Description End -->
+
                     </div>
                     <!-- Row End -->
                 </div>
@@ -135,283 +112,7 @@
             <!-- Container End -->
         </div>
         <!-- Product Thumbnail End -->
-        <!-- Product Thumbnail Description Start -->
-        <div class="thumnail-desc pb-100 pb-sm-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <ul class="main-thumb-desc nav tabs-area" role="tablist">
-                            <li><a class="active" data-toggle="tab" href="#dtail">Chi tiết sản phẩm</a></li>
-                        </ul>
-                        <!-- Product Thumbnail Tab Content Start -->
-                        <div class="tab-content thumb-content border-default">
-                            <div id="dtail" class="tab-pane fade show active">
-                                <p>Sáp vuốt tóc Loreal chính hãng có vẻ ngoài tinh tế, với vỏ cứng cáp và phần thông tin được in đầy đủ và cẩn thận, còn hàng fake thì ngược lại. Keo vuốt tóc Loreal hàng thật có màu trắng sữa, toát lên hương thơm dễ chịu còn Loreal sáp giả thì có chất sáp dạng gel, mùi cực kì hắc và khó chịu, nó thường được xếp chung với các loại sáp vuốt tóc nam giá rẻ để dễ tiêu thụ.</p>     
-                            </div>
-                            </div>
-                        </div>
-                        <!-- Product Thumbnail Tab Content End -->
-                    </div>
-                </div>
-                <!-- Row End -->
-            </div>
-            <!-- Container End -->
-        </div>
-        <!-- Product Thumbnail Description End -->
-        <!-- Realted Products Start Here -->
-        <div class="hot-deal-products off-white-bg pt-100 pb-90 pt-sm-60 pb-sm-50">
-            <div class="container">
-               <!-- Product Title Start -->
-               <div class="post-title pb-30">
-                   <h2>Sản phẩm liên quan</h2>
-               </div>
-               <!-- Product Title End -->
-                <!-- Hot Deal Product Activation Start -->
-                <div class="best-seller-pro-active owl-carousel">
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="product.html">
-                                <img class="primary-img" src="img/products/s.webp" alt="single-product">
-                                <img class="secondary-img" src="img/products/s1.webp" alt="single-product">
-                            </a>
-                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="pro-info">
-                                <h4><a href="product.html">Sáp By Vilain Gold Digger</a></h4>
-                                <p><span class="price">$69.20</span></p>
-                            </div>
-                            <div class="pro-actions">
-                                <div class="actions-primary">
-                                    <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                </div>
-                                <div class="actions-secondary">
-                                    <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                    <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                     <!-- Single Product Start -->
-                     <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="product.html">
-                                <img class="primary-img" src="img/products/f.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/products/f1.jpg" alt="single-product">
-                            </a>
-                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="pro-info">
-                                <h4><a href="product.html">DCR lưỡi kép Gillette Vector</a></h4>
-                                <p><span class="price">$90.45</span></p>
-                            </div>
-                            <div class="pro-actions">
-                                <div class="actions-primary">
-                                    <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                </div>
-                                <div class="actions-secondary">
-                                    <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                    <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="product.html">
-                                <img class="primary-img" src="img/products/sap3.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/products/sap4.jpg" alt="single-product">
-                            </a>
-                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="pro-info">
-                                <h4><a href="product.html">Sáp vuốt tóc BluMaan</a></h4>
-                                <p><span class="price">$69.20</span></p>
-                            </div>
-                            <div class="pro-actions">
-                                <div class="actions-primary">
-                                    <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                </div>
-                                <div class="actions-secondary">
-                                    <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                    <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                     <!-- Single Product Start -->
-                     <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="product.html">
-                                <img class="primary-img" src="img/products/mask7.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/products/mask2.jpg" alt="single-product">
-                            </a>
-                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="pro-info">
-                                <h4><a href="product.html">Kem dưỡng da nam giới</a></h4>
-                                <p><span class="price">$160.45</span></p>
-                            </div>
-                            <div class="pro-actions">
-                                <div class="actions-primary">
-                                    <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                </div>
-                                <div class="actions-secondary">
-                                    <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                    <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="product.html">
-                                <img class="primary-img" src="img/products/sap7.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/products/sap8.jpg" alt="single-product">
-                            </a>
-                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="pro-info">
-                                <h4><a href="product.html">Sáp vuốt tóc nam Murray's</a></h4>
-                                <p><span class="price">$200.20</span></p>
-                            </div>
-                            <div class="pro-actions">
-                                <div class="actions-primary">
-                                    <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                </div>
-                                <div class="actions-secondary">
-                                    <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                    <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                     <!-- Single Product Start -->
-                     <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="product.html">
-                                <img class="primary-img" src="img/products/mask11.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/products/mask12.jpg" alt="single-product">
-                            </a>
-                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="pro-info">
-                                <h4><a href="product.html">Miếng Dán Trắng Răng Anriea</a></h4>
-                                <p><span class="price">$84.45</span></p>
-                            </div>
-                            <div class="pro-actions">
-                                <div class="actions-primary">
-                                    <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                </div>
-                                <div class="actions-secondary">
-                                    <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                    <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="product.html">
-                                <img class="primary-img" src="img/products/sap13.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/products/sap14.jpg" alt="single-product">
-                            </a>
-                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="pro-info">
-                                <h4><a href="product.html">Sáp vuốt tóc Variety</a></h4>
-                                <p><span class="price">$69.20</span></p>
-                            </div>
-                            <div class="pro-actions">
-                                <div class="actions-primary">
-                                    <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                </div>
-                                <div class="actions-secondary">
-                                    <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                    <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                     <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="product.html">
-                                <img class="primary-img" src="img/products/sap12.jpg" alt="single-product">
-                                <img class="secondary-img" src="img/products/sap11.jpg" alt="single-product">
-                            </a>
-                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="pro-info">
-                                <h4><a href="product.html">Sáp vuốt tóc Hair Clay</a></h4>
-                                <p><span class="price">$81.50</span></p>
-                            </div>
-                            <div class="pro-actions">
-                                <div class="actions-primary">
-                                    <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                                </div>
-                                <div class="actions-secondary">
-                                    <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                    <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                    </div>
-                    <!-- Single Product End -->
-                </div>               
-                <!-- Hot Deal Product Active End -->
 
-            </div>
             <!-- Container End -->
         </div>
         <!-- Realated Products End Here -->

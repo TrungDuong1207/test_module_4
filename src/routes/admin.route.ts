@@ -12,10 +12,7 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: storage })
-
-
 const adminRoutes = Router();
-
 
 adminRoutes.get("/home", AdminController.showAdminPage);
 
