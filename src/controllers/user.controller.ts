@@ -2,6 +2,8 @@ import { Product } from "../models/product.model";
 import { Category } from "../models/category.model";
 import { User } from "../models/user.model";
 import { Cart } from "../models/cart.model";
+import { Order } from "../models/order.model";
+import userRoutes from "src/routes/user.route";
 
 export class UserController {
 
@@ -109,15 +111,11 @@ export class UserController {
         }
     }
 
-    static async deleteCart(req, res) {
+    static async deleteProductCart(req, res) {
         try {
             let idProduct = req.params.id;
-            console.log(idProduct);
-
             let cart = await Cart.findOne({ user: req.decoded.user_id });
             cart.items.forEach((item, index) => {
-                console.log(item.product.toString());
-
                 if (item.product.toString() == idProduct) {
                     cart.items.splice(index, 1);
 
@@ -148,14 +146,6 @@ export class UserController {
             product: product
         })
     }
-
-    static async showPageCheckOut(req, res) {
-        let category = await Category.find();
-        let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
-        res.render("user/checkout", { carts: cart, userName: req.decoded.name, category: category });
-
-    }
-
     static async showProduct (req, res) {
         let id = req.params.id
         console.log(id)
@@ -169,4 +159,60 @@ export class UserController {
             product: product
         });
     }
+    static async searchProduct (req, res) {
+        try {
+            let keyword = req.query.search
+            let product = await Product.find({name: keyword})
+            console.log(product)
+            let category = await Category.find()
+            let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+            res.render('user/search', {
+                product: product,
+                category: category,
+                userName: req.decoded.name,
+                carts: cart
+            })
+        }catch (e) {
+            res.json({
+                'error': e.message
+            })
+        }
+    }
+
+    static async showPageCheckOut(req, res) {
+        let user = await User.findOne({_id: req.decoded.user_id});
+        let category = await Category.find();
+        let cart = await Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+        res.render("user/checkout", { carts: cart, userName: req.decoded.name, category: category, user: user });
+    }
+
+    static async checkOut(req, res){
+        try {
+            let customer =  req.decoded.user_id;
+            let items = [];  
+            let cart = await Cart.findOne({ user: req.decoded.user_id });
+            
+            cart.items.forEach(item =>{
+                items.push(item);
+            });
+            let address = req.body.address;
+            let note = req.body.note;
+            let order = {
+                customer: customer,
+                items: items,
+                address: address,
+                note: note
+            }
+            await Order.create(order);            
+            //delete cart
+            await Cart.deleteOne({user: customer})
+            
+            res.redirect("/user/home");
+
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    
 }

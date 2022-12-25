@@ -13,10 +13,8 @@
     <link rel="stylesheet" href="/css/user/font-awesome.min.css">
     <!-- Ionicons css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js" />
-
     <!-- linearicons css -->
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-
     <!-- Nice select css -->
     <link rel="stylesheet" href="/css/user/nice-select.css">
     <!-- Jquery fancybox css -->
@@ -60,7 +58,7 @@
                 <div class="breadcrumb">
                     <ul class="d-flex align-items-center">
                         <li><a href="/user/home">Trang chủ</a></li>
-                        <li class="active"><a href="cart.html">Giỏ hàng</a></li>
+                        <li class="active"><a href="/user/cart">Giỏ hàng</a></li>
                     </ul>
                 </div>
             </div>
@@ -72,8 +70,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
-                        <!-- Form Start -->
-                        <form action="#">
                             <!-- Table Content Start -->
                             <div class="table-content table-responsive mb-45">
                                 <table>
@@ -125,27 +121,27 @@
                                             <tbody>
                                                 <tr class="cart-subtotal">
                                                     <th>Phí ship</th>
-                                                    <%let fee = 10;%>
-                                                    <td><span class="amount">$<%=fee%></span></td>
+                                                    <td><span class="amount">free ship</span></td>
                                                 </tr>
                                                 <tr class="order-total">
                                                     <th>Tổng</th>
                                                     <td>
-                                                        <strong><span class="amount">$<%=(sum!==0)?sum + fee:0%></span></strong>
+                                                        <strong><span class="amount">$<%=(sum!==0)?sum:0%></span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <div class="wc-proceed-to-checkout">
-                                            <button onclick="window.location.href='checkout.ejs'" class="btn btn-dark return-customer-btn" >THANH TOÁN</button>
-                                        </div>
+                                        <%if(carts){%>
+                                            <div class="wc-proceed-to-checkout">
+                                                <a href='/user/order' class="btn btn-dark return-customer-btn" >THANH TOÁN</a>
+                                            </div>
+                                        <%}%>
+                                        
                                     </div>
                                 </div>
                                 <!-- Cart Totals End -->
                             </div>
                             <!-- Row End -->
-                        </form>
-                        <!-- Form End -->
                     </div>
                 </div>
                  <!-- Row End -->

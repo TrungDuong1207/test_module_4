@@ -19,7 +19,10 @@ const orderSchema = new Schema({
         },
     ],
 
-    adress: String,
+    address: {
+      type: String,
+      required: [true, "address can't be blank"]
+    },
 
     orderDate: {
         type: Date,
@@ -36,6 +39,5 @@ const orderSchema = new Schema({
 
 })
 
-
-
 const Order = model('Order', orderSchema);
+export {Order};

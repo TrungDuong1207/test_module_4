@@ -3,7 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const product_model_1 = require("../models/product.model");
 const category_model_1 = require("../models/category.model");
+const user_model_1 = require("../models/user.model");
 const cart_model_1 = require("../models/cart.model");
+const order_model_1 = require("../models/order.model");
 class UserController {
     static async showUserPage(req, res) {
         try {
@@ -97,13 +99,11 @@ class UserController {
             res.redirect("/error/500");
         }
     }
-    static async deleteCart(req, res) {
+    static async deleteProductCart(req, res) {
         try {
             let idProduct = req.params.id;
-            console.log(idProduct);
             let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id });
             cart.items.forEach((item, index) => {
-                console.log(item.product.toString());
                 if (item.product.toString() == idProduct) {
                     cart.items.splice(index, 1);
                 }
@@ -130,11 +130,6 @@ class UserController {
             product: product
         });
     }
-    static async showPageCheckOut(req, res) {
-        let category = await category_model_1.Category.find();
-        let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
-        res.render("user/checkout", { carts: cart, userName: req.decoded.name, category: category });
-    }
     static async showProduct(req, res) {
         let id = req.params.id;
         console.log(id);
@@ -147,6 +142,56 @@ class UserController {
             category: category,
             product: product
         });
+    }
+    static async searchProduct(req, res) {
+        try {
+            let keyword = req.query.search;
+            let product = await product_model_1.Product.find({ name: keyword });
+            console.log(product);
+            let category = await category_model_1.Category.find();
+            let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+            res.render('user/search', {
+                product: product,
+                category: category,
+                userName: req.decoded.name,
+                carts: cart
+            });
+        }
+        catch (e) {
+            res.json({
+                'error': e.message
+            });
+        }
+    }
+    static async showPageCheckOut(req, res) {
+        let user = await user_model_1.User.findOne({ _id: req.decoded.user_id });
+        let category = await category_model_1.Category.find();
+        let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
+        res.render("user/checkout", { carts: cart, userName: req.decoded.name, category: category, user: user });
+    }
+    static async checkOut(req, res) {
+        try {
+            let customer = req.decoded.user_id;
+            let items = [];
+            let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id });
+            cart.items.forEach(item => {
+                items.push(item);
+            });
+            let address = req.body.address;
+            let note = req.body.note;
+            let order = {
+                customer: customer,
+                items: items,
+                address: address,
+                note: note
+            };
+            await order_model_1.Order.create(order);
+            await cart_model_1.Cart.deleteOne({ user: customer });
+            res.redirect("/user/home");
+        }
+        catch (err) {
+            console.log(err.message);
+        }
     }
 }
 exports.UserController = UserController;

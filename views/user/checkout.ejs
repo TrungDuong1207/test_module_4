@@ -7,13 +7,14 @@
     <title>Thanh toán</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="shortcut icon" href="img/favicon1.ico">
     <!-- Fontawesome css -->
     <link rel="stylesheet" href="/css/user/font-awesome.min.css">
     <!-- Ionicons css -->
-    <link rel="stylesheet" href="/css/user/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js" />
     <!-- linearicons css -->
-    <link rel="stylesheet" href="/css/user/linearicons.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <!-- Nice select css -->
     <link rel="stylesheet" href="/css/user/nice-select.css">
     <!-- Jquery fancybox css -->
@@ -34,7 +35,6 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- Responsive css -->
     <link rel="stylesheet" href="/css/user/responsive.css">
-
     <!-- Modernizer js -->
     <script src="/js/user/modernizr-3.5.0.min.js"></script>
 </head>
@@ -57,51 +57,15 @@
                 <div class="breadcrumb">
                     <ul class="d-flex align-items-center">
                         <li><a href="/user/home">Trang chủ</a></li>
-                        <li><a href="cart.ejs">Giỏ hàng</a></li>
-                        <li class="active"><a href="checkout.html">thanh toán</a></li>
+                        <li><a href="/user/cart">Giỏ hàng</a></li>
+                        <li class="active"><a href="#">thanh toán</a></li>
                     </ul>
                 </div>
             </div>
             <!-- Container End -->
         </div>
         <!-- Breadcrumb End -->
-        <!-- coupon-area start -->
-        <div class="coupon-area pt-100 pt-sm-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="coupon-accordion">
-                            <!-- ACCORDION START -->
-                            <h3>Bạn đã có tài khoản?<span id="showlogin"> Vui lòng Click vào đây để đăng nhập</span></h3>
-                            <div id="checkout-login" class="coupon-content" style="width: 50%;">
-                                <div class="coupon-info">
-                                    <p class="coupon-text">Để sử dụng tốt nhất dịch vụ của chúng tôi, vui lòng đăng nhập tài khoản của bạn.</p>
-                                    <form action="#">
-                                        <div class="form-group">
-                                            <label><h5>Email</h5></label>
-                                            <!-- <input type="email" name="email" placeholder="Nhập email" id="input-email" class="form-control"> -->
-                                            <input type="email" oninput="check_Email()" class="form-control" 
-                                            id="email" placeholder="Nhập Email" minlength="10" maxlength="40" required>
-                                            <small id="checkEmail" style="text-align: left; color: orange;"></small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label><h5>Password</h5></label>
-                                            <input type="password" oninput="check_Password()" class="form-control" 
-                                            id="password" placeholder="Nhập Mật khẩu" minlength="5" maxlength="40" required>
-                                            <small id="checkPassword" style="text-align: left; color: orange;"></small>
-                                        </div>
-                                        <p class="lost-password"><a href="forgot-password.ejs">Quên mật khẩu?</a></p>
-                                        <button type="submit" class="btn btn-secondary return-customer-btn">Đăng nhập</button>    
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- ACCORDION END -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- coupon-area end -->
+        
         <!-- checkout-area start -->
         <div class="checkout-area pb-100 pt-15 pb-sm-60">
             <div class="container">
@@ -109,54 +73,48 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="checkbox-form mb-sm-40">
                             <h3>Chi tiết hóa đơn</h3>
-                        <form action="#">    
+                        <form action="/user/order" method="post">    
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="country-select clearfix mb-30">
                                         <label>Tỉnh/Thành Phố<span class="required">*</span></label>
-                                        <select class="wide">
-                                            <option value="volvo">Hồ Chí Minh</option>
-                                            <option value="saab">Hà Nội</option>
-                                            <option value="mercedes">Đồng Nai</option>
-                                            <option value="audi">Bình Dương</option>
-                                            <option value="audi2">Bình Định</option>
-                                            <option value="audi3">Cà Mau</option>
-                                            <option value="audi4">Đà Nẵng</option>
-                                            <option value="audi5">Hải Phòng</option>
+                                        <select class="wide" name="city">
+                                            <option value="HCM">Hồ Chí Minh</option>
+                                            <option value="HN">Hà Nội</option>
+                                            <option value="ĐN">Đồng Nai</option>
+                                            <option value="BD">Bình Dương</option>
+                                            <option value="NĐ">Nam Định</option>
+                                            <option value="CM">Cà Mau</option>
+                                            <option value="ĐN">Đà Nẵng</option>
+                                            <option value="TH">Thanh Hóa</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12" style="margin-bottom: 30px;">
                                     <div class="checkout-form-list mb-sm-30">
-                                        <label>Họ và tên đệm <span class="required">*</span></label>
-                                        <input type="text" placeholder="Họ và tên đệm" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list mb-30">
-                                        <label>Tên <span class="required">*</span></label>
-                                        <input type="text" placeholder="Tên" />
+                                        <label>Tên<span class="required">*</span></label>
+                                        <input type="text" value="<%=user.name%>" placeholder="Nhập họ tên" readonly />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list mb-30">
                                         <label>Địa chỉ<span class="required">*</span></label>
-                                        <input type="text" placeholder="Địa chỉ giao hàng" />
+                                        <input type="text" name="address" placeholder="Địa chỉ giao hàng" required/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list mb-30">
                                         <label>Số điện thoại<span class="required">*</span></label>
-                                        <input type="text" placeholder="số điện thoại" />
+                                        <input type="text" value="<%=user.phoneNumber%>" placeholder="số điện thoại" readonly />
                                     </div>
                                 </div>
                                 <div class="order-notes col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Ghi chú</label>
-                                        <textarea id="checkout-mess" cols="30" rows="10" placeholder="Ghi chú dành cho cửa hàng."></textarea>
+                                        <textarea id="checkout-mess" name="note" cols="30" rows="10" placeholder="Ghi chú dành cho cửa hàng."></textarea>
                                     </div>
                                 </div> 
-                                <button type="submit" class="btn btn-info" style="margin-left: 13px;">ĐẶT HÀNG</button>
+                                <button type="submit" class="btn btn-info mt-3" style="margin-left: 13px;">ĐẶT HÀNG</button>
                             </div>
                         </form>
                         </div>
@@ -173,27 +131,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="cart_item">
-                                            <td class="product-name">
-                                                Sáp vuốt tóc Variety <span class="product-quantity"> × 1</span>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="amount">£165.00</span>
-                                            </td>
-                                        </tr>
-                                        <tr class="cart_item">
-                                            <td class="product-name">
-                                                Sáp vuốt tóc Loreal Pro <span class="product-quantity"> × 1</span>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="amount">£50.00</span>
-                                            </td>
-                                        </tr>
+                                        <% let sum = 0;%>
+                                        <%if(carts){%>
+                                        <%carts.items.forEach((item)=>{%>
+                                            <% sum += (item.product.price*item.quantity);%>
+                                            <tr class="cart_item">
+                                                <td class="product-name">
+                                                    <%=item.product.name%> <span class="product-quantity"> ×<%=item.quantity%></span>
+                                                </td>
+                                                <td class="product-total">
+                                                    <span class="amount">$<%=item.product.price*item.quantity%></span>
+                                                </td>
+                                            </tr>
+                                        <%})%>
+                                        <%}%>
+                                        
                                     </tbody>
                                     <tfoot>
                                         <tr class="order-total">
                                             <th>TỔNG CỘNG</th>
-                                            <td><span class=" total amount">£215.00</span>
+                                            <td><span class=" total amount">$<%=sum%></span>
                                             </td>
                                         </tr>
                                     </tfoot>

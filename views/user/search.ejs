@@ -51,259 +51,54 @@
          <header>
              <%- include ('../navigationBar/header')%>
         </header>
+            <!-- Single Product Start -->
+    <div class="main-product-thumbnail ptb-100 ptb-sm-60">
+        <div class="container">
+            <div class="thumb-bg">
+                <div class="row">
+                    <!-- Main Thumbnail Image Start -->
+                    <div class="col-lg-5 mb-all-40">
+                        <!-- Thumbnail Large Image start -->
+                        <div class="tab-content">
+                            <div id="thumb1" class="tab-pane fade show active">
+                                <a data-fancybox="images" href="/image/upload/<%=product.image%>"><img src="/image/upload/<%=product.image%>" alt="product-view"></a>
+                            </div>
 
-        <div class="container search" id="container">
-            <input type="text" class="searchbox" placeholder="Tìm kiếm sản phẩm" onkeyup="myfunction()" id="srchbox" /><br>    
-            <!-- Single Product Start -->
-            <div class="imagebox ca" name="box">
-                <div class="single-product">
-                    <!-- Product Image Start -->
-                    <span class="pro-img">
-                        <a href="product.ejs">
-                            <img class="primary-img" src="img/products/i.webp" alt="single-product">
-                        </a>
-                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                    </span>
-                    <!-- Product Image End -->
-                    <!-- Product Content Start -->
-                    <div class="pro-content">
-                        <div class="info">
-                            <h4><a href="product.ejs">Dưỡng Da Detox Med</a></h4>
-                            <p><span class="price">$84.45</span></p>
                         </div>
-                        <div class="pro-actions">
-                            <span class="actions-primary">
-                                <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                            </span>
-                            <span class="actions-secondary">
-                                <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                            </span>
+                        <!-- Thumbnail Large Image End -->
+                    </div>
+                    <!-- Main Thumbnail Image End -->
+                    <!-- Thumbnail Description Start -->
+                    <div class="col-lg-7">
+                        <div class="thubnail-desc fix">
+                            <h3 class="product-header"><%= product.name%></h3>
+                            <div class="rating-summary fix mtb-10">
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                            <div class="pro-price mtb-30">
+                                <p class="d-flex align-items-center"><span class="prev-price">16.51</span><span class="price">$<%= product.price%></span></p>
+                            </div>
+                            <p class="mb-20 pro-desc-details"><%= product.description%></p>
+                            <div class="socila-sharing mt-25">
+                                <a href="#quick-view" onclick="showAddCart2('<%=product._id%>')" title="Add to Cart" class="btn btn-dark"> Thêm vào giỏ</a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Product Content End -->
+                    <!-- Thumbnail Description End -->
+
                 </div>
+                <!-- Row End -->
             </div>
-             <!-- Single Product End -->
-             <!-- Single Product Start -->
-            <div class="imagebox ca" name="box">
-                <div class="single-product">
-                    <!-- Product Image Start -->
-                    <span class="pro-img">
-                        <a href="product.ejs">
-                            <img class="primary-img" src="img/products/j.webp" alt="single-product">
-                        </a>
-                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                    </span>
-                    <!-- Product Image End -->
-                    <!-- Product Content Start -->
-                    <div class="pro-content">
-                        <div class="info">
-                            <h4><a href="product.ejs">Lược Sấy bán nguyệt</a></h4>
-                            <p><span class="price">$84.45</span></p>
-                        </div>
-                        <div class="pro-actions">
-                            <span class="actions-primary">
-                                <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                            </span>
-                            <span class="actions-secondary">
-                                <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Product Content End -->
-                </div>
-            </div>
-            <!-- Single Product End -->
-            <!-- Single Product Start -->
-            <div class="imagebox ca" name="box">
-                <div class="single-product">
-                    <!-- Product Image Start -->
-                    <span class="pro-img">
-                        <a href="product.ejs">
-                            <img class="primary-img" src="img/products/mask5.png" alt="single-product">
-                        </a>
-                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                    </span>
-                    <!-- Product Image End -->
-                    <!-- Product Content Start -->
-                    <div class="pro-content">
-                        <div class="info">
-                            <h4><a href="product.ejs">Kem Dưỡng Da Cho Nam Innisfree</a></h4>
-                            <p><span class="price">$180.45</span></p>
-                        </div>
-                        <div class="pro-actions">
-                            <span class="actions-primary">
-                                <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                            </span>
-                            <span class="actions-secondary">
-                                <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Product Content End -->
-                </div>
-            </div>
-            <!-- Single Product End -->
-            <!-- Single Product Start -->
-            <div class="imagebox ca" name="box">
-                <div class="single-product">
-                    <!-- Product Image Start -->
-                    <span class="pro-img">
-                        <a href="product.ejs">
-                            <img class="primary-img" src="img/products/mask7.jpg" alt="single-product">
-                        </a>
-                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                    </span>
-                    <!-- Product Image End -->
-                    <!-- Product Content Start -->
-                    <div class="pro-content">
-                        <div class="info">
-                            <h4><a href="product.ejs">Kem dưỡng da nam giới</a></h4>
-                            <p><span class="price">$160.45</span></p>
-                        </div>
-                        <div class="pro-actions">
-                            <span class="actions-primary">
-                                <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                            </span>
-                            <span class="actions-secondary">
-                                <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Product Content End -->
-                </div>
-            </div>
-            <!-- Single Product End -->
-            <!-- Single Product Start -->
-            <div class="imagebox ca" name="box">
-                <div class="single-product">
-                    <!-- Product Image Start -->
-                    <span class="pro-img">
-                        <a href="product.ejs">
-                            <img class="primary-img" src="img/products/mask11.jpg" alt="single-product">
-                        </a>
-                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                    </span>
-                    <!-- Product Image End -->
-                    <!-- Product Content Start -->
-                    <div class="pro-content">
-                        <div class="info">
-                            <h4><a href="product.ejs">Miếng Dán Trắng Răng Anriea</a></h4>
-                            <p><span class="price">$84.45</span></p>
-                        </div>
-                        <div class="pro-actions">
-                            <span class="actions-primary">
-                                <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                            </span>
-                            <span class="actions-secondary">
-                                <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Product Content End -->
-                </div>
-            </div>
-            <!-- Single Product End -->
-            <!-- Single Product Start -->
-            <div class="imagebox ca" name="box">
-                <div class="single-product">
-                    <!-- Product Image Start -->
-                    <span class="pro-img">
-                        <a href="product.ejs">
-                            <img class="primary-img" src="img/products/mask15.jpg" alt="single-product">
-                        </a>
-                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                    </span>
-                    <!-- Product Image End -->
-                    <!-- Product Content Start -->
-                    <div class="pro-content">
-                        <div class="info">
-                            <h4><a href="product.ejs">Sữa rửa mặt nam Black Force</a></h4>
-                            <p><span class="price">$84.45</span></p>
-                        </div>
-                        <div class="pro-actions">
-                            <span class="actions-primary">
-                                <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                            </span>
-                            <span class="actions-secondary">
-                                <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Product Content End -->
-                </div>
-            </div>
-            <!-- Single Product End -->
-            <!-- Single Product Start -->
-            <div class="imagebox ca" name="box">
-                <div class="single-product">
-                    <!-- Product Image Start -->
-                    <span class="pro-img">
-                        <a href="product.ejs">
-                            <img class="primary-img" src="img/products/mask15.jpg" alt="single-product">
-                        </a>
-                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                    </span>
-                    <!-- Product Image End -->
-                    <!-- Product Content Start -->
-                    <div class="pro-content">
-                        <div class="info">
-                            <h4><a href="product.ejs">Sữa rửa mặt nam Black Force</a></h4>
-                            <p><span class="price">$84.45</span></p>
-                        </div>
-                        <div class="pro-actions">
-                            <span class="actions-primary">
-                                <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                            </span>
-                            <span class="actions-secondary">
-                                <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Product Content End -->
-                </div>
-            </div>
-            <!-- Single Product End -->
-            <!-- Single Product Start -->
-            <div class="imagebox ca" name="box">
-                <div class="single-product">
-                    <!-- Product Image Start -->
-                    <span class="pro-img">
-                        <a href="product.ejs">
-                            <img class="primary-img" src="img/products/f.jpg" alt="single-product">
-                        </a>
-                        <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
-                    </span>
-                    <!-- Product Image End -->
-                    <!-- Product Content Start -->
-                    <div class="pro-content">
-                        <div class="info">
-                            <h4><a href="product.ejs">DCR lưỡi kép Gillette Vector</a></h4>
-                            <p><span class="price">$90.45</span></p>
-                        </div>
-                        <div class="pro-actions">
-                            <span class="actions-primary">
-                                <a href="cart.ejs" title="Add to Cart"> + Thêm vào giỏ hàng</a>
-                            </span>
-                            <span class="actions-secondary">
-                                <a href="compare.ejs" title="Compare"><i class="lnr lnr-sync"></i> <span>So sánh</span></a>
-                                <a href="wishlist.ejs" title="WishList"><i class="lnr lnr-heart"></i> <span>Yêu thích</span></a>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Product Content End -->
-                </div>
-            </div>
-            <!-- Single Product End -->
         </div>
-       
+        <!-- Container End -->
+    </div>
+
         <footer class="off-white-bg2 pt-95 bdr-top pt-sm-55">
             <%- include ('../navigationBar/footer')%>
         </footer>
@@ -338,27 +133,7 @@
     <script src="/js/user/plugins.js"></script>
     <!-- Main activaion js -->
     <script src="/js/user/main.js"></script>
-    <script>
-              function myfunction()
-         {
-             var container, searchbox,textinbox, imagebox;
-             container = document.getElementById("container");
-             searchbox = container.getElementsByTagName("input");
-             textinbox = searchbox[0].value.toUpperCase();
-             imagebox = container.getElementsByTagName("div");
-             for(i = 0; i < imagebox.length ; i++){
-                 textonimage = imagebox[i].textContent || imagebox[i].innerText;
-                 if(textonimage.toUpperCase().indexOf(textinbox) > -1)
-                 {
-                     imagebox[i].style.display = "";
-                 }
-                 else{
-                     imagebox[i].style.display = "none";
-                 }
-             }
 
-         }
-    </script>
 </body>
 
 </html>

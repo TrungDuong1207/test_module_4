@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Order = void 0;
 const mongoose_1 = require("mongoose");
 const orderSchema = new mongoose_1.Schema({
     customer: {
@@ -17,7 +18,10 @@ const orderSchema = new mongoose_1.Schema({
             },
         },
     ],
-    adress: String,
+    address: {
+        type: String,
+        required: [true, "address can't be blank"]
+    },
     orderDate: {
         type: Date,
         default: Date.now()
@@ -30,4 +34,5 @@ const orderSchema = new mongoose_1.Schema({
     note: String,
 });
 const Order = (0, mongoose_1.model)('Order', orderSchema);
+exports.Order = Order;
 //# sourceMappingURL=order.model.js.map
