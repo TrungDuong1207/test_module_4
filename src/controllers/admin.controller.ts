@@ -34,12 +34,8 @@ export class AdminController {
 
     static async showList(req, res) {
         let countProduct = await Product.count();
-        console.log(countProduct);
-        
         let limit: number;
-
         let offset: number;
-
         if (!req.query.limit || !req.query.offset) {
 
             limit = 4;
@@ -53,7 +49,7 @@ export class AdminController {
             offset = parseInt(req.query.offset as string);
 
         }
-        const products = await Product.find().populate('category').limit(limit).skip(limit * offset);;
+        const products = await Product.find().populate('category').limit(limit).skip(limit * offset);
         res.render("admin/productAdmin", { products: products, nameUser: req.decoded.name, counts: countProduct})
 
     }

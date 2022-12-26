@@ -195,11 +195,23 @@ class UserController {
         }
     }
     static async showPageOrder(req, res) {
+        let countOrder = await order_model_1.Order.count({ customer: req.decoded.user_id });
+        let limit;
+        let offset;
+        if (!req.query.limit || !req.query.offset) {
+            limit = 1;
+            offset = 0;
+        }
+        else {
+            limit = parseInt(req.query.limit);
+            offset = parseInt(req.query.offset);
+        }
         let user = await user_model_1.User.findOne({ _id: req.decoded.user_id });
         let category = await category_model_1.Category.find();
         let cart = await cart_model_1.Cart.findOne({ user: req.decoded.user_id }).populate("items.product");
-        let order = await order_model_1.Order.findOne({ customer: req.decoded.user_id }).populate("items.product");
-        res.render("user/orderUser", { carts: cart, userName: req.decoded.name, category: category, user: user, order: order });
+        let order = await order_model_1.Order.findOne({ customer: req.decoded.user_id }).populate("items.product").limit(limit).skip(limit * offset);
+        ;
+        res.render("user/orderUser", { carts: cart, userName: req.decoded.name, category: category, user: user, order: order, counts: countOrder });
     }
     static async cancelOrder(req, res) {
         try {

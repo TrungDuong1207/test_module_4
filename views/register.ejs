@@ -89,52 +89,7 @@
                             <div class="cart-box mt-all-30">
                                 <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
                                     <li><a href="#"><i class="lnr lnr-cart"></i><span class="my-cart"><span
-                                                    class="total-pro">2</span><span>Giỏ hàng</span></span></a>
-                                        <ul class="ht-dropdown cart-box-width">
-                                            <li>
-                                                <!-- Cart Box Start -->
-                                                <div class="single-cart-box">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="img/products/a.jpg" alt="cart-image"></a>
-                                                        <span class="pro-quantity">1X</span>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h6><a href="product.html">Dầu gội đầu Sunsilk </a></h6>
-                                                        <span class="cart-price">27.45</span>
-                                                        <span>Size: S</span>
-                                                        <span>Color: White</span>
-                                                    </div>
-                                                    <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                                </div>
-                                                <!-- Cart Box End -->
-                                                <!-- Cart Box Start -->
-                                                <div class="single-cart-box">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="img/products/b.jpg" alt="cart-image"></a>
-                                                        <span class="pro-quantity">1X</span>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h6><a href="product.html">Dầu gội đầu Panties</a></h6>
-                                                        <span class="cart-price">45.00</span>
-                                                        <span>Size: XL</span>
-                                                        <span>Color: Pink</span>
-                                                    </div>
-                                                    <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                                </div>
-                                                <!-- Cart Box End -->
-                                                <!-- Cart Footer Inner Start -->
-                                                <div class="cart-footer">
-                                                    <ul class="price-content">
-                                                        <li>Tổng tiền <span>$57.95</span></li>
-                                                        <li>Phí ship <span>$7.00</span></li>
-                                                    </ul>
-                                                    <div class="cart-actions text-center">
-                                                        <a class="cart-checkout" href="checkout.html">Kiểm tra</a>
-                                                    </div>
-                                                </div>
-                                                <!-- Cart Footer Inner End -->
-                                            </li>
-                                        </ul>
+                                        class="total-pro">0</span><span>Giỏ hàng</span></span></a>    
                                     </li>
                                     <li><a href="/auth/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng
                                             kí</a>
@@ -235,7 +190,7 @@
                                 <div class="alert alert-danger col-md-6">
                                     <%= error[0] %>
                                 </div>
-                                <% }%>
+                                <%}%>
                                     <form action="/auth/register" method="post">
                                         <fieldset>
                                             <legend>Vui lòng điền thông tin sau:</legend>
@@ -349,17 +304,6 @@
     <!-- Main activaion js -->
     <script src="/js/user/main.js"></script>
     <script language="javascript">
-        // Regex for First Name
-        function check_FirstName() {
-            var x = document.getElementById("f-name").value;
-            if (x.length < 5) {
-                document.getElementById("checkFirstName").innerHTML = '<span aria-hidden="true" style="color: orangered;">     Họ và tên phải lớn hơn 4 ký tự, không dấu và không bao gồm ký tự đặc biệt</span>'
-                document.getElementById("f-name").style.borderColor = "red";
-            } else {
-                document.getElementById("checkFirstName").innerHTML = "";
-                document.getElementById("f-name").style.borderColor = "green";
-            }
-        }
         // Regex for Last Name
         function check_LastName() {
             var x = document.getElementById("l-name").value;
@@ -380,13 +324,14 @@
             var x = document.getElementById("email").value;
             regex = /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/gi;
             if (regex.test(x) == false) {
-                document.getElementById("checkEmail").innerHTML = '<span aria-hidden="true" style="color: orangered;">     Email lớn hơn 4 ký tự, không dấu và đúng định dạng email</span>'
+                document.getElementById("checkEmail").innerHTML = '<span aria-hidden="true" style="color: orangered;">Email lớn hơn 4 ký tự, không dấu và đúng định dạng email</span>'
                 document.getElementById("email").style.borderColor = "red";
             } else {
                 document.getElementById("checkEmail").innerHTML = "";
                 document.getElementById("email").style.borderColor = "green";
             }
         }
+
         //Regex for Phone
         function check_Phone() {
             var x = document.getElementById("phone").value;
