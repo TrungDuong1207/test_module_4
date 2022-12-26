@@ -58,6 +58,7 @@
                             <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Tầng 2 Tòa Nhà 17T4 -
                                     Hapulico Complex, Q.Thanh Xuân, TP.HN</a></li>
                             <li><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Hotline: 19006789 </a></li>
+                            <li><a href="#"><i aria-hidden="true"></i> DM, there's no better way </a></li>
                         </ul>
                     </div>
                     <!-- Header Top End -->
@@ -71,13 +72,13 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-lg-3 col-md-12">
                             <div class="logo mb-all-30">
-                                <a href="index-4.html"><img src="img/logo/logo3.jpg" alt="logo-image"></a>
+                                <a href="/user/home"><img src="/image/logo.jpg" alt="logo-image"></a>
                             </div>
                         </div>
                         <!-- Categorie Search Box Start Here -->
                         <div class="col-lg-5 col-md-8 ml-auto mr-auto col-10">
                             <div class="categorie-search-box">
-                                <form action="#">
+                                <form action="/user/search-product">
                                     <input type="text" name="search" placeholder="Tìm kiếm sản phẩm">
                                     <button><i class="lnr lnr-magnifier"></i></button>
                                 </form>
@@ -163,37 +164,39 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 ">
                             <nav class="d-none d-lg-block">
                                 <ul class="header-bottom-list d-flex roboto">
-                                    <li><a href="index-4.html" style="font-size: 20px;">Trang chủ</a></li>
-                                    <li><a href="about.html" style="font-size: 20px;">Giới thiệu</a></li>
-                                    <li><a href="#" style="font-size: 20px;">Mẫu tóc<i
+                                    <li><a href="/user/home" style="font-size: 20px;">Trang chủ</a></li>
+                                    <li><a href="/user/about" style="font-size: 20px;">Giới thiệu</a></li>
+                                    <li><a style="font-size: 20px;">Thể loại<i
                                                 class="fa fa-angle-down"></i></a>
                                         <!-- Home Version Dropdown Start -->
                                         <ul class="ht-dropdown dropdown-style-two">
-                                            <li><a href="men.html" style="font-size: 20px;">Mẫu tóc nam</a></li>
-                                            <li><a href="women.html" style="font-size: 20px;">Mẫu tóc nữ</a></li>
+                                                <% category.forEach(item => {%>
+                                                <li><a href="/user/product-category/<%=item._id%>" style="font-size: 20px;"><%= item.name%></a></li>
+                                                <%})%>
                                         </ul>
                                         <!-- Home Version Dropdown End -->
                                     </li>
-                                    <li><a href="single-blog.html" style="font-size: 20px;">Blog</a></li>
-                                    <li><a href="contact.html" style="font-size: 20px;">Phản hồi</a></li>
+                                    <li><a href="user/contact" style="font-size: 20px;">Phản hồi</a></li>
                                 </ul>
                             </nav>
                             <div class="mobile-menu d-block d-lg-none">
                                 <nav>
                                     <ul>
-                                        <li><a href="index-4.html">Trang chủ</a></li>
-                                        <li><a href="contact.html">Giới thiệu</a></li>
-                                        <li><a href="#">Mẫu tóc</a>
+                                        <li><a href="/user/home">Trang chủ</a></li>
+                                        <li><a href="/user/about">Giới thiệu</a></li>
+                                        <li><a style="font-size: 20px;">Thể loại<i
+                                                        class="fa fa-angle-down"></i></a>
                                             <!-- Home Version Dropdown Start -->
-                                            <ul>
-                                                <li><a href="contact.html">Mẫu tóc nam</a></li>
-                                                <li><a href="register.html">Mẫu tóc nữ</a></li>
+                                            <ul class="ht-dropdown dropdown-style-two">
+                                                <% category.forEach(item => {%>
+                                                <li><a href="/user/product-category/<%=item._id%>" style="font-size: 20px;"><%= item.name%></a></li>
+                                                <%})%>
                                             </ul>
                                             <!-- Home Version Dropdown End -->
                                         </li>
-                                        <li><a href="single-blog.html">Blog</a></li>
-                                        <li><a href="about.html">Phản hồi</a></li>
-                                        <li><a href="contact.html">Liên hệ</a></li>
+
+                                        <li><a href="/user/contact">Phản hồi</a></li>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -204,12 +207,13 @@
                 <!-- Container End -->
             </div>
             <!-- Header Bottom End Here -->
+        </header>
             <!-- Breadcrumb Start -->
             <div class="breadcrumb-area mt-30">
                 <div class="container">
                     <div class="breadcrumb">
                         <ul class="d-flex align-items-center">
-                            <li><a href="index-4.html">Trang chủ</a></li>
+                            <li><a href="/user/home">Trang chủ</a></li>
                             <li class="active"><a href="/auth/register">Đăng kí</a></li>
                         </ul>
                     </div>

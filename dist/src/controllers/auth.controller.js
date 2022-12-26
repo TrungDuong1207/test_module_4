@@ -7,14 +7,17 @@ exports.AuthController = void 0;
 const user_model_1 = require("../models/user.model");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const category_model_1 = require("../models/category.model");
 class AuthController {
     static async showFormLogin(req, res) {
+        let category = await category_model_1.Category.find();
         let error = req.flash().error || [];
-        res.render('login', { error: error });
+        res.render('login', { error: error, category: category });
     }
-    static showFormRegister(req, res) {
+    static async showFormRegister(req, res) {
+        let category = await category_model_1.Category.find();
         let error = req.flash().error || [];
-        res.render('register', { error: error });
+        res.render('register', { error: error, category: category });
     }
     static async register(req, res) {
         try {

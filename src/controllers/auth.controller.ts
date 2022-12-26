@@ -1,18 +1,21 @@
 import { User } from "../models/user.model";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import {Category} from "../models/category.model";
 
 export class AuthController {
     static async showFormLogin(req, res) {
+        let category = await Category.find()
         let error = req.flash().error || [];
         // console.log(error);
-        res.render('login', { error: error });
+        res.render('login', { error: error,  category: category });
     }
 
-    static showFormRegister(req, res) {
+    static async showFormRegister(req, res) {
+        let category = await Category.find()
         let error = req.flash().error || [];
         // console.log(error);
-        res.render('register', { error: error });
+        res.render('register', { error: error, category: category });
     }
 
     static async register(req, res) {
