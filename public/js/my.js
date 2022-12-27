@@ -1,5 +1,5 @@
 const filterBranch = value => {
-    axios.get('/employees/filter-branch', {
+    axios.get('/employee/filter-branch', {
         params: {
             branchId: value
         }

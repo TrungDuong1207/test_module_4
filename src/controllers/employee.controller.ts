@@ -63,6 +63,7 @@ export class EmployeeController {
             res.redirect('/employee');
         }
     }
+    
     static async filterBranch (req, res){
         const branchId = req.query.branchId;
         let query = {};
