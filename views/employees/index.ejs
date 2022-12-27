@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+    <div class="container-fluid p-0">
+        <nav></nav>
+        <div class="row justify-content-center pt-4">
+            <div class="col-6 shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="mr-auto p-2 bd-highlight">
+                        <h2>Employee List</h2>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <a href="/emloyee/add">
+                            <button type="button" class="btn btn-primary">Add Employee</button>
+                        </a>
+                    </div>
+                </div>
+                <select class="custom-select d-inline-block w-25 mb-2" onchange="filterBranch(this.value)">
+                    <option value="All Rooms">All Rooms</option>
+                    <% employees.forEach(item=> { %>
+                        <option value="<%= item.branch.id %>">
+                            <%= item.branch.name %>
+                        </option>
+                        <% }) %>
+                </select>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="border-0 text-center">Employee Code</th>
+                            <th class="border-0 text-center">Name</th>
+                            <th class="border-0 text-center">Age</th>
+                            <th class="border-0 text-center">Salary</th>
+                            <th class="border-0 text-center">Branch</th>
+                            <th class="border-0 text-center"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-employees">
+                        <% employees.forEach(item=> { %>
+                            <tr>
+                                <td><%- item._id %></td>
+                                <td><%- item.name %></td>
+                                <td><%- item.age %></td>
+                                <td><%- item.salary %></td>
+                                <td><%- item.branch.name %></td>
+                                <td><a href="/employee/update/<%- item._id %>" class="btn btn-primary">Update</a></td>
+                                <td><a onclick="return confirm('Are you sure you want to delete this employee?')"
+                                        href="/employee/delete/<%- item._id %>" class="btn btn-danger">Delete</a></td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"
+        integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+
+        <script src="/js/my.js"></script>
+</body>
+
+</html>
